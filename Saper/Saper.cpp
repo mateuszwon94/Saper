@@ -15,5 +15,7 @@ int main(int argc, char *argv[]) {
 	getch();
 	endwin();
 
+	//proba dodania jakiejs linijkii :P
+
 	return 0;
 }
