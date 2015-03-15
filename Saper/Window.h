@@ -36,6 +36,8 @@ class Window {
 		void SetBorder(chtype leftSide, chtype rightSide, chtype topSide, chtype bottomSide, chtype topLeftCorner, chtype topRightCorner, chtype bottomLeftCorner, chtype bottomRightCorner);
 		void SetBorder(chtype* leftSide = WACS_VLINE, chtype* rightSide = WACS_VLINE, chtype* topSide = WACS_HLINE, chtype* bottomSide = WACS_HLINE, chtype* topLeftCorner = WACS_ULCORNER, chtype* topRightCorner = WACS_URCORNER, chtype* bottomLeftCorner = WACS_LLCORNER, chtype* bottomRightCorner = WACS_LRCORNER);
 		void SetBorder(char leftSide, char rightSide, char topSide, char bottomSide, char topLeftCorner, char topRightCorner, char bottomLeftCorner, char bottomRightCorner);
+
+		void Resize(int lines, int columns);
 		
 		int lines() { return _lines; }
 		int columns() { return _columns; }
@@ -49,7 +51,6 @@ class Window {
 		int _lines;
 		int _columns;
 		std::list<chtype> _attrybutes = std::list<chtype>();
-		std::list<Window> _subWindow = std::list<Window>();
 };
 
 extern Window console;

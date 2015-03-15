@@ -12,6 +12,8 @@ Window::Window(int lines, int columns, int x, int y, WINDOW* window) {
 		_columns = COLS;
 		_window = stdscr;
 
+	//	Resize(170,50);
+
 		if (has_colors() == FALSE) {
 			printf("Your terminal does not support color\n");
 
@@ -139,4 +141,8 @@ void Window::AssumeDefaultColors(ColorPair colorPair) {
 void Window::SetEcho(bool isActive) {
 	if (isActive) echo();
 	else noecho();
+}
+
+void Window::Resize(int lines, int columns) {
+	resize_window(_window, lines, columns);
 }
