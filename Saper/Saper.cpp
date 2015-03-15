@@ -1,48 +1,33 @@
-#pragma comment(lib , "pdcurses.lib")
-#include <curses.h>
+#include "Wszystko.h"
 
 int main(int argc, char *argv[]) {
-	initscr();			/* Start curses mode 		*/
-	if (has_colors() == FALSE) {
-		endwin();
-		printf("Your terminal does not support color\n");
-		return 1;
-	}
 
-	curs_set(FALSE);
+	console.CursSet(false);
 
-	start_color();			/* Start color 			*/
-	assume_default_colors(COLOR_WHITE, COLOR_BLUE);
+	ColorPair tlo = ColorPair(COLOR_WHITE, COLOR_BLUE);
+	console.AssumeDefaultColors(tlo);
 
-	init_pair(1, COLOR_BLACK, COLOR_WHITE);
-	init_pair(2, COLOR_WHITE, COLOR_BLACK);
+	ColorPair okno1 = ColorPair(COLOR_BLACK, COLOR_WHITE);
+	ColorPair cien = ColorPair(COLOR_WHITE, COLOR_BLACK);
 
-	WINDOW* box = newwin(LINES - 5, COLS - 8, 3, 4);
-	WINDOW* shadow = newwin(1, 1, 0, 0);
+	Window box = Window(console.lines() - 5, console.columns() - 8, 3, 4);
+	Window shadow = Window(console.lines() - 5, console.columns() - 8, 4, 6);
 
-	wattron(box, COLOR_PAIR(1));
-	//wattron(shadow, COLOR_PAIR(2));
-	wbkgd(shadow, COLOR_PAIR(2));
-	wrefresh(shadow);
-	
-	printw("Saper v0.0.0\n__________________________________________________________________________________________________________________________________________________________________________");
-	refresh();
+	box.AttrOn(okno1);
+	shadow.Background(cien);
 
-	wattron(box, COLOR_PAIR(1));
-	wbkgd(box, COLOR_PAIR(1));
-	mvwprintw(box, 5, 20, "tekst");
-	wrefresh(box);
-	
-	wattroff(box, COLOR_PAIR(1));
-	//wattroff(shadow, COLOR_PAIR(2));
+	box.BorderSet();
 
-	delwin(box);
-	delwin(shadow);
+	console << "Saper v0.0.0" << endl;
+	console << "__________________________________________________________________________________________________________________________________________________________________________" << endl;
+
+
+	box.AttrOn(okno1);
+	box.Background(okno1);
+	box.MoveCursor(5, 20);
+	box << "tekst";
 
 	getch();
-	endwin();
-
-	//proba dodania jakiejs linijkii :P
 
 	return 0;
 }
