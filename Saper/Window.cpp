@@ -1,18 +1,41 @@
 #include "Window.h"
-#include "Console.h"
 
-Window::Window(int lines, int columns, int x, int y) {
-	_x = x;
-	_y = y;
-	_lines = lines;
-	_columns = columns;
-	_window = newwin(lines, columns, x, y);
+Window console = Window();
+
+Window::Window(int lines, int columns, int x, int y, WINDOW* window) {
+	if (_window == stdscr) {
+		initscr();
+
+		_x = 0;
+		_y = 0;
+		_lines = LINES;
+		_columns = COLS;
+		_window = stdscr;
+
+		if (has_colors() == FALSE) {
+			printf("Your terminal does not support color\n");
+
+			std::exit(1);
+		}
+		start_color();
+		keypad(stdscr, TRUE);
+		raw();
+	} else {
+		_x = x;
+		_y = y;
+		_lines = lines;
+		_columns = columns;
+		if (window == NULL)
+			_window = newwin(lines, columns, x, y);
+		else _window = window;
+	}
 }
 
 Window::~Window() {
 	while (!_attrybutes.empty())
 		AttrOff(_attrybutes.front());
-	delwin(_window);
+	if (_window == stdscr) endwin();
+	else delwin(_window);
 }
 
 void Window::AttrOn(chtype attrybute) {
@@ -29,7 +52,7 @@ void Window::AttrOff(chtype attrybute) {
 
 void Window::Refresh() {
 	wrefresh(_window);
-	console.Refresh();
+	refresh();
 }
 
 Window::operator WINDOW*() {
@@ -42,10 +65,37 @@ void Window::Background(chtype attrybute) {
 }
 
 Window& Window::operator<<(char* text) {
-	wprintw(_window,text);
+	wprintw(_window, text);
 	Refresh();
 	return *(this);
 }
+
+Window& Window::operator<<(char sign) {
+	wprintw(_window, "%c", sign);
+	Refresh();
+	return *(this);
+}
+
+Window& Window::operator<<(int number) {
+	wprintw(_window, "%d", number);
+	Refresh();
+	return *(this);
+}
+
+Window& Window::operator<<(double number) {
+	wprintw(_window,"%f", number);
+	Refresh();
+	return *(this);
+}
+
+void Window::operator>>(char* text) {
+	wgetstr(_window,text);
+}
+
+void Window::operator>>(char& sign) {
+	sign = wgetch(_window);
+}
+
 
 void Window::MoveCursor(int x, int y) {
 	wmove(_window, x, y);
@@ -57,33 +107,36 @@ void Window::MoveWindow(int x, int y) {
 	Refresh();
 }
 
-Window& Window::CreateSubWindow(int lines, int columns, int x, int y, bool relativeToOrigin) {
-	static Window subWin;
-
-	if (relativeToOrigin) 
-		subWin = Window(lines, columns, _x + x, _y + y);
-	else
-		subWin = Window(lines, columns, x, y);
-
-	_subWindow.push_back(subWin);
-
-	subWin.Refresh();
-	Refresh();
-
-	return subWin;
-}
-
-void Window::BorderSet(char ls, char rs, char ts, char bs, char tl, char tr, char bl, char br) {
+void Window::SetBorder(char ls, char rs, char ts, char bs, char tl, char tr, char bl, char br) {
 	wborder(_window, (chtype)ls, (chtype)rs, (chtype)ts, (chtype)bs, (chtype)tl, (chtype)tr, (chtype)bl, (chtype)br);
 	Refresh();
 }
 
-void Window::BorderSet(chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br) {
+void Window::SetBorder(chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br) {
 	wborder(_window, ls, rs, ts, bs, tl, tr, bl, br);
 	Refresh();
 }
 
-void Window::BorderSet(chtype* ls, chtype* rs, chtype* ts, chtype* bs, chtype* tl, chtype* tr, chtype* bl, chtype* br) {
+void Window::SetBorder(chtype* ls, chtype* rs, chtype* ts, chtype* bs, chtype* tl, chtype* tr, chtype* bl, chtype* br) {
 	wborder(_window, *ls, *rs, *ts, *bs, *tl, *tr, *bl, *br);
 	Refresh();
+}
+
+void Window::SetCursor(bool var) {
+	curs_set(var);
+}
+
+void Window::AssumeDefaultColors(int text, int background) {
+	assume_default_colors(text, background);
+	refresh();
+}
+
+void Window::AssumeDefaultColors(ColorPair colorPair) {
+	assume_default_colors(colorPair.text(), colorPair.background());
+	refresh();
+}
+
+void Window::SetEcho(bool isActive) {
+	if (isActive) echo();
+	else noecho();
 }

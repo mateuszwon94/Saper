@@ -2,10 +2,10 @@
 
 int main(int argc, char *argv[]) {
 
-	console.CursSet(false);
+	console.SetCursor(false);
 
 	ColorPair tlo = ColorPair(COLOR_WHITE, COLOR_BLUE);
-	console.AssumeDefaultColors(tlo);
+	Window::AssumeDefaultColors(tlo);
 
 	ColorPair okno1 = ColorPair(COLOR_BLACK, COLOR_WHITE);
 	ColorPair cien = ColorPair(COLOR_WHITE, COLOR_BLACK);
@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 	box.AttrOn(okno1);
 	shadow.Background(cien);
 
-	box.BorderSet();
+	box.SetBorder();
 
 	console << "Saper v0.0.0" << endl;
 	console << "__________________________________________________________________________________________________________________________________________________________________________" << endl;
@@ -31,3 +31,4 @@ int main(int argc, char *argv[]) {
 
 	return 0;
 }
+
