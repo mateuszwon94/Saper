@@ -18,4 +18,7 @@ class ColorPair {
 		short _number;
 };
 
+extern ColorPair textColor;
+extern ColorPair specialTextColor;
+
 #endif

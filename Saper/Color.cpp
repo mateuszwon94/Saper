@@ -1,5 +1,11 @@
 #include "Color.h"
 
+#ifndef TEXT_COLOR
+#define TEXT_COLOR
+ColorPair textColor = ColorPair(COLOR_WHITE, COLOR_BLUE);
+ColorPair specialTextColor = ColorPair(COLOR_YELLOW, COLOR_BLUE);
+#endif
+
 short ColorPair::count = 0;
 
 ColorPair::ColorPair(short text, short background) {

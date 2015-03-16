@@ -1,8 +1,6 @@
 #include "Window.h"
 
-Window console = Window();
-
-Window::Window(int lines, int columns, int x, int y, WINDOW* window) {
+Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* window) {
 	if (_window == stdscr) {
 		initscr();
 
@@ -12,7 +10,7 @@ Window::Window(int lines, int columns, int x, int y, WINDOW* window) {
 		_columns = COLS;
 		_window = stdscr;
 
-	//	Resize(170,50);
+		Resize(50, 170);
 
 		if (has_colors() == FALSE) {
 			printf("Your terminal does not support color\n");
@@ -22,13 +20,16 @@ Window::Window(int lines, int columns, int x, int y, WINDOW* window) {
 		start_color();
 		keypad(stdscr, TRUE);
 		raw();
+
+		ColorPair tlo = ColorPair(COLOR_WHITE, COLOR_BLUE);
+		Window::AssumeDefaultColors(tlo);
 	} else {
-		_x = x;
-		_y = y;
+		_x = posLine;
+		_y = posColumn;
 		_lines = lines;
 		_columns = columns;
 		if (window == NULL)
-			_window = newwin(lines, columns, x, y);
+			_window = newwin(lines, columns, posLine, posColumn);
 		else _window = window;
 	}
 }
@@ -78,6 +79,18 @@ Window& Window::operator<<(char sign) {
 	return *(this);
 }
 
+Window& Window::operator<<(chtype sign) {
+	wprintw(_window, "%c", sign);
+	Refresh();
+	return *(this);
+}
+
+Window & Window::operator<<(chtype* sign) {
+	wprintw(_window, "%c", *sign);
+	Refresh();
+	return *(this);
+}
+
 Window& Window::operator<<(int number) {
 	wprintw(_window, "%d", number);
 	Refresh();
@@ -90,6 +103,39 @@ Window& Window::operator<<(double number) {
 	return *(this);
 }
 
+/*Window& Window::operator<<(Menu& menu) {
+	for (MenuEntry entry : menu()) {
+		MoveCursor(entry.line, entry.column);
+		(*this) << entry;
+	}
+	Refresh();
+	return *(this);
+}
+
+Window& Window::operator<<(MenuEntry& entry) {
+
+#ifndef TEXT_COLOR
+#define TEXT_COLOR
+	ColorPair textColor = ColorPair(COLOR_WHITE, COLOR_BLUE);
+	ColorPair specialTextColor = ColorPair(COLOR_YELLOW, COLOR_BLUE);
+#endif
+
+	AttrOn(textColor);
+	for (register int i = 0; i < entry.name.length(); ++i) {
+		if (i == entry.special) {
+			AttrOn(specialTextColor);
+			AttrOn(A_BOLD);
+			*(this) << entry.name[0];
+			AttrOff(A_BOLD);
+			AttrOff(specialTextColor);
+		}
+		else *(this) << entry.name[0];
+	}
+	AttrOff(textColor);
+
+	return *(this);
+}*/
+
 void Window::operator>>(char* text) {
 	wgetstr(_window,text);
 }
@@ -99,13 +145,13 @@ void Window::operator>>(char& sign) {
 }
 
 
-void Window::MoveCursor(int x, int y) {
-	wmove(_window, x, y);
+void Window::MoveCursor(int line, int column) {
+	wmove(_window, line, column);
 	Refresh();
 }
 
-void Window::MoveWindow(int x, int y) {
-	mvwin(_window, x, y);
+void Window::MoveWindow(int line, int column) {
+	mvwin(_window, line, column);
 	Refresh();
 }
 
@@ -144,5 +190,5 @@ void Window::SetEcho(bool isActive) {
 }
 
 void Window::Resize(int lines, int columns) {
-	resize_window(_window, lines, columns);
+	wresize(_window, lines, columns);
 }

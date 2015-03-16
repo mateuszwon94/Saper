@@ -3,17 +3,23 @@
 
 #include "ncurses.h"
 #include "Color.h"
+//#include "Menu.h"
 #include <list>
+#include <string>
 
 class Window {
 	public:
-		Window(int lines = 0, int columns = 0, int x = 0, int y = 0, WINDOW* window = NULL);
+		Window(int lines = 0, int columns = 0, int posLine = 0, int posColumn = 0, WINDOW* window = NULL);
 		~Window();
 
 		Window& operator<<(char* text);
 		Window& operator<<(char sign);
+		Window& operator<<(chtype sign);
+		Window& operator<<(chtype* sign);
 		Window& operator<<(int number);
 		Window& operator<<(double number);
+		//Window& operator<<(Menu& menu);
+		//Window& operator<<(MenuEntry& entry);
 
 		void operator>>(char* text);
 		void operator>>(char& sign);
@@ -27,8 +33,8 @@ class Window {
 
 		static void SetEcho(bool isActive);
 
-		void MoveCursor(int x, int y);
-		void MoveWindow(int x, int y);
+		void MoveCursor(int line, int column);
+		void MoveWindow(int line, int column);
 		void AttrOn(chtype attrybute); 
 		void AttrOff(chtype attrybute);
 		void Refresh();
@@ -38,7 +44,7 @@ class Window {
 		void SetBorder(char leftSide, char rightSide, char topSide, char bottomSide, char topLeftCorner, char topRightCorner, char bottomLeftCorner, char bottomRightCorner);
 
 		void Resize(int lines, int columns);
-		
+
 		int lines() { return _lines; }
 		int columns() { return _columns; }
 
@@ -52,7 +58,5 @@ class Window {
 		int _columns;
 		std::list<chtype> _attrybutes = std::list<chtype>();
 };
-
-extern Window console;
 
 #endif
