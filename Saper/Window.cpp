@@ -23,6 +23,7 @@ Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* windo
 
 		ColorPair tlo = ColorPair(COLOR_WHITE, COLOR_BLUE);
 		Window::AssumeDefaultColors(tlo);
+		Window::SetEcho(false);
 	} else {
 		_x = posLine;
 		_y = posColumn;
