@@ -2,19 +2,16 @@
 //#include "Menu.h"
 #include <vector>
 
-Window console = Window();
-
-Window gameWindow = Window(console.lines() - 5, console.columns() - 8, 3, 4);
-
-Window shadow = Window(console.lines() - 5, console.columns() - 8, 4, 6);
-
 int ile = 2;
 std::string nazwy[] = { "Nowa Gra", "Zamknij" };
 int specjalne[] = { 0, 0 };
 
+
+
 //Menu& menu = Menu(nazwy, specjalne, ile, gameWindow, gameWindow.lines() - 2, 5, false);
 
-void Okno::Initialize() {
+void Okno::Initialize(Window& console, Window& gameWindow, Window& shadow) {
+
 	console << "Saper v0.0.0" << endl;
 	console << "__________________________________________________________________________________________________________________________________________________________________________" << endl;
 

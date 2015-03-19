@@ -9,6 +9,7 @@
 
 class Window {
 	public:
+	//Window();
 		Window(int lines = 0, int columns = 0, int posLine = 0, int posColumn = 0, WINDOW* window = NULL);
 		~Window();
 

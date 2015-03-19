@@ -6,15 +6,10 @@
 
 class Okno {
 	public:
-		static void Initialize();
+		static void Initialize(Window& console, Window& gameWindow, Window& shadow);
 		static void SetBorderColoured(Window& window);
 };
 
-//standard output:
-extern Window console;
 
-//used Windows:
-extern Window gameWindow;
-extern Window shadow;
 
 #endif

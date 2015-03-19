@@ -1,38 +1,36 @@
 #include "Window.h"
 
-Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* window) {
-	if (_window == stdscr) {
-		initscr();
+/*Window::Window() {
+	Window::Window();
+}*/
 
-		_x = 0;
-		_y = 0;
-		_lines = LINES;
-		_columns = COLS;
-		_window = stdscr;
+Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* window) {
+	_x = posLine;
+	_y = posColumn;
+	_lines = lines;
+	_columns = columns;
+	_window = window;
+
+	if (_window == stdscr) {
 
 		Resize(50, 170);
 
-		if (has_colors() == FALSE) {
+		/*if (has_colors() == FALSE) {
 			printf("Your terminal does not support color\n");
 
 			std::exit(1);
-		}
+		}*/
 		start_color();
 		keypad(stdscr, TRUE);
 		raw();
 
 		ColorPair tlo = ColorPair(COLOR_WHITE, COLOR_BLUE);
 		Window::AssumeDefaultColors(tlo);
-		Window::SetEcho(false);
-	} else {
-		_x = posLine;
-		_y = posColumn;
-		_lines = lines;
-		_columns = columns;
-		if (window == NULL)
-			_window = newwin(lines, columns, posLine, posColumn);
-		else _window = window;
+		//Window::SetEcho(false);
 	}
+	else if (window == NULL)
+		_window = newwin(lines, columns, posLine, posColumn);
+	else _window = window;
 }
 
 Window::~Window() {
@@ -56,7 +54,6 @@ void Window::AttrOff(chtype attrybute) {
 
 void Window::Refresh() {
 	wrefresh(_window);
-	refresh();
 }
 
 Window::operator WINDOW*() {
