@@ -193,7 +193,10 @@ void Window::SetEcho(bool isActive) {
 }
 
 void Window::Resize(int lines, int columns) {
-	resize_term( lines, columns);
+	if (_window == stdscr)
+		resize_term(lines, columns);
+	else if (_window != NULL)
+		wresize(_window, lines, columns);
 	_lines = lines;
 	_columns = columns;
 }

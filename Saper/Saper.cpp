@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 
 	gameWindow.MoveCursor(5, 20);
 	gameWindow << "tekst";
-	//mvprintw(LINES - 2, 0, "This screen has %d rows and %d columns\n", LINES, COLS);
+
 	getch();
 
 	return 0;
