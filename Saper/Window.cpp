@@ -1,5 +1,5 @@
 #include "Window.h"
-
+#include<iostream>
 /*Window::Window() {
 	Window::Window();
 }*/
@@ -10,7 +10,8 @@ Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* windo
 	_lines = lines;
 	_columns = columns;
 	_window = window;
-
+	std::cout << _window;
+	_window->_flags;
 	if (_window == stdscr) {
 
 		Resize(50, 170);
@@ -23,9 +24,13 @@ Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* windo
 		start_color();
 		keypad(stdscr, TRUE);
 		raw();
-
-		ColorPair tlo = ColorPair(COLOR_WHITE, COLOR_BLUE);
+		refresh();
+		ColorPair tlo(COLOR_WHITE, COLOR_BLUE);
+		refresh();
 		Window::AssumeDefaultColors(tlo);
+		
+		//refresh();
+		
 		//Window::SetEcho(false);
 	}
 	else if (window == NULL)
@@ -188,5 +193,7 @@ void Window::SetEcho(bool isActive) {
 }
 
 void Window::Resize(int lines, int columns) {
-	wresize(_window, lines, columns);
+	resize_term( lines, columns);
+	_lines = lines;
+	_columns = columns;
 }
