@@ -15,6 +15,8 @@ class Window {
 
 		Window& operator<<(char* text);
 		Window& operator<<(char sign);
+		Window& operator<<(unsigned char sign);
+		Window& operator<<(wchar_t sign);
 		Window& operator<<(chtype sign);
 		Window& operator<<(chtype* sign);
 		Window& operator<<(int number);

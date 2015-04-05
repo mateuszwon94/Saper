@@ -1,5 +1,4 @@
 #include "Window.h"
-#include<iostream>
 /*Window::Window() {
 	Window::Window();
 }*/
@@ -10,17 +9,10 @@ Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* windo
 	_lines = lines;
 	_columns = columns;
 	_window = window;
-	std::cout << _window;
 	_window->_flags;
 	if (_window == stdscr) {
 
-		Resize(50, 170);
-
-		/*if (has_colors() == FALSE) {
-			printf("Your terminal does not support color\n");
-
-			std::exit(1);
-		}*/
+		Resize(75, 175);
 		start_color();
 		keypad(stdscr, TRUE);
 		raw();
@@ -77,6 +69,18 @@ Window& Window::operator<<(char* text) {
 }
 
 Window& Window::operator<<(char sign) {
+	wprintw(_window, "%c", sign);
+	Refresh();
+	return *(this);
+}
+
+Window& Window::operator<<(wchar_t sign) {
+	wprintw(_window, "%c", sign);
+	Refresh();
+	return *(this);
+}
+
+Window& Window::operator<<(unsigned char sign) {
 	wprintw(_window, "%c", sign);
 	Refresh();
 	return *(this);
