@@ -1,9 +1,12 @@
 #ifndef WSZYSTKO_H
 #define WSZYSTKO_H
 
+#pragma execution_character_set("utf-8")
+
 #include "Window.h"
 #include "Color.h"
 #include "Okno.h"
+#include "Menu.h"
 
 #define endl "\n"
 

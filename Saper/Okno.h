@@ -10,31 +10,31 @@ class Okno {
 		static void SetBorderColoured(Window& window);
 };
 
-extern char doubleDownLeftCorner;    //╚
-extern char doubleUpLeftCorner;      //╔
-extern char doubleUpRightCorner;     //╗
-extern char doubleDownRightCorner;   //╝
-extern char doubleHorizontalAndUp;   //╩
-extern char doubleHorizontalAndDown; //╦
-extern char doubleVerticalAndRight;  //╠
-extern char doubleVerticalAndLeft;   //╣
-extern char doubleHorizontal;        //═
-extern char doubleVertical;          //║
-extern char doubleCross;             //╬
+extern const unsigned char doubleDownLeftCorner;    //╚
+extern const unsigned char doubleUpLeftCorner;      //╔
+extern const unsigned char doubleUpRightCorner;     //╗
+extern const unsigned char doubleDownRightCorner;   //╝
+extern const unsigned char doubleHorizontalAndUp;   //╩
+extern const unsigned char doubleHorizontalAndDown; //╦
+extern const unsigned char doubleVerticalAndRight;  //╠
+extern const unsigned char doubleVerticalAndLeft;   //╣
+extern const unsigned char doubleHorizontal;        //═
+extern const unsigned char doubleVertical;          //║
+extern const unsigned char doubleCross;             //╬
 
-extern char singleDownLeftCorner;    //└
-extern char singleUpLeftCorner;      //┌
-extern char singleUpRightCorner;     //┐
-extern char singleDownRightCorner;   //┘
-extern char singleHorizontalAndUp;   //┴
-extern char singleHorizontalAndDown; //┬
-extern char singleVerticalAndRight;  //├
-extern char singleVerticalAndLeft;   //┤
-extern char singleHorizontal;        //─
-extern char singleVertical;          //│
-extern char singleCross;             //┼
+extern const unsigned char singleDownLeftCorner;    //└
+extern const unsigned char singleUpLeftCorner;      //┌
+extern const unsigned char singleUpRightCorner;     //┐
+extern const unsigned char singleDownRightCorner;   //┘
+extern const unsigned char singleHorizontalAndUp;   //┴
+extern const unsigned char singleHorizontalAndDown; //┬
+extern const unsigned char singleVerticalAndRight;  //├
+extern const unsigned char singleVerticalAndLeft;   //┤
+extern const unsigned char singleHorizontal;        //─
+extern const unsigned char singleVertical;          //│
+extern const unsigned char singleCross;             //┼
 
-extern char lowDestinyDots;          //░
-extern char mediumDestinyDots;       //▒
-extern char highDestinyDots;         //▓
+extern const unsigned char lowDestinyDots;          //░
+extern const unsigned char mediumDestinyDots;       //▒
+extern const unsigned char highDestinyDots;         //▓
 #endif
