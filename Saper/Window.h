@@ -25,8 +25,9 @@ class Window {
 		Window& operator<<(Menu& menu);
 		Window& operator<<(MenuEntry& entry);
 
-		void operator>>(char* text);
-		char operator>>(char& sign);
+		void operator>>(char* text) { wgetstr(_window, text); }
+		void operator>>(char& sign) { sign = wgetch(_window); }
+		void operator>>(int& sign) { sign = wgetch(_window); }
 
 		operator WINDOW*() { return _window; }
 

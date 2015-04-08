@@ -150,15 +150,6 @@ Window& Window::operator<<(MenuEntry& entry) {
 	return *(this);
 }
 
-void Window::operator>>(char* text) {
-	wgetstr(_window,text);
-}
-
-void Window::operator>>(char& sign) {
-	sign = wgetch(_window);
-}
-
-
 void Window::MoveCursor(int line, int column) {
 	wmove(_window, line, column);
 	Refresh();

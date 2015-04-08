@@ -5,14 +5,17 @@ int main(int argc, char *argv[]) {
 	using namespace std;
 
 	initscr();
+	raw();
 
 	Window console = Window(LINES, COLS, 0, 0, stdscr);
 
 	Window gameWindow = Window(console.lines() - 5, console.columns() - 8, 3, 4);
 
-	keypad(console, true);
-
 	Window shadow = Window(console.lines() - 5, console.columns() - 8, 4, 6);
+
+	keypad(console, true);
+	keypad(gameWindow, true);
+	keypad(shadow, true);
 
 	Okno::Initialize(console, gameWindow, shadow);
 
@@ -26,13 +29,15 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	Menu& menu = Menu({ "1. Nowa Gra", "2. Poddaj sie", "3. Wyniki", "4. Zakoncz" }, { 3,3,3,3 }, 4, 80);
+	Menu& menu = Menu({ "1. Nowa Gra", "2. Poddaj sie", "3. Wyniki", "4. Zakoncz" }, { 3,3,4,3 }, 4, 80);
 
 	gameWindow << menu;
 
-	char sign;
+	int sign;
+	
 	do {
-		switch (console >> sign) {
+		console >> sign;
+		switch (sign) {
 			case 'N':
 			case 'n':
 				menu.SetCurrentEntry(0);
@@ -41,10 +46,11 @@ int main(int argc, char *argv[]) {
 			case 'p':
 				menu.SetCurrentEntry(1);
 				break;
-			case 'W':
-			case 'w':
+			case 'Y':
+			case 'y':
 				menu.SetCurrentEntry(2);
 				break;
+			case 27:
 			case 'Z':
 			case 'z':
 				menu.SetCurrentEntry(3);
