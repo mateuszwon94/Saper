@@ -1,4 +1,7 @@
 #include "Window.h"
+
+using namespace std;
+
 /*Window::Window() {
 	Window::Window();
 }*/
@@ -12,7 +15,7 @@ Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* windo
 	_window->_flags;
 	if (_window == stdscr) {
 
-		Resize(75, 175);
+		Resize(50, 170);
 		start_color();
 		keypad(stdscr, TRUE);
 		raw();
@@ -23,7 +26,7 @@ Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* windo
 		
 		//refresh();
 		
-		//Window::SetEcho(false);
+		Window::SetEcho(false);
 	}
 	else if (window == NULL)
 		_window = newwin(lines, columns, posLine, posColumn);
@@ -49,14 +52,6 @@ void Window::AttrOff(chtype attrybute) {
 	Refresh();
 }
 
-void Window::Refresh() {
-	wrefresh(_window);
-}
-
-Window::operator WINDOW*() {
-	return _window;
-}
-
 void Window::Background(chtype attrybute) {
 	wbkgd(_window, attrybute);
 	Refresh();
@@ -64,6 +59,12 @@ void Window::Background(chtype attrybute) {
 
 Window& Window::operator<<(char* text) {
 	wprintw(_window, text);
+	Refresh();
+	return *(this);
+}
+
+Window& Window::operator<<(string text) {
+	wprintw(_window, text.c_str());
 	Refresh();
 	return *(this);
 }
@@ -80,7 +81,7 @@ Window& Window::operator<<(wchar_t sign) {
 	return *(this);
 }
 
-Window& Window::operator<<(unsigned char sign) {
+Window& Window::operator<<(const unsigned char sign) {
 	wprintw(_window, "%c", sign);
 	Refresh();
 	return *(this);
@@ -110,11 +111,16 @@ Window& Window::operator<<(double number) {
 	return *(this);
 }
 
-/*Window& Window::operator<<(Menu& menu) {
-	for (MenuEntry entry : menu()) {
-		MoveCursor(entry.line, entry.column);
+Window& Window::operator<<(Menu& menu) {
+
+	unsigned int line = menu.PosLine();
+	unsigned int column = menu.PosColumn();
+	for (MenuEntry& entry : menu) {
+		MoveCursor(line, column);
 		(*this) << entry;
+		line += 2;
 	}
+
 	Refresh();
 	return *(this);
 }
@@ -127,30 +133,22 @@ Window& Window::operator<<(MenuEntry& entry) {
 	ColorPair specialTextColor = ColorPair(COLOR_YELLOW, COLOR_BLUE);
 #endif
 
-	AttrOn(textColor);
-	for (register int i = 0; i < entry.name.length(); ++i) {
-		if (i == entry.special) {
+	AttrOn(A_BOLD);
+	for (int i = 0; i < entry.Name().length(); ++i) {
+		if (i == entry.Special()) {
 			AttrOn(specialTextColor);
-			AttrOn(A_BOLD);
-			*(this) << entry.name[0];
-			AttrOff(A_BOLD);
+			*(this) << entry.Name()[i];
 			AttrOff(specialTextColor);
+		} else {
+			AttrOn(textColor);
+			*(this) << entry.Name()[i];
+			AttrOff(textColor);
 		}
-		else *(this) << entry.name[0];
 	}
-	AttrOff(textColor);
+	AttrOff(A_BOLD);
 
 	return *(this);
-}*/
-
-void Window::operator>>(char* text) {
-	wgetstr(_window,text);
 }
-
-void Window::operator>>(char& sign) {
-	sign = wgetch(_window);
-}
-
 
 void Window::MoveCursor(int line, int column) {
 	wmove(_window, line, column);
@@ -175,10 +173,6 @@ void Window::SetBorder(chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, ch
 void Window::SetBorder(chtype* ls, chtype* rs, chtype* ts, chtype* bs, chtype* tl, chtype* tr, chtype* bl, chtype* br) {
 	wborder(_window, *ls, *rs, *ts, *bs, *tl, *tr, *bl, *br);
 	Refresh();
-}
-
-void Window::SetCursor(bool var) {
-	curs_set(var);
 }
 
 void Window::AssumeDefaultColors(int text, int background) {

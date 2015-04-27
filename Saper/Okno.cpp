@@ -37,6 +37,7 @@ char bomb = 207;
 char fklag = '?';
 //Menu& menu = Menu(nazwy, specjalne, ile, gameWindow, gameWindow.lines() - 2, 5, false);
 
+
 void Okno::Initialize(Window& console, Window& gameWindow, Window& shadow) {
 
 	console << "Saper v0.0.0" << endl;
@@ -50,7 +51,6 @@ void Okno::Initialize(Window& console, Window& gameWindow, Window& shadow) {
 	shadow.Background(cien);
 
 	SetBorderColoured(gameWindow);
-	//gameWindow << menu;
 
 	gameWindow.AttrOn(okno1);
 	gameWindow.Background(okno1);
@@ -68,12 +68,17 @@ void Okno::SetBorderColoured(Window& window) {
 
 	for (register int i = 1; i < window.lines() - 1; ++i) {
 		window.MoveCursor(i, 0);
+		window << singleVertical; 
+		window.MoveCursor(i, 75);
 		window << singleVertical;
 	}
 	for (register int i = 1; i < window.columns() - 1; ++i) {
 		window.MoveCursor(0, i);
 		window << singleHorizontal;
 	}
+	
+	window.MoveCursor(0, 75);
+	window << singleHorizontalAndDown;
 
 	window.AttrOff(upleft);
 	window.AttrOff(A_BOLD);
@@ -89,14 +94,19 @@ void Okno::SetBorderColoured(Window& window) {
 	window.MoveCursor(window.lines() - 1, 0);
 	window << singleDownLeftCorner;
 
-	for (register int i = 1; i < window.lines()-1; ++i) {
+	for (int i = 1; i < window.lines()-1; ++i) {
 		window.MoveCursor(i, window.columns()-1);
 		window << singleVertical;
 	}
-	for (register int i = 1; i < window.columns()-1; ++i) {
+	for (int i = 1; i < window.columns()-1; ++i) {
 		window.MoveCursor(window.lines()-1, i);
 		window << singleHorizontal;
 	}
 	
+	window.MoveCursor(window.lines() - 1, 75);
+	window << singleHorizontalAndUp;
+
 	window.AttrOff(downright);
+
+
 }

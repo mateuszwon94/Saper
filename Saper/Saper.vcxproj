@@ -81,6 +81,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuEntry.cpp" />
     <ClCompile Include="Okno.cpp" />
     <ClCompile Include="Plansza.cpp" />
     <ClCompile Include="Saper.cpp" />
@@ -88,6 +90,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuEntry.h" />
     <ClInclude Include="ncurses.h" />
     <ClInclude Include="Okno.h" />
     <ClInclude Include="Plansza.h" />

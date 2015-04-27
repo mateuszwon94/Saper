@@ -286,6 +286,8 @@ void Plansza::choose()
 				first_clik++;
 			}
 			if (Tboard[choice_x][choice_y] == bomb) {
+				uncover();
+				draw();
 				loose();
 				break;
 			}
