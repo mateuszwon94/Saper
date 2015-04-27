@@ -1,4 +1,5 @@
 ﻿#include "Wszystko.h"
+#include "Plansza.h"
 #pragma execution_character_set("utf-8")
 
 int main(int argc, char *argv[]) {
@@ -13,15 +14,10 @@ int main(int argc, char *argv[]) {
 
 	Okno::Initialize(console, gameWindow, shadow);
 
-	int planszaLines = 66;
-	int planszaCols = 125;
+	int planszaLines = 20;
+	int planszaCols = 40;
 
-	for (int i = 0; i < planszaLines; ++i) {
-		for (int j = 0; j < planszaCols; ++j) {
-			gameWindow.MoveCursor(i+2, j+2);
-			gameWindow << mediumDestinyDots;
-		}
-	}
+	Plansza plansza(planszaCols, planszaLines, 20,  &gameWindow);
 
 	getch();
 

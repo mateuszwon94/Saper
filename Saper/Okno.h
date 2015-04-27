@@ -37,4 +37,6 @@ extern char singleCross;             //┼
 extern char lowDestinyDots;          //░
 extern char mediumDestinyDots;       //▒
 extern char highDestinyDots;         //▓
+extern char bomb;
+extern char flag;
 #endif

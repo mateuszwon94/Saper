@@ -204,3 +204,7 @@ void Window::Resize(int lines, int columns) {
 	_lines = lines;
 	_columns = columns;
 }
+WINDOW * Window::getWin()
+{
+	return _window;
+}

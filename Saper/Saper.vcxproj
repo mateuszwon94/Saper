@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Okno.cpp" />
+    <ClCompile Include="Plansza.cpp" />
     <ClCompile Include="Saper.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -89,6 +90,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="ncurses.h" />
     <ClInclude Include="Okno.h" />
+    <ClInclude Include="Plansza.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Wszystko.h" />
   </ItemGroup>

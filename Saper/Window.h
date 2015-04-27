@@ -53,6 +53,8 @@ class Window {
 
 		int x() { return _x; }
 		int y() { return _y; }
+
+		WINDOW * getWin();
 	protected:
 		WINDOW* _window;
 		int _x;

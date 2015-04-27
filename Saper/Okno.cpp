@@ -33,7 +33,8 @@ char singleCross = 197;             //┼
 char lowDestinyDots = 176;          //░
 char mediumDestinyDots = 177;       //▒
 char highDestinyDots = 178;         //▓
-
+char bomb = 207;
+char fklag = '?';
 //Menu& menu = Menu(nazwy, specjalne, ile, gameWindow, gameWindow.lines() - 2, 5, false);
 
 void Okno::Initialize(Window& console, Window& gameWindow, Window& shadow) {
