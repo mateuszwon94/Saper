@@ -1,7 +1,7 @@
-﻿#include "Wszystko.h"
+﻿#pragma execution_character_set("utf-8")
+#include "Wszystko.h"
 #include "Plansza.h"
 #include "Functions.h"
-#pragma execution_character_set("utf-8")
 #include <string>
 
 int main(int argc, char *argv[]) {
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 	gameWindow << menu;
 
 	menu.MoveCursor(console, gameWindow);
-	menu.CallCurrentFunction(gameWindow);
+	menu.CallCurrentFunction(console,gameWindow);
 	menu.RefreshCLB(gameWindow);
 
 	int sign;

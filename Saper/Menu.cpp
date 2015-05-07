@@ -62,7 +62,7 @@ void Menu::Move(int sign, Window& console, Window& gameWindow) {
 		case '\n':
 		case '\r':
 		case ' ':
-			CallCurrentFunction(gameWindow);
+			CallCurrentFunction(console,gameWindow);
 			isSet = true;
 			break;
 	}
@@ -84,7 +84,7 @@ void Menu::MoveCursor(Window& console, Window& gameWindow) {
 	console.MoveCursor(gameWindow.x() + PosLine() + CurrentEntry() * 2, gameWindow.y() + PosColumn() + _entrys[CurrentEntry()].Special() +3);
 }
 
-void Menu::CallCurrentFunction(Window& gameWindow) {
+void Menu::CallCurrentFunction(Window& console, Window& gameWindow) {
 	switch (_currEntry) {
 		case 0:
 			setMode(EASY);
@@ -99,11 +99,74 @@ void Menu::CallCurrentFunction(Window& gameWindow) {
 			RefreshCLB(gameWindow);
 			break;
 		case 3:
-			setCustmMode();
+			setCustmMode(console,gameWindow);
+			setMode({_columns,_lines,_bombs });
+			RefreshCLB(gameWindow);
 			break;
 
 	}
 	_entrys[_currEntry]();
+}
+
+void Menu::setCustmMode(Window & console, Window & gameWindow) {
+	array<int*, 3> vars = { &_columns, &_lines, &_bombs };
+	for (int* var : vars)
+		*var = 0;
+	RefreshCLB(gameWindow);
+	int which = 0;
+	int posx = _posLine + 2 + 2 * _entrys.size() + 2;
+	int posy = _posColumn + 9;
+	int sign;
+	console.MoveCursor(gameWindow.x() + posx - 2 + 2 * which, gameWindow.y() + posy);
+	gameWindow.MoveCursor(posx - 2 + 2 * which, posy);
+	while (true) {
+		console >> sign;
+		switch (sign) {
+			case KEY_UP:
+				if (which == 0) which = 2;
+				else --which;
+				console.MoveCursor(gameWindow.x() + posx - 2 + 2 * which, gameWindow.y() + posy);
+				gameWindow.MoveCursor(posx -2+ 2 * which, posy);
+				break;
+			case KEY_DOWN:
+				if (which == 2) which = 0;
+				else ++which;
+				console.MoveCursor(gameWindow.x() + posx - 2 + 2 * which, gameWindow.y() + posy);
+				gameWindow.MoveCursor(posx - 2 + 2 * which, posy);
+				break;
+			case '1':
+				gameWindow << '1';
+				break;
+			case '2':
+				gameWindow << '2';
+				break;
+			case '3':
+				gameWindow << '3';
+				break;
+			case '4':
+				gameWindow << '4';
+				break;
+			case '5':
+				gameWindow << '5';
+				break;
+			case '6':
+				gameWindow << '6';
+				break;
+			case '7':
+				gameWindow << '7';
+				break;
+			case '8':
+				gameWindow << '8';
+				break;
+			case '9':
+				gameWindow << '9';
+				break;
+			case '0':
+				gameWindow << '0';
+				break;
+
+		}
+	} 
 }
 
 void Menu::setMode(std::array<int, 3> mode) {
@@ -116,15 +179,27 @@ void Menu::RefreshCLB(Window & gameWindow) {
 	gameWindow.MoveCursor(_posLine + 2 * _entrys.size() + 2, _posColumn+9);
 	gameWindow << "   ";
 	gameWindow.MoveCursor(_posLine + 2 * _entrys.size() + 2, _posColumn);
-	gameWindow << "Kolumny: " << _columns;
+	gameWindow << "Kolumny: ";
+	if (_columns)
+		gameWindow << _columns;
+	else
+		gameWindow << "   ";
 	gameWindow.MoveCursor(_posLine + 2 * _entrys.size() + 4, _posColumn+9);
 	gameWindow << "   ";
 	gameWindow.MoveCursor(_posLine + 2 * _entrys.size() + 4, _posColumn);
-	gameWindow << "Wiersze: "<< _lines;
+	gameWindow << "Wiersze: ";
+	if (_lines)
+		gameWindow << _lines;
+	else
+		gameWindow << "   ";
 	gameWindow.MoveCursor(_posLine + 2 * _entrys.size() + 6, _posColumn+9);
 	gameWindow << "   ";
 	gameWindow.MoveCursor(_posLine + 2 * _entrys.size() + 6, _posColumn);
-	gameWindow << "Bomby:   " << _bombs;
+	gameWindow << "Bomby:   ";
+	if (_bombs)
+		gameWindow << _bombs;
+	else
+		gameWindow << "   ";
 }
 
 

@@ -32,7 +32,7 @@ class Menu {
 		void Move(int sign, Window& console, Window& gameWindow);
 		void MoveCursor(Window& console, Window& gameWindow);
 
-		void CallCurrentFunction(Window& gameWindow);
+		void CallCurrentFunction(Window& console, Window& gameWindow);
 
 		static int getColumns() { return _columns; }
 		static int getLines() { return _lines; }
@@ -42,9 +42,9 @@ class Menu {
 		static void setLines(int lines) { _lines = lines; }
 		static void setBombs(int bombs) { _bombs = bombs; }
 
-		static void setCustmMode() { }
+		void setCustmMode(Window& console, Window & gameWindow);
 
-		static void setMode(std::array<int, 3> mode);
+		void setMode(std::array<int, 3> mode);
 
 		void RefreshCLB(Window& gameWindow);
 
