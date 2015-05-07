@@ -1,5 +1,4 @@
-#ifndef COLOR_H
-#define COLOR_H
+#pragma once
 
 #include "ncurses.h"
 
@@ -20,5 +19,3 @@ class ColorPair {
 
 extern ColorPair textColor;
 extern ColorPair specialTextColor;
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef WSZYSTKO_H
-#define WSZYSTKO_H
+#pragma once
 
 #pragma execution_character_set("utf-8")
 
@@ -9,8 +8,6 @@
 #include "Menu.h"
 
 #define endl "\n"
-
-#endif
 
 /*
 ATRYBUTY TEKSTU:

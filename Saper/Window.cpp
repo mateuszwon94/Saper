@@ -2,9 +2,7 @@
 
 using namespace std;
 
-/*Window::Window() {
-	Window::Window();
-}*/
+Window* Window::gw = nullptr;
 
 Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* window) {
 	_x = posLine;
@@ -115,10 +113,12 @@ Window& Window::operator<<(Menu& menu) {
 
 	unsigned int line = menu.PosLine();
 	unsigned int column = menu.PosColumn();
+	int i = 1;
 	for (MenuEntry& entry : menu) {
 		MoveCursor(line, column);
-		(*this) << entry;
+		(*this) << i <<". " << entry;
 		line += 2;
+		i++;
 	}
 
 	Refresh();
@@ -129,22 +129,25 @@ Window& Window::operator<<(MenuEntry& entry) {
 
 #ifndef TEXT_COLOR
 #define TEXT_COLOR
-	ColorPair textColor = ColorPair(COLOR_WHITE, COLOR_BLUE);
-	ColorPair specialTextColor = ColorPair(COLOR_YELLOW, COLOR_BLUE);
+	static ColorPair textColor = ColorPair(COLOR_WHITE, COLOR_BLUE);
+	static ColorPair specialTextColor = ColorPair(COLOR_YELLOW, COLOR_BLUE);
 #endif
 
 	AttrOn(A_BOLD);
-	for (int i = 0; i < entry.Name().length(); ++i) {
-		if (i == entry.Special()) {
-			AttrOn(specialTextColor);
-			*(this) << entry.Name()[i];
-			AttrOff(specialTextColor);
-		} else {
-			AttrOn(textColor);
-			*(this) << entry.Name()[i];
-			AttrOff(textColor);
+	if (entry) {
+		for (int i = 0; i < entry.Name().length(); ++i) {
+			if (i == entry.Special()) {
+				AttrOn(specialTextColor);
+				*(this) << entry.Name()[i];
+				AttrOff(specialTextColor);
+			} else {
+				AttrOn(textColor);
+				*(this) << entry.Name()[i];
+				AttrOff(textColor);
+			}
 		}
-	}
+	} else
+		*(this) << entry.Name();
 	AttrOff(A_BOLD);
 
 	return *(this);

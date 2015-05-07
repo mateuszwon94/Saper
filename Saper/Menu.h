@@ -1,13 +1,16 @@
-#ifndef MENU_H
-#define MENU_H
+#pragma once
 
 #include "MenuEntry.h"
+#include "Functions.h"
+#include <array>
 #include <vector>
 #include <string>
 
+class Window;
+
 class Menu {
 	public:
-		Menu(std::vector<std::string> entrys, std::vector<int> specials, unsigned int line = 0, unsigned int column = 0, bool visibility = true);
+	Menu(std::vector<std::string> entrys, std::vector<action> functions, std::vector<int> specials = { }, unsigned int line = 0, unsigned int column = 0, bool visibility = true);
 
 		typedef MenuEntry* Iterator;
 
@@ -22,16 +25,36 @@ class Menu {
 		unsigned int PosColumn() { return _posColumn; }
 		bool IsVisible() { return _visible; }
 
-		void SetCurrentEntry(int which = -1) { _currEntry = which; }
+		void SetCurrentEntry(int which) { _currEntry = which; }
 		void MoveUp();
 		void MoveDown();
 
+		void Move(int sign, Window& console, Window& gameWindow);
+		void MoveCursor(Window& console, Window& gameWindow);
+
+		void CallCurrentFunction(Window& gameWindow);
+
+		static int getColumns() { return _columns; }
+		static int getLines() { return _lines; }
+		static int getBombs() { return _bombs; }
+
+		static void setColumns(int columns) { _columns = columns; }
+		static void setLines(int lines) { _lines = lines; }
+		static void setBombs(int bombs) { _bombs = bombs; }
+
+		static void setCustmMode() { }
+
+		static void setMode(std::array<int, 3> mode);
+
+		void RefreshCLB(Window& gameWindow);
+
 	private:
 		std::vector<MenuEntry> _entrys = std::vector<MenuEntry>();
-		int _currEntry = -1;
+		int _currEntry = 0;
 		unsigned int _posLine = 0;
 		unsigned int _posColumn = 0;
 		bool _visible = true;
+		static int _columns;
+		static int _lines;
+		static int _bombs;
 };
-
-#endif

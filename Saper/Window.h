@@ -1,5 +1,4 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#pragma once
 
 #include "ncurses.h"
 #include "Color.h"
@@ -56,7 +55,9 @@ class Window {
 		int x() { return _x; }
 		int y() { return _y; }
 
-		WINDOW * getWin();
+		WINDOW *getWin();
+
+		static Window* gw;
 	protected:
 		WINDOW* _window;
 		int _x;
@@ -66,4 +67,5 @@ class Window {
 		std::list<chtype> _attrybutes = std::list<chtype>();
 };
 
-#endif
+//extern Window& console;
+//extern Window& gameWindow;

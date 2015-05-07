@@ -1,5 +1,4 @@
-﻿#ifndef OKNO_H
-#define OKNO_H
+﻿#pragma once
 
 #include "Window.h"
 #define endl "\n"
@@ -10,12 +9,12 @@ class Okno {
 		static void SetBorderColoured(Window& window);
 };
 
-extern  char doubleDownLeftCorner;    //╚
-extern  char doubleUpLeftCorner;      //╔
+extern char doubleDownLeftCorner;    //╚
+extern char doubleUpLeftCorner;      //╔
 extern char doubleUpRightCorner;     //╗
-extern  char doubleDownRightCorner;   //╝
+extern char doubleDownRightCorner;   //╝
 extern char doubleHorizontalAndUp;   //╩
-extern  char doubleHorizontalAndDown; //╦
+extern char doubleHorizontalAndDown; //╦
 extern char doubleVerticalAndRight;  //╠
 extern char doubleVerticalAndLeft;   //╣
 extern char doubleHorizontal;        //═
@@ -26,13 +25,13 @@ extern char singleDownLeftCorner;    //└
 extern char singleUpLeftCorner;      //┌
 extern char singleUpRightCorner;     //┐
 extern char singleDownRightCorner;   //┘
-extern  char singleHorizontalAndUp;   //┴
+extern char singleHorizontalAndUp;   //┴
 extern char singleHorizontalAndDown; //┬
 extern char singleVerticalAndRight;  //├
 extern char singleVerticalAndLeft;   //┤
 extern char singleHorizontal;        //─
-extern  char singleVertical;          //│
-extern  char singleCross;             //┼
+extern char singleVertical;          //│
+extern char singleCross;             //┼
 
 extern char lowDestinyDots;          //░
 extern char mediumDestinyDots;       //▒
@@ -40,6 +39,5 @@ extern char highDestinyDots;         //▓
 extern char bomb;
 extern char flag;
 extern char lowDestinyDots;          //░
-extern  char mediumDestinyDots;       //▒
-extern  char highDestinyDots;         //▓
-#endif
+extern char mediumDestinyDots;       //▒
+extern char highDestinyDots;         //▓

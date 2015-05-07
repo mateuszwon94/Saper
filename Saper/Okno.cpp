@@ -39,6 +39,9 @@ char fklag = '?';
 
 
 void Okno::Initialize(Window& console, Window& gameWindow, Window& shadow) {
+	keypad(console, true);
+	keypad(gameWindow, true);
+	keypad(shadow, true);
 
 	console << "Saper v0.0.0" << endl;
 	for (int i = 0; i < console.columns(); ++i)

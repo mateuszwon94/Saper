@@ -9,6 +9,7 @@
     <ClCompile Include="Saper.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
@@ -20,5 +21,6 @@
     <ClInclude Include="Window.h" />
     <ClInclude Include="Wszystko.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="Functions.h" />
   </ItemGroup>
 </Project>

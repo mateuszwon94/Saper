@@ -1,5 +1,6 @@
 ﻿#include "Wszystko.h"
 #include "Plansza.h"
+#include "Functions.h"
 #pragma execution_character_set("utf-8")
 #include <string>
 
@@ -9,66 +10,30 @@ int main(int argc, char *argv[]) {
 	initscr();
 	raw();
 
-	Window console = Window(LINES, COLS, 0, 0, stdscr);
+	Window& console = Window(LINES, COLS, 0, 0, stdscr);
 
-	Window gameWindow = Window(console.lines() - 5, console.columns() - 8, 3, 4);
+	Window& gameWindow = Window(console.lines() - 5, console.columns() - 8, 3, 4);
+
+	Window::gw = &gameWindow;
 
 	Window shadow = Window(console.lines() - 5, console.columns() - 8, 4, 6);
 
-	keypad(console, true);
-	keypad(gameWindow, true);
-	keypad(shadow, true);
-
 	Okno::Initialize(console, gameWindow, shadow);
 
-	int planszaLines = 40;
-	int planszaCols = 70;
+	Menu& menu = Menu({ "Latwy", "Normalny", "Trudny", "Wlasny", "Graj", "Kontynuuj", "Wyniki", "Zamknij" }, {SetMode, SetMode, SetMode, SetMode, Start, Continue, Results, Quit }, { 0, 0, 0, 0, 0, 0, 1, 0 }, 4, 80);
 
-	Plansza plansza(planszaCols, planszaLines, 120,  &gameWindow);
-	plansza.run();
-	Menu& menu = Menu({ "1. Nowa Gra", "2. Poddaj sie", "3. Wyniki", "4. Zakoncz" }, { 3,3,4,3 }, 4, 80);
-	
 	gameWindow << menu;
+
+	menu.MoveCursor(console, gameWindow);
+	menu.CallCurrentFunction(gameWindow);
+	menu.RefreshCLB(gameWindow);
 
 	int sign;
 	
-	do {
+	while (true) {
 		console >> sign;
-		switch (sign) {
-			case 'N':
-			case 'n':
-				menu.SetCurrentEntry(0);
-				break;
-			case 'P':
-			case 'p':
-				menu.SetCurrentEntry(1);
-				break;
-			case 'Y':
-			case 'y':
-				menu.SetCurrentEntry(2);
-				break;
-			case 27:
-			case 'Z':
-			case 'z':
-				menu.SetCurrentEntry(3);
-				break;
-			case KEY_UP:
-				menu.MoveUp();
-				break;
-			case KEY_DOWN:
-				menu.MoveDown();
-				break;
-			default:
-				menu.SetCurrentEntry();
-				break;
-		}
-
-		if (menu.CurrentEntry() != -1)
-			console.MoveCursor(gameWindow.x() + menu.PosLine()  + menu.CurrentEntry() * 2, gameWindow.y() + menu.PosColumn() + menu[menu.CurrentEntry()].Special());
-	} while (menu.CurrentEntry() != 3);
-
-	getch();
-	endwin();
+		menu.Move(sign, console, gameWindow);
+	}
 	
 	return 0;
 }
