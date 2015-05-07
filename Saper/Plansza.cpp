@@ -2,10 +2,16 @@
 #include<ctime>
 #include <cstdlib>
 
+int Plansza::wid = 0;
+int Plansza::heig = 0;
+int Plansza::n_bombs = 0;
 
-Plansza::Plansza(int a, int b, int bomb, Window* win) :width(a), height(b), gameWindow(win), n_bomb(bomb), highlight_x(0), highlight_y(0),
+Plansza::Plansza(int a, int b, int bomb, Window* win) : gameWindow(win), highlight_x(0), highlight_y(0),
 				 esc(false)
 {
+	width = wid = a;
+	height = heig = b;
+	n_bomb = n_bombs = bomb;
 	Tboard.resize(height);
 	Dboard.resize(height);
 	for (int it = 0; it < height; it++)
@@ -18,6 +24,11 @@ Plansza::Plansza(int a, int b, int bomb, Window* win) :width(a), height(b), game
 			Tboard[it][it2] = lowDestinyDots;
 		}
 	}
+}
+void Plansza::run()
+{
+	esc = false;
+	_loose = false;
 	draw();
 	choose();
 }
@@ -288,7 +299,7 @@ void Plansza::choose()
 			if (Tboard[choice_x][choice_y] == bomb) {
 				uncover();
 				draw();
-				loose();
+				_loose = true;
 				break;
 			}
 			if (Tboard[choice_x][choice_y] == lowDestinyDots)
@@ -299,9 +310,6 @@ void Plansza::choose()
 		}
 		draw();
 		}
-	}
-	bool Plansza::loose() {
-		return true;
 	}
 
 void Plansza::moveCoursor(int line, int column)
@@ -319,9 +327,11 @@ void Plansza::drawSign(char sign)
 	wprintw(gameWindow->getWin(), "%c", sign);
 }
 void Plansza::odslon_pola_wokol(int x, int y) {
-	if ((Dboard[x][y] == mediumDestinyDots || Dboard[x][y] == '?') &&Tboard[x][y]==lowDestinyDots) { 
+	bool a = true;
+	if ((Dboard[x][y] == mediumDestinyDots || Dboard[x][y] == '?') &&Tboard[x][y]!=bomb && a) { 
 			Dboard[x][y] = Tboard[x][y];
-		if (Tboard[x][y] == lowDestinyDots) { 	
+			if (Tboard[x][y] != lowDestinyDots) a = false;
+		if (Tboard[x][y] != bomb && Dboard[x][y] != '?' && a) { 	
 			int zi_p1 = x + 1;
 			int zi_m1 = x - 1;
 			int zx_p1 = y + 1;

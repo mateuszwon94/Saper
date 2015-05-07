@@ -24,10 +24,10 @@ int main(int argc, char *argv[]) {
 	int planszaLines = 40;
 	int planszaCols = 70;
 
-	Plansza plansza(planszaCols, planszaLines, 20,  &gameWindow);
-
+	Plansza plansza(planszaCols, planszaLines, 120,  &gameWindow);
+	plansza.run();
 	Menu& menu = Menu({ "1. Nowa Gra", "2. Poddaj sie", "3. Wyniki", "4. Zakoncz" }, { 3,3,4,3 }, 4, 80);
-
+	
 	gameWindow << menu;
 
 	int sign;

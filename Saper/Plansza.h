@@ -8,17 +8,21 @@ using namespace std;
 class Plansza
 {
 private:
-	int height;
+	static int heig;
+	static int wid;
 	int width;
+	int height;
+	int n_bomb;
 	Window * gameWindow;
 	vector<vector<char>> Tboard;
 	vector<vector<char>> Dboard;
-	int n_bomb;
+	static int n_bombs;
 	int highlight_x;
 	int highlight_y;
 	int choice_x;
 	int choice_y;
 	bool esc;
+	bool _loose;
 	void draw_bombs();
 	int first_x;
 	int first_y;
@@ -31,8 +35,12 @@ private:
 	void uncover();
 public:
 	Plansza(int a, int b,int bombs, Window* win);
-	bool loose();
-
+	bool loose() { return _loose; }
+	bool isPause() { return esc; }
+	void Plansza::run();
+	static int getWidth(){ return wid; }
+	static int getHeight() { return heig; }
+	static int getBombs() { return n_bombs; }
 ~Plansza();
 };
 
