@@ -86,6 +86,7 @@
     <ClCompile Include="Okno.cpp" />
     <ClCompile Include="Plansza.cpp" />
     <ClCompile Include="Saper.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +96,7 @@
     <ClInclude Include="ncurses.h" />
     <ClInclude Include="Okno.h" />
     <ClInclude Include="Plansza.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Wszystko.h" />
   </ItemGroup>

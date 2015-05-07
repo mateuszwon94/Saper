@@ -2,6 +2,7 @@
 #include "Window.h"
 #include <vector>
 #include "Okno.h"
+#include "Timer.h"
 using namespace std;
 
 using namespace std;

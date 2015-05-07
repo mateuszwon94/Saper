@@ -1,6 +1,9 @@
 #pragma once
 class Timer
 {
+private:
+	int time;
+	int add;
 public:
 	Timer();
 	int stop();
