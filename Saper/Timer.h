@@ -1,37 +1,30 @@
 #pragma once
-#include <ctime>
+
+#include <chrono>
 
 class Timer {
 	public:
-		Timer() { }
+		Timer();
 
-		void start(time_t *Time = NULL) { _start = time(Time); }
-
-		void restart(time_t *Time = NULL) {
-			_time = 0;
-			_start = time(Time);
-		}
-
-		void resume() { _start = time(NULL); }
-
-		void pause() { _start = 0; }
-
-		time_t stop() {
-			_start = 0;
-			return _time;
-		}
-
-		void operator++() {
-			_time += _start - time(NULL);
-			_start = time(NULL);
-		}
-
+		void start();
+		void restart();
+		void resume();
+		void pause();
+		void stop();
+		int second();
+		
+		void operator()();
+		void operator++();
 		void operator++(int) { operator++(); }
 
-		~Timer() { }
-	private:
-		time_t _time = 0;
-		time_t _start = 0;
+		operator std::chrono::milliseconds();
+		operator long long();
+		operator int() { return second(); }
 
+	private:
+		bool _isPaused;
+		bool _isWorking;
+		std::chrono::milliseconds _time;
+		std::chrono::steady_clock::time_point _start;
 };
 
