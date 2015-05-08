@@ -13,6 +13,7 @@ class Plansza {
 		bool loose() { return _loose; }
 		bool isPause() { return esc; }
 		void run();
+		bool win() { if (licznik == 0) return true; else return false; }
 
 		static int getWidth() { return wid; }
 		static int getHeight() { return heig; }
@@ -36,6 +37,7 @@ class Plansza {
 	private:
 		static int heig;
 		static int wid;
+		int licznik;
 		int width;
 		int height;
 		int n_bomb;
@@ -60,6 +62,7 @@ class Plansza {
 		void drawSign(char sign);
 		void choose();
 		void uncover();
+		void uncover_bombs();
 		static Plansza* current;
 		static int first_clik;
 };
