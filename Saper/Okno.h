@@ -5,7 +5,7 @@
 
 class Okno {
 	public:
-		static void Initialize(Window& console, Window& gameWindow, Window& shadow);
+		static void Initialize();
 		static void SetBorderColoured(Window& window);
 };
 

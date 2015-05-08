@@ -1,26 +1,34 @@
 ﻿#pragma execution_character_set("utf-8")
 #include "Wszystko.h"
-#include "Plansza.h"
-#include "Functions.h"
-#include <string>
 
 int main(int argc, char *argv[]) {
 	using namespace std;
 
-	initscr();
-	raw();
+	Okno::Initialize();
 
-	Window& console = Window(LINES, COLS, 0, 0, stdscr);
-
-	Window& gameWindow = Window(console.lines() - 5, console.columns() - 8, 3, 4);
-
-	Window::gw = &gameWindow;
-
-	Window shadow = Window(console.lines() - 5, console.columns() - 8, 4, 6);
-
-	Okno::Initialize(console, gameWindow, shadow);
-
-	Menu& menu = Menu({ "Latwy", "Normalny", "Trudny", "Wlasny", "Graj", "Kontynuuj", "Wyniki", "Zamknij" }, {SetMode, SetMode, SetMode, SetMode, Start, Continue, Results, Quit }, { 0, 0, 0, 0, 0, 0, 1, 0 }, 4, 80);
+	Menu& menu = Menu(
+	{ //Vector nazw
+		"Latwy",
+		"Normalny",
+		"Trudny",
+		"Wlasny",
+		"Graj",
+		"Kontynuuj",
+		"Wyniki",
+		"Zamknij"
+	},
+	{ //Vector funkcji
+		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); },
+		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); },
+		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); },
+		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); },
+		[]() { Plansza::setCurrent(new Plansza()); Plansza::getCurrent().run(); },
+		[]() { Plansza::getCurrent().run(); },
+		[]() { },
+		[]() { std::exit(0); }
+	},
+	{ 0, 0, 0, 0, 0, 0, 1, 0 }, //wektor specjalnych
+	4, 80); //pozycja
 
 	gameWindow << menu;
 

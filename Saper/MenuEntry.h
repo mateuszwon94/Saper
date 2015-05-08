@@ -1,7 +1,8 @@
 #pragma once
 
 #include <string>
-#include "Functions.h"
+
+typedef void(*action)();
 
 class MenuEntry {
 	public:

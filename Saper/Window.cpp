@@ -2,9 +2,20 @@
 
 using namespace std;
 
-Window* Window::gw = nullptr;
+int Window::count = 0;
+
+Window& console = Window();
+Window& gameWindow = Window(console.lines() - 5, console.columns() - 8, 3, 4);
+Window& shadow = Window(console.lines() - 5, console.columns() - 8, 4, 6);
 
 Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* window) {
+	if (!count) {
+		initscr();
+		raw();
+		window = stdscr;
+		lines = LINES;
+		columns = COLS;
+	}
 	_x = posLine;
 	_y = posColumn;
 	_lines = lines;
@@ -29,6 +40,7 @@ Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* windo
 	else if (window == NULL)
 		_window = newwin(lines, columns, posLine, posColumn);
 	else _window = window;
+	++count;
 }
 
 Window::~Window() {

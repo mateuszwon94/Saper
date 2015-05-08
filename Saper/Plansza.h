@@ -2,12 +2,13 @@
 
 #include "Window.h"
 #include <vector>
+#include <array>
 #include "Okno.h"
 #include "Timer.h"
 
 class Plansza {
 	public:
-		Plansza(int a, int b, int bombs, Window* win);
+		Plansza(int a = Plansza::getColumns(), int b = Plansza::getLines(), int bombs = Plansza::getBombs(), Window& win = ::gameWindow);
 
 		bool loose() { return _loose; }
 		bool isPause() { return esc; }
@@ -24,6 +25,7 @@ class Plansza {
 		static void setColumns(int columns) { wid = columns; }
 		static void setLines(int lines) { heig = lines; }
 		static void setBombs(int bombs) { n_bombs = bombs; }
+		static void setCLB(std::array<int, 3> values);
 
 		static Plansza& getCurrent() { return *current; }
 		static void setCurrent(Plansza& plansza) { current = &plansza; }
@@ -37,7 +39,7 @@ class Plansza {
 		int width;
 		int height;
 		int n_bomb;
-		Window * gameWindow;
+		Window& gameWindow;
 		std::vector<std::vector<char>> Tboard;
 		std::vector<std::vector<char>> Dboard;
 		static int n_bombs;

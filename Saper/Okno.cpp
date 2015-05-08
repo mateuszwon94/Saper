@@ -1,5 +1,4 @@
 ﻿#include "Okno.h"
-//#include "Menu.h"
 #include <vector>
 
 int ile = 2;
@@ -38,12 +37,12 @@ char fklag = '?';
 //Menu& menu = Menu(nazwy, specjalne, ile, gameWindow, gameWindow.lines() - 2, 5, false);
 
 
-void Okno::Initialize(Window& console, Window& gameWindow, Window& shadow) {
+void Okno::Initialize() {
 	keypad(console, true);
 	keypad(gameWindow, true);
 	keypad(shadow, true);
 
-	console << "Saper v0.0.0" << endl;
+	console << "Saper v0.5.0" << endl;
 	for (int i = 0; i < console.columns(); ++i)
 		console << "_";
 
@@ -74,6 +73,8 @@ void Okno::SetBorderColoured(Window& window) {
 		window << singleVertical; 
 		window.MoveCursor(i, 75);
 		window << singleVertical;
+		window.MoveCursor(i, 75+21);
+		window << singleVertical;
 	}
 	for (register int i = 1; i < window.columns() - 1; ++i) {
 		window.MoveCursor(0, i);
@@ -81,6 +82,8 @@ void Okno::SetBorderColoured(Window& window) {
 	}
 	
 	window.MoveCursor(0, 75);
+	window << singleHorizontalAndDown;
+	window.MoveCursor(0, 75+21);
 	window << singleHorizontalAndDown;
 
 	window.AttrOff(upleft);
@@ -107,6 +110,8 @@ void Okno::SetBorderColoured(Window& window) {
 	}
 	
 	window.MoveCursor(window.lines() - 1, 75);
+	window << singleHorizontalAndUp;
+	window.MoveCursor(window.lines() - 1, 75+21);
 	window << singleHorizontalAndUp;
 
 	window.AttrOff(downright);

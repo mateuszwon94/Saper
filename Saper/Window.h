@@ -8,7 +8,6 @@
 
 class Window {
 	public:
-	//Window();
 		Window(int lines = 0, int columns = 0, int posLine = 0, int posColumn = 0, WINDOW* window = NULL);
 		~Window();
 
@@ -29,6 +28,7 @@ class Window {
 		void operator>>(int& sign) { sign = wgetch(_window); }
 
 		operator WINDOW*() { return _window; }
+		operator WINDOW() { return *_window; }
 
 		static void SetCursor(bool isCurorVisible) { curs_set(isCurorVisible); }
 
@@ -56,9 +56,8 @@ class Window {
 		int y() { return _y; }
 
 		WINDOW *getWin();
-
-		static Window* gw;
 	protected:
+		static int count;
 		WINDOW* _window;
 		int _x;
 		int _y;
@@ -67,5 +66,6 @@ class Window {
 		std::list<chtype> _attrybutes = std::list<chtype>();
 };
 
-//extern Window& console;
-//extern Window& gameWindow;
+extern Window& console;
+extern Window& gameWindow;
+extern Window& shadow;

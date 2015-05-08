@@ -2,6 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "Menu.h"
+#include "Color.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ int Plansza::n_bombs = 0;
 Plansza* Plansza::current = nullptr;
 int Plansza::first_clik = 0;
 
-Plansza::Plansza(int a, int b, int bomb, Window* win) : gameWindow(win), highlight_x(0), highlight_y(0), esc(false) {
+Plansza::Plansza(int a, int b, int bomb, Window& win) : gameWindow(win), highlight_x(0), highlight_y(0), esc(false) {
 	width = wid = a;
 	height = heig = b;
 	n_bomb = n_bombs = bomb;
@@ -30,16 +31,24 @@ Plansza::Plansza(int a, int b, int bomb, Window* win) : gameWindow(win), highlig
 	current = this;
 }
 
+void Plansza::setCLB(std::array<int, 3> values) {
+	wid = values[0];
+	heig = values[1];
+	n_bombs = values[2];
+}
+
 Plansza::~Plansza() {
 	first_clik = 0;
 	undraw();
 }
 
 void Plansza::run() {
+	Window::SetCursor(false);
 	esc = false;
 	_loose = false;
 	draw();
 	choose();
+	Window::SetCursor(true);
 }
 
 void Plansza::draw_bombs() {
@@ -150,45 +159,40 @@ void Plansza::znaczniki() {
 
 
 void Plansza::draw() {
-	if (has_colors() == FALSE) {
-		endwin();
-		printf("Your terminal does not support color\n");
-		exit(1);
-	}
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			moveCoursor(i + 2, j + 2);
 			if (Dboard[i][j] == bomb) {
-				init_pair(1, COLOR_RED, COLOR_WHITE);
-				wattron(gameWindow->getWin(), COLOR_PAIR(1));
+				static ColorPair color = ColorPair(COLOR_RED, COLOR_WHITE);
+				gameWindow.AttrOn(color);
 				if (i == highlight_x && j == highlight_y) {
-					wattron(gameWindow->getWin(), A_REVERSE);
+					gameWindow.AttrOn(A_REVERSE);
 					drawSign(Dboard[i][j]);
-					wattroff(gameWindow->getWin(), A_REVERSE);
+					gameWindow.AttrOff(A_REVERSE);
 				} else
 					drawSign(Dboard[i][j]);
-				wattroff(gameWindow->getWin(), COLOR_PAIR(1));
+				gameWindow.AttrOff(color);
 			} else {
 				if (i == highlight_x && j == highlight_y) {
-					wattron(gameWindow->getWin(), A_REVERSE);
+					gameWindow.AttrOn(A_REVERSE);
 					drawSign(Dboard[i][j]);
-					wattroff(gameWindow->getWin(), A_REVERSE);
+					gameWindow.AttrOff(A_REVERSE);
 				} else
 					drawSign(Dboard[i][j]);
 			}
 		}
 	}
-	gameWindow->Refresh();
+	gameWindow.Refresh();
 }
 
 void Plansza::undraw() {
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			moveCoursor(i + 2, j + 2);
-			gameWindow->operator<<(" ");
+			gameWindow<<" ";
 		}
 	}
-	gameWindow->Refresh();
+	gameWindow.Refresh();
 }
 
 void Plansza::choose() {
@@ -198,7 +202,7 @@ void Plansza::choose() {
 	int c;
 	while (!esc) {
 		noecho();
-		c = wgetch(gameWindow->getWin());
+		gameWindow >> c;
 		echo();
 		switch (c) {
 			case 'w':
@@ -233,44 +237,38 @@ void Plansza::choose() {
 				else
 					highlight_y--;
 				break;
-				/*case 'q':
-				case '7':
+			case 'q':
+			case '7':
 				if (highlight_x == 0 && highlight_y == 0) {
-				highlight_x = height - 1;
-				highlight_y = width - 1;
-				}
-				else if (highlight_x == 0 && highlight_y != 0){
-				highlight_x = height - 1;
-				highlight_y--;
-				}
-				else if (highlight_x != 0 && highlight_y == 0) {
-				highlight_x--;
-				highlight_y = width - 1;
-				}
-				else {
-				highlight_x--;
-				highlight_y--;
+					highlight_x = height - 1;
+					highlight_y = width - 1;
+				} else if (highlight_x == 0 && highlight_y != 0) {
+					highlight_x = height - 1;
+					highlight_y--;
+				} else if (highlight_x != 0 && highlight_y == 0) {
+					highlight_x--;
+					highlight_y = width - 1;
+				} else {
+					highlight_x--;
+					highlight_y--;
 				}
 				break;
-				case 'e':
-				case '9':
-				if (highlight_x == 0 && highlight_y == (width-1)) {
-				highlight_x = height - 1;
-				highlight_y = 0;
+			case 'e':
+			case '9':
+				if (highlight_x == 0 && highlight_y == (width - 1)) {
+					highlight_x = height - 1;
+					highlight_y = 0;
+				} else if (highlight_x == 0 && highlight_y < (width - 1)) {
+					highlight_x = height - 1;
+					highlight_y++;
+				} else if (highlight_x != 0 && highlight_y == (width - 1)) {
+					highlight_x--;
+					highlight_y = 0;
+				} else {
+					highlight_x--;
+					highlight_y++;
 				}
-				else if (highlight_x == 0 && highlight_y < (width-1)) {
-				highlight_x = height - 1;
-				highlight_y++;
-				}
-				else if (highlight_x != 0 && highlight_y == (width-1)) {
-				highlight_x--;
-				highlight_y = 0;
-				}
-				else {
-				highlight_x--;
-				highlight_y++;
-				}
-				break;*/
+				break;
 			case 's':
 			case 13:
 			case' ':
@@ -314,7 +312,7 @@ void Plansza::choose() {
 }
 
 void Plansza::moveCoursor(int line, int column) {
-	wmove(gameWindow->getWin(), line, column);
+	gameWindow.MoveCursor(line, column);
 }
 
 void Plansza::uncover() {
@@ -323,7 +321,7 @@ void Plansza::uncover() {
 }
 
 void Plansza::drawSign(char sign) {
-	wprintw(gameWindow->getWin(), "%c", sign);
+	gameWindow << sign;
 }
 
 void Plansza::odslon_pola_wokol(int x, int y) {

@@ -6,6 +6,8 @@
 #include "Color.h"
 #include "Okno.h"
 #include "Menu.h"
+#include "Plansza.h"
+#include <string>
 
 #define endl "\n"
 
