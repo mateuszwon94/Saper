@@ -1,5 +1,4 @@
 #pragma once
-
 #pragma execution_character_set("utf-8")
 
 #include "Window.h"
@@ -10,6 +9,7 @@
 #include <string>
 
 #define endl "\n"
+#define version "v0.7"
 
 /*
 ATRYBUTY TEKSTU:

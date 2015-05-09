@@ -25,6 +25,7 @@ void Timer::restart() {
 }
 
 void Timer::resume() {
+	if (!_isPaused) return;
 	_isPaused=(false);
 	_start=(high_resolution_clock::now());
 }

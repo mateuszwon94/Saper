@@ -48,6 +48,7 @@ void Menu::Move(int sign, Window& console, Window& gameWindow) {
 	bool isSet = false;
 	switch (sign) {
 		case 27:
+			if (_currEntry == _entrys.size() - 1) _entrys[_currEntry]();
 			SetCurrentEntry(_entrys.size() - 1);
 			isSet = true;
 			break;
@@ -72,6 +73,7 @@ void Menu::Move(int sign, Window& console, Window& gameWindow) {
 		for (MenuEntry& entry : _entrys) {
 			if (sign == entry.Name()[entry.Special()] || sign == entry.Name()[entry.Special()] + 32 || sign == entry.Name()[entry.Special()] - 32 || sign == i + 49) {
 				SetCurrentEntry(i);
+				break;
 			}
 			++i;
 		}
@@ -117,10 +119,10 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 		*var = 0;
 	RefreshCLB(gameWindow);
 	int which = 0;
-	int posx = _posLine + 2 + 2 * _entrys.size() + 2;
+	int posx = _posLine + 4 + 2 * _entrys.size() + 2;
 	int posy = _posColumn + 9;
 	int sign;
-	console.MoveCursor(gameWindow.x() + posx - 2 + 2 * which, gameWindow.y() + posy);
+	console.MoveCursor(gameWindow.x() + posx - 4 + 2 * which, gameWindow.y() + posy);
 	
 	gameWindow.MoveCursor(posx + 4, _posColumn - 2);
 	gameWindow << "Nacisnij [ENTER],";
@@ -133,21 +135,21 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 	gameWindow.MoveCursor(posx + 9, _posColumn - 2);
 	gameWindow << "Max bomb to K" << mult << "W-1";
 	
-	gameWindow.MoveCursor(posx - 2 + 2 * which, posy);
+	gameWindow.MoveCursor(posx-4 + 2 * which, posy);
 	while (true) {
 		console >> sign;
 		switch (sign) {
 			case KEY_UP:
 				if (which == 0) which = 2;
 				else --which;
-				console.MoveCursor(gameWindow.x() + posx - 2 + 2 * which, gameWindow.y() + posy);
-				gameWindow.MoveCursor(posx -2+ 2 * which, posy);
+				console.MoveCursor(gameWindow.x() + posx - 4 + 2 * which, gameWindow.y() + posy);
+				gameWindow.MoveCursor(posx -4+ 2 * which, posy);
 				break;
 			case KEY_DOWN:
 				if (which == 2) which = 0;
 				else ++which;
-				console.MoveCursor(gameWindow.x() + posx - 2 + 2 * which, gameWindow.y() + posy);
-				gameWindow.MoveCursor(posx - 2 + 2 * which, posy);
+				console.MoveCursor(gameWindow.x() + posx - 4 + 2 * which, gameWindow.y() + posy);
+				gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 				break;
 			case '1':
 				if (svars[which].length() <= 2) {
@@ -211,9 +213,9 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				break;
 			case '\b':
 			case KEY_BACKSPACE:
-				gameWindow.MoveCursor(posx - 2 + 2 * which, posy);
+				gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 				gameWindow << "    ";
-				gameWindow.MoveCursor(posx - 2 + 2 * which, posy);
+				gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 				svars[which] = "0";
 				break;
 			case 27:
@@ -229,8 +231,8 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				gameWindow << "                 ";
 				gameWindow.MoveCursor(posx + 9, _posColumn - 2);
 				gameWindow << "                 ";
-				gameWindow.MoveCursor(posx + 11, _posColumn - 2);
-				gameWindow << "                 ";
+				gameWindow.MoveCursor(posx + 13, _posColumn - 2);
+				gameWindow << "                  ";
 				return;
 			case KEY_ENTER:
 			case '\n':
@@ -238,31 +240,37 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				for (int i = 0; i < 3; ++i)
 					*vars[i] = stoi(svars[i]);
 				if (0 >= *vars[0] || *vars[0] > 70) {
-					gameWindow.MoveCursor(posx + 11, _posColumn - 2);
+					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
+					gameWindow << "                  ";
+					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
 					gameWindow.AttrOn(A_BOLD);
 					gameWindow.AttrOn(error);
 					gameWindow << "Zla liczba kolumn";
 					gameWindow.AttrOff(error);
 					gameWindow.AttrOff(A_BOLD);
-					gameWindow.MoveCursor(posx - 2 + 2 * which, posy);
+					gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 					continue;
 				} else if (0 >= *vars[1] || *vars[1] > 40) {
-					gameWindow.MoveCursor(posx + 11, _posColumn - 2);
+					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
+					gameWindow << "                  ";
+					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
 					gameWindow.AttrOn(A_BOLD);
 					gameWindow.AttrOn(error);
 					gameWindow << "Zla liczba wierszy";
 					gameWindow.AttrOff(error);
 					gameWindow.AttrOff(A_BOLD);
-					gameWindow.MoveCursor(posx - 2 + 2 * which, posy);
+					gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 					continue;
 				} else if (0 >= *vars[2] || *vars[2] > *vars[0] * (*vars[1]) - 1) {
-					gameWindow.MoveCursor(posx + 11, _posColumn - 2);
+					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
+					gameWindow << "                  ";
+					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
 					gameWindow.AttrOn(A_BOLD);
 					gameWindow.AttrOn(error);
 					gameWindow << "Zla liczba bomb";
 					gameWindow.AttrOff(error);
 					gameWindow.AttrOff(A_BOLD);
-					gameWindow.MoveCursor(posx - 2 + 2 * which, posy);
+					gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 					continue;
 				}
 				gameWindow.MoveCursor(posx + 4, _posColumn - 2);
@@ -275,6 +283,8 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				gameWindow << "                 ";
 				gameWindow.MoveCursor(posx + 9, _posColumn - 2);
 				gameWindow << "                 ";
+				gameWindow.MoveCursor(posx + 13, _posColumn - 2);
+				gameWindow << "                  ";
 				return;
 		}
 	} 

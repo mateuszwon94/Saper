@@ -9,7 +9,7 @@ class Window;
 
 class Menu {
 	public:
-	Menu(std::vector<std::string> entrys, std::vector<void(*)()> functions, std::vector<int> specials = { }, unsigned int line = 0, unsigned int column = 0, bool visibility = true);
+		Menu(std::vector<std::string> entrys, std::vector<void(*)()> functions, std::vector<int> specials = { }, unsigned int line = 0, unsigned int column = 0, bool visibility = true);
 
 		typedef MenuEntry* Iterator;
 

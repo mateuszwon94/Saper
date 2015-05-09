@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
 		"Graj",
 		"Kontynuuj",
 		"Wyniki",
+		"Pomoc",
 		"Zamknij"
 	},
 	{ //Vector funkcji
@@ -25,10 +26,11 @@ int main(int argc, char *argv[]) {
 		[]() { Plansza::setCurrent(new Plansza()); Plansza::getCurrent().run(); },
 		[]() { Plansza::getCurrent().run(); },
 		[]() { },
+		[]() { },
 		[]() { std::exit(0); }
 	},
-	{ 0, 0, 0, 0, 0, 0, 1, 0 }, //wektor specjalnych
-	4, 80); //pozycja
+	{ 0, 0, 0, 0, 0, 0, 1, 0, 0 }, //wektor specjalnych
+	5, 80); //pozycja
 
 	gameWindow << menu;
 

@@ -14,6 +14,7 @@ class Plansza {
 		bool isPause() { return esc; }
 		void run();
 		bool win() { if (licznik == 0) return true; else return false; }
+		int getLicznik() { return licznik; }
 
 		static int getWidth() { return wid; }
 		static int getHeight() { return heig; }

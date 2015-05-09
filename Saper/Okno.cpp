@@ -34,15 +34,13 @@ char mediumDestinyDots = 177;       //▒
 char highDestinyDots = 178;         //▓
 char bomb = 207;
 char fklag = '?';
-//Menu& menu = Menu(nazwy, specjalne, ile, gameWindow, gameWindow.lines() - 2, 5, false);
-
 
 void Okno::Initialize() {
 	keypad(console, true);
 	keypad(gameWindow, true);
 	keypad(shadow, true);
 
-	console << "Saper v0.5.0" << endl;
+	console << "Saper " << version << endl;
 	for (int i = 0; i < console.columns(); ++i)
 		console << "_";
 
@@ -79,6 +77,16 @@ void Okno::SetBorderColoured(Window& window) {
 	for (register int i = 1; i < window.columns() - 1; ++i) {
 		window.MoveCursor(0, i);
 		window << singleHorizontal;
+		if ( 75 < i && i < 75+21) {
+			window.MoveCursor(3, i);
+			window << singleHorizontal;
+			window.MoveCursor(23, i);
+			window << singleHorizontal;
+			window.MoveCursor(31, i);
+			window << singleHorizontal;
+			window.MoveCursor(40, i);
+			window << singleHorizontal;
+		}
 	}
 	
 	window.MoveCursor(0, 75);

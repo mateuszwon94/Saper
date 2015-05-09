@@ -2,6 +2,7 @@
 
 #include "Window.h"
 #define endl "\n"
+#define version "v0.7"
 
 class Okno {
 	public:

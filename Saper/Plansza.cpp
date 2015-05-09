@@ -16,7 +16,7 @@ Plansza::Plansza(int a, int b, int bomb, Window& win) : gameWindow(win), highlig
 	width = wid = a;
 	height = heig = b;
 	n_bomb = n_bombs = bomb;
-	licznik = width*height - n_bomb;
+	licznik = width * height - n_bomb;
 	Tboard.resize(height);
 	Dboard.resize(height);
 	for (int it = 0; it < height; it++) {
@@ -185,7 +185,12 @@ void Plansza::draw() {
 			}
 		}
 	}
+
+	gameWindow.MoveCursor(25, 150);
+	gameWindow << "       ";
+	gameWindow.MoveCursor(25, 150);
 	gameWindow << licznik;
+
 	gameWindow.Refresh();
 }
 
@@ -205,6 +210,7 @@ void Plansza::choose() {
 	highlight_y = 0;
 	int c;
 	while (!esc) {
+		if (win()) break;
 		noecho();
 		gameWindow >> c;
 		echo();
@@ -282,6 +288,7 @@ void Plansza::choose() {
 				}
 				break;
 			case '?':
+				click = true;
 				if(Dboard[highlight_x][highlight_y] == mediumDestinyDots)
 					Dboard[highlight_x][highlight_y] = '?';
 				else if (Dboard[highlight_x][highlight_y] == '?')
@@ -292,11 +299,6 @@ void Plansza::choose() {
 				break;
 		}
 		if (click) {
-			if (licznik == 0)
-			{
-				
-				win();
-			}
 			if (first_clik == 1) {
 				draw_bombs();
 				first_clik++;
@@ -344,7 +346,8 @@ void Plansza::drawSign(char sign) {
 void Plansza::odslon_pola_wokol(int x, int y) {
 	bool a = true;
 	if ((Dboard[x][y] == mediumDestinyDots || Dboard[x][y] == '?') && Tboard[x][y] != bomb && a) {
-		Dboard[x][y] = Tboard[x][y]; licznik--;
+		Dboard[x][y] = Tboard[x][y]; 
+		licznik--;
 		
 		if (Tboard[x][y] != lowDestinyDots) a = false;
 		if (Tboard[x][y] != bomb && Dboard[x][y] != '?' && a) {
