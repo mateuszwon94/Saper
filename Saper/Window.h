@@ -19,6 +19,7 @@ class Window {
 		Window& operator<<(chtype sign);
 		Window& operator<<(chtype* sign);
 		Window& operator<<(int number);
+		Window& operator<<(unsigned int number);
 		Window& operator<<(double number);
 		Window& operator<<(Menu& menu);
 		Window& operator<<(MenuEntry& entry);

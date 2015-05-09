@@ -30,6 +30,7 @@ Plansza::Plansza(int a, int b, int bomb, Window& win) : gameWindow(win), highlig
 	if (current != nullptr)
 		delete current;
 	current = this;
+	Menu::current().setActive(5);
 }
 
 void Plansza::setCLB(std::array<int, 3> values) {
@@ -40,7 +41,9 @@ void Plansza::setCLB(std::array<int, 3> values) {
 
 Plansza::~Plansza() {
 	first_clik = 0;
+	undraw_result();
 	undraw();
+	Menu::current().setActive(5);
 }
 
 void Plansza::run() {
@@ -100,6 +103,21 @@ void Plansza::draw_bombs() {
 		}
 	}
 	znaczniki();
+}
+
+void Plansza::draw_result() {
+	gameWindow.MoveCursor(2,80);
+	gameWindow.AttrOn(A_BOLD);
+	if (win() && first_clik != 0)
+		gameWindow << "WYGRALES!!!";
+	else if (!win() && first_clik != 0)
+		gameWindow << "PRZEGRALES!!!";
+	gameWindow.AttrOff(A_BOLD);
+}
+
+void Plansza::undraw_result() {
+	gameWindow.MoveCursor(2, 80);
+	gameWindow << "             ";
 }
 
 void Plansza::znaczniki() {
@@ -210,7 +228,10 @@ void Plansza::choose() {
 	highlight_y = 0;
 	int c;
 	while (!esc) {
-		if (win()) break;
+		if (win()) {
+			draw_result();
+			break;
+		}
 		noecho();
 		gameWindow >> c;
 		echo();
@@ -306,8 +327,11 @@ void Plansza::choose() {
 			if (Tboard[choice_x][choice_y] == bomb) {
 				uncover();
 				uncover_bombs();
+				gameWindow.AttrOn(A_BOLD);
 				draw();
+				gameWindow.AttrOff(A_BOLD);
 				_loose = true;
+				draw_result();
 				break;
 			}
 			if (Tboard[choice_x][choice_y] == lowDestinyDots)

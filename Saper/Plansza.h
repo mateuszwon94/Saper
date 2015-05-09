@@ -53,6 +53,8 @@ class Plansza {
 		bool esc;
 		bool _loose;
 		void draw_bombs();
+		void draw_result();
+		void undraw_result();
 		int first_x;
 		int first_y;
 		void odslon_pola_wokol(int x, int y);

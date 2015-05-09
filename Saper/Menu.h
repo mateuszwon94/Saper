@@ -17,6 +17,7 @@ class Menu {
 		Iterator end() { return (&_entrys[size()-1])+1; }
 		
 		MenuEntry& operator[](unsigned int count) { return _entrys[count]; }
+		void setActive(unsigned int i);
 
 		int CurrentEntry() { return _currEntry; }
 		size_t size() { return _entrys.size(); }
@@ -47,6 +48,8 @@ class Menu {
 
 		void RefreshCLB(Window& gameWindow);
 
+		static Menu& current() { return *_menu; }
+
 	private:
 		std::vector<MenuEntry> _entrys = std::vector<MenuEntry>();
 		int _currEntry = 0;
@@ -56,4 +59,6 @@ class Menu {
 		static int _columns;
 		static int _lines;
 		static int _bombs;
+
+		static Menu* _menu;
 };

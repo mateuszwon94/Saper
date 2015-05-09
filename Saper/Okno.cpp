@@ -1,4 +1,5 @@
 ﻿#include "Okno.h"
+#include "Help.h"
 #include <vector>
 
 int ile = 2;
@@ -54,6 +55,8 @@ void Okno::Initialize() {
 
 	gameWindow.AttrOn(okno1);
 	gameWindow.Background(okno1);
+
+	static Help help = Help(65, 40, 1, 97);
 }
 
 void Okno::SetBorderColoured(Window& window) {

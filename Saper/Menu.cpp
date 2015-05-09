@@ -4,6 +4,8 @@
 
 using namespace std;
 
+Menu* Menu::_menu = nullptr;
+
 array<int, 3> EASY = { 8,8,10 };
 array<int, 3> NORMAL = { 16,16,40 };
 array<int, 3> HARD = { 30,16,99 };
@@ -18,8 +20,8 @@ Menu::Menu(std::vector<std::string> entrys, std::vector<void(*)()> functions, st
 			specials.push_back(0);
 	}
 	for (int i = 0; i < entrys.size(); ++i) {
-		if (entrys[i] == "Kontynuuj") 
-			_entrys.push_back(MenuEntry(entrys[i], functions[i], specials[i], true));
+		if (i == 5) 
+			_entrys.push_back(MenuEntry(entrys[i], functions[i], specials[i], false));
 		else
 			_entrys.push_back(MenuEntry(entrys[i], functions[i], specials[i]));
 	}
@@ -28,6 +30,15 @@ Menu::Menu(std::vector<std::string> entrys, std::vector<void(*)()> functions, st
 	_posLine = line;
 	_posColumn = column;
 	_visible = visibility;
+
+	if (_menu != nullptr)
+		delete _menu;
+	_menu = this;
+}
+
+void Menu::setActive(unsigned int i) {
+	_entrys[i].ChangeActive();
+	gameWindow << *this;
 }
 
 void Menu::MoveUp() {
@@ -53,11 +64,15 @@ void Menu::Move(int sign, Window& console, Window& gameWindow) {
 			isSet = true;
 			break;
 		case KEY_UP:
-			MoveUp(); 
+			do {
+				MoveUp();
+			} while (!_entrys[_currEntry]);
 			isSet = true;
 			break;
 		case KEY_DOWN:
-			MoveDown();
+			do {
+				MoveDown();
+			} while (!_entrys[_currEntry]);
 			isSet = true;
 			break;
 		case '\n':

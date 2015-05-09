@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 		[]() { Plansza::setCurrent(new Plansza()); Plansza::getCurrent().run(); },
 		[]() { Plansza::getCurrent().run(); },
 		[]() { },
-		[]() { },
+		[]() { Help::current().View(); },
 		[]() { std::exit(0); }
 	},
 	{ 0, 0, 0, 0, 0, 0, 1, 0, 0 }, //wektor specjalnych

@@ -115,6 +115,12 @@ Window& Window::operator<<(int number) {
 	return *(this);
 }
 
+Window& Window::operator<<(unsigned int number) {
+	wprintw(_window, "%d", number);
+	Refresh();
+	return *(this);
+}
+
 Window& Window::operator<<(double number) {
 	wprintw(_window,"%f", number);
 	Refresh();
