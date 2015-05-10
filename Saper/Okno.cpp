@@ -58,7 +58,7 @@ void Okno::Initialize() {
 	gameWindow.AttrOn(okno1);
 	gameWindow.Background(okno1);
 
-	static Help help = Help(65, 40, 1, 97);
+	//static Help help = Help(65, 40, 1, 97);
 	Timer::getMutex()->unlock();
 }
 

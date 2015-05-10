@@ -5,8 +5,8 @@
 
 class Help {
 	public:
-		Help(unsigned int posibleToWriteChars, unsigned int possibleToWriteLines, unsigned int line = 0, unsigned int column = 0);
-		~Help();
+		//Help(unsigned int posibleToWriteChars, unsigned int possibleToWriteLines, unsigned int line = 0, unsigned int column = 0);
+		/*~Help();
 
 		std::vector<std::string>& operator[](const std::string &key) { return _help[key]; }
 
@@ -21,4 +21,6 @@ class Help {
 		unsigned int _posColumn;
 		unsigned int _posibleToWriteChars;
 		unsigned int _possibleToWriteLines;
+*/
+		static void View();
 };

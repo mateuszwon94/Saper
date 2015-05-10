@@ -355,7 +355,7 @@ void Plansza::choose() {
 				first_clik++;
 				Timer::start();
 			}
-			if (Tboard[choice_x][choice_y] == bomb) {
+			if (Tboard[choice_x][choice_y] == bomb && Dboard[choice_x][choice_y]!= '?') {
 				uncover();
 				uncover_bombs();
 				gameWindow.AttrOn(A_BOLD);
@@ -367,9 +367,9 @@ void Plansza::choose() {
 				Timer::end();
 				break;
 			}
-			if (Tboard[choice_x][choice_y] == lowDestinyDots)
+			if (Tboard[choice_x][choice_y] == lowDestinyDots && Dboard[choice_x][choice_y] != '?')
 				odslon_pola_wokol(choice_x, choice_y);
-			else
+			else if (Dboard[choice_x][choice_y] != '?')
 				uncover();
 			click = false;
 		}

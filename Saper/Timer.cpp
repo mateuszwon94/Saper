@@ -1,6 +1,7 @@
 #include "Timer.h"
 #include <array>
 #include <stdexcept>
+#include <thread>
 
 using namespace std;
 using namespace std::chrono;
