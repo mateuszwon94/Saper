@@ -29,7 +29,7 @@ Plansza::Plansza(int a, int b, int bomb, Window& win) : gameWindow(win), highlig
 			Tboard[it][it2] = lowDestinyDots;
 		}
 	}
-	if (current != nullptr) 
+	if (current != nullptr)
 		delete current;
 	if (timer_thread != nullptr) {
 		Timer::end();
@@ -112,7 +112,8 @@ void Plansza::draw_bombs() {
 			if (y_right < width && Tboard[x][y_right] != bomb) {
 				Tboard[x][y_right] = '1';
 			}
-		} else {
+		}
+		else {
 			i--;
 			is_there = false;
 		}
@@ -130,11 +131,14 @@ void Plansza::draw_result() {
 		if (!Results::getInstance()->getProblem()) {
 			if (width == 10 && height == 10) {
 				*(Results::getInstance()) << "latwy " + std::to_string(second);
-			} else if (width == 15 && height == 15) {
+			}
+			else if (width == 15 && height == 15) {
 				*(Results::getInstance()) << "sredni " + std::to_string(second);
-			} else if (width == 15 && height == 30) {
+			}
+			else if (width == 15 && height == 30) {
 				*(Results::getInstance()) << "trudny " + std::to_string(second);
-			} else {
+			}
+			else {
 				std::string text = "wlasny [" + std::to_string(width) + "] [" + std::to_string(height) + "] " + std::to_string(second) + "\n";
 				*(Results::getInstance()) << text;
 			}
@@ -142,7 +146,8 @@ void Plansza::draw_result() {
 		gameWindow.AttrOn(Win);
 		gameWindow << "WYGRALES!!!";
 		gameWindow.AttrOff(Win);
-	} else if (!win() && first_clik != 0) {
+	}
+	else if (!win() && first_clik != 0) {
 		gameWindow.AttrOn(Loose);
 		gameWindow << "PRZEGRALES!!!";
 		gameWindow.AttrOff(Loose);
@@ -168,37 +173,36 @@ void Plansza::znaczniki() {
 		for (int j = 0; j < width; ++j) {
 			int n_mins = 0;
 			if (Tboard[i][j] != '1') continue;
-				//# Sprawdzamy 3 pola nad komorka i,x
-				int zi = i - 1; // pole wyzej
-				if (zi >= 0) {
-					if (Tboard[zi][j] == bomb) n_mins++;					
-					int zx = j + 1; // pole wyzej i jedna komorka w prawo
-					if (zx < width && Tboard[zi][zx] == bomb) n_mins++;				
-					zx = j - 1; // pole wyzej i jedna komorka w lewo
-					if (zx >= 0 && Tboard[zi][zx] == bomb) n_mins++;					
-				}
-				//# Sprawdzamy pola po prawej i lewej nad komorka i,x
-				int zx = j + 1; // jedna komorka w prawo
-				if (zx < width && Tboard[i][zx] == bomb) n_mins++;
-				zx = j - 1; // jedna komorka w lewo
-				if (zx >= 0 && Tboard[i][zx] == bomb) n_mins++;
+			//# Sprawdzamy 3 pola nad komorka i,x
+			int zi = i - 1; // pole wyzej
+			if (zi >= 0) {
+				if (Tboard[zi][j] == bomb) n_mins++;
+				int zx = j + 1; // pole wyzej i jedna komorka w prawo
+				if (zx < width && Tboard[zi][zx] == bomb) n_mins++;
+				zx = j - 1; // pole wyzej i jedna komorka w lewo
+				if (zx >= 0 && Tboard[zi][zx] == bomb) n_mins++;
+			}
+			//# Sprawdzamy pola po prawej i lewej nad komorka i,x
+			int zx = j + 1; // jedna komorka w prawo
+			if (zx < width && Tboard[i][zx] == bomb) n_mins++;
+			zx = j - 1; // jedna komorka w lewo
+			if (zx >= 0 && Tboard[i][zx] == bomb) n_mins++;
 
-					
-				//# Sprawdzamy 3 pola pod komorka i,x
-				zi = i + 1; // pole nizej
-				if (zi < height) {
-					if (Tboard[zi][j] == bomb) n_mins++;
-					zx = j + 1; // pole nizej i jedna komorka w prawo
-					if (zx < width && Tboard[zi][zx] == bomb) n_mins++;
-					zx = j - 1; // pole nizej i jedna komorka w lewo
-					if (zx >= 0 && Tboard[zi][zx] == bomb) n_mins++;
-				}
-				if (n_mins > 1)
-					Tboard[i][j] = 48 + n_mins;			
+
+			//# Sprawdzamy 3 pola pod komorka i,x
+			zi = i + 1; // pole nizej
+			if (zi < height) {
+				if (Tboard[zi][j] == bomb) n_mins++;
+				zx = j + 1; // pole nizej i jedna komorka w prawo
+				if (zx < width && Tboard[zi][zx] == bomb) n_mins++;
+				zx = j - 1; // pole nizej i jedna komorka w lewo
+				if (zx >= 0 && Tboard[zi][zx] == bomb) n_mins++;
+			}
+			if (n_mins > 1)
+				Tboard[i][j] = 48 + n_mins;
 		}
 	}
 }
-
 
 void Plansza::draw() {
 	Timer::getMutex()->lock();
@@ -206,45 +210,38 @@ void Plansza::draw() {
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			moveCoursor(i + 2, j + 2);
-			if (Tboard[i][j] == bomb) {
+			if (Dboard[i][j] == bomb) {
 				static ColorPair color = ColorPair(COLOR_RED, COLOR_WHITE);
 				gameWindow.AttrOn(color);
 				if (i == highlight_x && j == highlight_y) {
 					gameWindow.AttrOn(A_REVERSE);
-					drawSign(Tboard[i][j]);
+					drawSign(Dboard[i][j]);
 					gameWindow.AttrOff(A_REVERSE);
-				} else
-					drawSign(Tboard[i][j]);
+				}
+				else
+					drawSign(Dboard[i][j]);
 				gameWindow.AttrOff(color);
-			} else {
+			}
+			else {
 				if (i == highlight_x && j == highlight_y) {
 					gameWindow.AttrOn(A_REVERSE);
 					if (Dboard[i][j] == '?') {
 						gameWindow.AttrOn(green);
-						drawSign(Tboard[i][j]);
+						drawSign(Dboard[i][j]);
 						gameWindow.AttrOff(green);
-<<<<<<< HEAD
 					}
 					else
-						drawSign(Tboard[i][j]);
-=======
-					} else
 						drawSign(Dboard[i][j]);
->>>>>>> 2989a7ad806851e938ac13c503afa066a5f6e8b3
 					gameWindow.AttrOff(A_REVERSE);
-				} else
+				}
+				else
 					if (Dboard[i][j] == '?') {
 						gameWindow.AttrOn(green);
-						drawSign(Tboard[i][j]);
+						drawSign(Dboard[i][j]);
 						gameWindow.AttrOff(green);
-<<<<<<< HEAD
 					}
 					else
-						drawSign(Tboard[i][j]);
-=======
-					} else
-					drawSign(Dboard[i][j]);
->>>>>>> 2989a7ad806851e938ac13c503afa066a5f6e8b3
+						drawSign(Dboard[i][j]);
 			}
 		}
 	}
@@ -282,89 +279,89 @@ void Plansza::choose() {
 		gameWindow >> c;
 		echo();
 		switch (c) {
-			case 'w':
-			case KEY_UP:
-			case '8':
-				if (highlight_x == 0)
-					highlight_x = height - 1;
-				else
-					highlight_x--;
-				break;
-			case 'x':
-			case KEY_DOWN:
-			case '2':
-				if (highlight_x == height - 1)
-					highlight_x = 0;
-				else
-					highlight_x++;
-				break;
-			case 'd':
-			case KEY_RIGHT:
-			case '6':
-				if (highlight_y == width - 1)
-					highlight_y = 0;
-				else
-					highlight_y++;
-				break;
-			case 'a':
-			case KEY_LEFT:
-			case '4':
-				if (highlight_y == 0)
-					highlight_y = width - 1;
-				else
-					highlight_y--;
-				break;
-			case 'q':
-			case '7':
-				if (highlight_x > 0 && highlight_y >0) {
-					highlight_x--;
-					highlight_y--;
-				}
-				break;
-			case 'e':
-			case '9':
-				if (highlight_x >0 && highlight_y < (width - 1)) {
-					highlight_x--;
-					highlight_y++;
-				}
-				break;
-			case 'z':
-			case '1':
-				if (highlight_x < height - 1 && highlight_y >0) {
-					highlight_x++;
-					highlight_y--;
-				}
-				break;
-			case 'c':
-			case '3':
-				if (highlight_x < height - 1 && highlight_y < width - 1) {
-					highlight_x++;
-					highlight_y++;
-				}
-			case 's':
-			case 13:
-			case' ':
-			case '5':
-				choice_x = highlight_x;
-				choice_y = highlight_y;
-				click = true;
-				if (first_clik == 0) {
-					first_x = choice_x;
-					first_y = choice_y;
-					first_clik++;;
-				}
-				break;
-			case '?':
-				click = true;
-				if (Dboard[highlight_x][highlight_y] == mediumDestinyDots)
-					Dboard[highlight_x][highlight_y] = '?';
-				else if (Dboard[highlight_x][highlight_y] == '?')
-					Dboard[highlight_x][highlight_y] = mediumDestinyDots;
-				break;
-			case 27:
-				esc = true;
-				Timer::pause();
-				break;
+		case 'w':
+		case KEY_UP:
+		case '8':
+			if (highlight_x == 0)
+				highlight_x = height - 1;
+			else
+				highlight_x--;
+			break;
+		case 'x':
+		case KEY_DOWN:
+		case '2':
+			if (highlight_x == height - 1)
+				highlight_x = 0;
+			else
+				highlight_x++;
+			break;
+		case 'd':
+		case KEY_RIGHT:
+		case '6':
+			if (highlight_y == width - 1)
+				highlight_y = 0;
+			else
+				highlight_y++;
+			break;
+		case 'a':
+		case KEY_LEFT:
+		case '4':
+			if (highlight_y == 0)
+				highlight_y = width - 1;
+			else
+				highlight_y--;
+			break;
+		case 'q':
+		case '7':
+			if (highlight_x > 0 && highlight_y >0) {
+				highlight_x--;
+				highlight_y--;
+			}
+			break;
+		case 'e':
+		case '9':
+			if (highlight_x >0 && highlight_y < (width - 1)) {
+				highlight_x--;
+				highlight_y++;
+			}
+			break;
+		case 'z':
+		case '1':
+			if (highlight_x < height - 1 && highlight_y >0) {
+				highlight_x++;
+				highlight_y--;
+			}
+			break;
+		case 'c':
+		case '3':
+			if (highlight_x < height - 1 && highlight_y < width - 1) {
+				highlight_x++;
+				highlight_y++;
+			}
+		case 's':
+		case 13:
+		case' ':
+		case '5':
+			choice_x = highlight_x;
+			choice_y = highlight_y;
+			click = true;
+			if (first_clik == 0) {
+				first_x = choice_x;
+				first_y = choice_y;
+				first_clik++;;
+			}
+			break;
+		case '?':
+			click = true;
+			if (Dboard[highlight_x][highlight_y] == mediumDestinyDots)
+				Dboard[highlight_x][highlight_y] = '?';
+			else if (Dboard[highlight_x][highlight_y] == '?')
+				Dboard[highlight_x][highlight_y] = mediumDestinyDots;
+			break;
+		case 27:
+			esc = true;
+			Timer::pause();
+			break;
 		}
 		if (click) {
 			if (first_clik == 1) {
