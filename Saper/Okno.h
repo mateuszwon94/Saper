@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "Window.h"
+#include "Results.h"
 #define endl "\n"
 #define version "v0.7"
 
@@ -9,6 +10,7 @@ class Okno {
 		static void Initialize();
 		static void SetBorderColoured(Window& window);
 };
+
 
 extern char doubleDownLeftCorner;    //╚
 extern char doubleUpLeftCorner;      //╔

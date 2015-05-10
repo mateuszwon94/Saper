@@ -1,19 +1,29 @@
 #include "Results.h"
-#include <array>
-/*
 using namespace std;
-
-Result::Result(std::string name) : _file(name), _results() {
-	string& date = string();
-	int lines, columns, bombs;
-	int time;
-	while (!_file.eof()) {
-		_file >> lines;
-		_file >> columns;
-
+Results* Results::_instance = NULL;
+Results::Results() {
+	createFile("results.txt");
+	problem = false;
+}
+void Results::createFile(std::string name) {
+	file.open(name, std::ios::in | std::ios::app);
+	if (file.good() == true)
+	{
+	}
+	else {
+		problem = true;
+		gameWindow.MoveCursor(1, 97);
+		gameWindow << "Problem z plikiem";
 	}
 }
-
-Result::~Result() { 
-	_file.close();
-}*/
+Results::~Results() {
+	file.close();
+}
+Results* Results::getInstance() {
+	if (_instance == NULL) _instance = new Results();
+	return _instance;
+}
+Results& Results::operator<<(string text) {
+	file << text;
+	return *(this);
+}

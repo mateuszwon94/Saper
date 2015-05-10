@@ -1,11 +1,11 @@
 ﻿#pragma execution_character_set("utf-8")
 #include "Wszystko.h"
 
+
 int main(int argc, char *argv[]) {
 	using namespace std;
 
 	Okno::Initialize();
-
 	Menu& menu = Menu(
 	{ //Vector nazw
 		"Latwy",

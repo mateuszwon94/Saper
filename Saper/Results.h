@@ -1,17 +1,17 @@
 #pragma once
-/*
 #include <string>
-#include <map>
-#include <vector>
 #include <fstream>
-
-class Result {
-	public:
-		Result(std::string name);
-		~Result();
-
-	private:
-		std::map<std::string&, std::vector<int>> _results;
-		std::fstream _file;
+#include "Window.h"
+class Results {
+public:
+	Results();
+	void createFile(std::string name);
+	~Results();
+	static Results* getInstance();
+	bool getProblem(){ return problem; }
+	Results& operator<<(std::string text);
+private:
+	std::fstream file;
+	static Results* _instance;
+	bool problem;
 };
-*/

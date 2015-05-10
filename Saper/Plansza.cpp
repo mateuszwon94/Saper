@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "Menu.h"
 #include "Color.h"
+#include <string>
 
 using namespace std;
 
@@ -124,6 +125,25 @@ void Plansza::draw_result() {
 	gameWindow.MoveCursor(2, 80);
 	gameWindow.AttrOn(A_BOLD);
 	if (win() && first_clik != 0) {
+		int win_time = Timer::second();
+		if (!Results::getInstance()->getProblem()) {
+			if (width == 10 && height == 10) {
+				*(Results::getInstance()) << "latwy " + std::to_string(win_time);
+			}
+			else if (width == 15 && height == 15)
+			{
+				*(Results::getInstance()) << "sredni " + std::to_string(win_time);
+			}
+			else if (width == 15 && height == 30)
+			{
+				*(Results::getInstance()) << "trudny " + std::to_string(win_time);
+			}
+			else
+			{
+				std::string text = "wlasny [" + std::to_string(width) + "] [" + std::to_string(height) + "] " + std::to_string(second)+ "\n";
+				*(Results::getInstance()) << text;
+			}
+		}
 		gameWindow.AttrOn(Win);
 		gameWindow << "WYGRALES!!!";
 		gameWindow.AttrOff(Win);
@@ -209,6 +229,7 @@ void Plansza::znaczniki() {
 
 void Plansza::draw() {
 	Timer::getMutex()->lock();
+	static ColorPair green = ColorPair(COLOR_GREEN, COLOR_WHITE);
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			moveCoursor(i + 2, j + 2);
@@ -225,10 +246,24 @@ void Plansza::draw() {
 			} else {
 				if (i == highlight_x && j == highlight_y) {
 					gameWindow.AttrOn(A_REVERSE);
-					drawSign(Dboard[i][j]);
+					if (Dboard[i][j] == '?')
+					{
+						gameWindow.AttrOn(green);
+						drawSign(Dboard[i][j]);
+						gameWindow.AttrOff(green);
+					}
+					else
+						drawSign(Dboard[i][j]);
 					gameWindow.AttrOff(A_REVERSE);
 				} else
-					drawSign(Dboard[i][j]);
+					if (Dboard[i][j] == '?')
+					{
+						gameWindow.AttrOn(green);
+						drawSign(Dboard[i][j]);
+						gameWindow.AttrOff(green);
+					}
+					else
+						drawSign(Dboard[i][j]);
 			}
 		}
 	}

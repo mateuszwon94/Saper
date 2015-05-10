@@ -7,9 +7,9 @@ using namespace std;
 
 Menu* Menu::_menu = nullptr;
 
-array<int, 3> EASY = { 8,8,10 };
-array<int, 3> NORMAL = { 16,16,40 };
-array<int, 3> HARD = { 30,16,99 };
+array<int, 3> EASY = { 10,10,10 };
+array<int, 3> NORMAL = { 15,15,35 };
+array<int, 3> HARD = { 30,15,99 };
 
 int Menu::_columns = 8;
 int Menu::_lines = 8;
