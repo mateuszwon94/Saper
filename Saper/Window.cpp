@@ -1,4 +1,6 @@
 #include "Window.h"
+#include "Timer.h"
+#include <stdexcept>
 
 using namespace std;
 
@@ -128,7 +130,7 @@ Window& Window::operator<<(double number) {
 }
 
 Window& Window::operator<<(Menu& menu) {
-
+	Timer::getMutex()->lock();
 	unsigned int line = menu.PosLine();
 	unsigned int column = menu.PosColumn();
 	int i = 1;
@@ -140,6 +142,7 @@ Window& Window::operator<<(Menu& menu) {
 	}
 
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
@@ -184,6 +187,13 @@ void Window::MoveWindow(int line, int column) {
 void Window::SetBorder(char ls, char rs, char ts, char bs, char tl, char tr, char bl, char br) {
 	wborder(_window, (chtype)ls, (chtype)rs, (chtype)ts, (chtype)bs, (chtype)tl, (chtype)tr, (chtype)bl, (chtype)br);
 	Refresh();
+}
+
+array<int, 2>& Window::GetCursorPos() {
+	int x, y;
+	getyx(_window, y, x);
+	static array<int, 2> pos = { x,y };
+	return pos;
 }
 
 void Window::SetBorder(chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br) {

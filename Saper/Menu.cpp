@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "Window.h"
+#include "Timer.h"
 #include <cstdarg>
 
 using namespace std;
@@ -98,7 +99,9 @@ void Menu::Move(int sign, Window& console, Window& gameWindow) {
 }
 
 void Menu::MoveCursor(Window& console, Window& gameWindow) {
+	Timer::getMutex()->lock();
 	console.MoveCursor(gameWindow.x() + PosLine() + CurrentEntry() * 2, gameWindow.y() + PosColumn() + _entrys[CurrentEntry()].Special() +3);
+	Timer::getMutex()->unlock();
 }
 
 void Menu::CallCurrentFunction(Window& console, Window& gameWindow) {
@@ -126,6 +129,7 @@ void Menu::CallCurrentFunction(Window& console, Window& gameWindow) {
 }
 
 void Menu::setCustmMode(Window & console, Window & gameWindow) {
+	Timer::getMutex()->lock();
 	static ColorPair error = ColorPair(COLOR_RED, COLOR_WHITE);
 	static char mult = 158;
 	array<int*, 3> vars = { &_columns, &_lines, &_bombs };
@@ -302,7 +306,8 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				gameWindow << "                  ";
 				return;
 		}
-	} 
+	}
+	Timer::getMutex()->unlock();
 }
 
 void Menu::setMode(std::array<int, 3> mode) {
@@ -312,6 +317,7 @@ void Menu::setMode(std::array<int, 3> mode) {
 }
 
 void Menu::RefreshCLB(Window & gameWindow) {
+	Timer::getMutex()->lock();
 	gameWindow.MoveCursor(_posLine + 2 * _entrys.size() + 2, _posColumn+9);
 	gameWindow << "   ";
 	gameWindow.MoveCursor(_posLine + 2 * _entrys.size() + 2, _posColumn);
@@ -336,4 +342,5 @@ void Menu::RefreshCLB(Window & gameWindow) {
 		gameWindow << _bombs;
 	else
 		gameWindow << "   ";
+	Timer::getMutex()->unlock();
 }

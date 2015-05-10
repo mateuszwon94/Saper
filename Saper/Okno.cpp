@@ -1,5 +1,6 @@
 ﻿#include "Okno.h"
 #include "Help.h"
+#include "Timer.h"
 #include <vector>
 
 int ile = 2;
@@ -37,6 +38,7 @@ char bomb = 207;
 char fklag = '?';
 
 void Okno::Initialize() {
+	Timer::getMutex()->lock();
 	keypad(console, true);
 	keypad(gameWindow, true);
 	keypad(shadow, true);
@@ -57,6 +59,7 @@ void Okno::Initialize() {
 	gameWindow.Background(okno1);
 
 	static Help help = Help(65, 40, 1, 97);
+	Timer::getMutex()->unlock();
 }
 
 void Okno::SetBorderColoured(Window& window) {

@@ -5,6 +5,7 @@
 #include <array>
 #include "Okno.h"
 #include "Timer.h"
+#include <thread>
 
 class Plansza {
 	public:
@@ -55,6 +56,7 @@ class Plansza {
 		void draw_bombs();
 		void draw_result();
 		void undraw_result();
+		void draw_timer();
 		int first_x;
 		int first_y;
 		void odslon_pola_wokol(int x, int y);
@@ -68,5 +70,7 @@ class Plansza {
 		void uncover_bombs();
 		static Plansza* current;
 		static int first_clik;
+		int second;
+		static std::thread* timer_thread;
 };
 

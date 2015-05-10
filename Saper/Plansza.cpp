@@ -11,6 +11,7 @@ int Plansza::heig = 0;
 int Plansza::n_bombs = 0;
 Plansza* Plansza::current = nullptr;
 int Plansza::first_clik = 0;
+thread* Plansza::timer_thread = nullptr;
 
 Plansza::Plansza(int a, int b, int bomb, Window& win) : gameWindow(win), highlight_x(0), highlight_y(0), esc(false) {
 	width = wid = a;
@@ -27,8 +28,18 @@ Plansza::Plansza(int a, int b, int bomb, Window& win) : gameWindow(win), highlig
 			Tboard[it][it2] = lowDestinyDots;
 		}
 	}
-	if (current != nullptr)
-		delete current;
+	if (current != nullptr) delete current;
+	if (timer_thread != nullptr) {
+		Timer::end();
+		timer_thread->join();
+		delete timer_thread;
+	}
+	Timer::reset();
+	timer_thread = new thread([]() {
+		if (Timer::getMutex == nullptr)
+			Timer::setMutex(new recursive_mutex());
+		Timer::run();
+	});
 	current = this;
 	Menu::current().setActive(5);
 }
@@ -52,6 +63,7 @@ void Plansza::run() {
 	highlight_y = 0;
 	esc = false;
 	_loose = false;
+	Timer::resume();
 	draw();
 	choose();
 	Window::SetCursor(true);
@@ -106,18 +118,34 @@ void Plansza::draw_bombs() {
 }
 
 void Plansza::draw_result() {
-	gameWindow.MoveCursor(2,80);
+	Timer::getMutex()->lock();
+	static ColorPair Loose = ColorPair(COLOR_RED, COLOR_WHITE);
+	static ColorPair Win = ColorPair(COLOR_GREEN, COLOR_WHITE);
+	gameWindow.MoveCursor(2, 80);
 	gameWindow.AttrOn(A_BOLD);
-	if (win() && first_clik != 0)
+	if (win() && first_clik != 0) {
+		gameWindow.AttrOn(Win);
 		gameWindow << "WYGRALES!!!";
-	else if (!win() && first_clik != 0)
+		gameWindow.AttrOff(Win);
+	} else if (!win() && first_clik != 0) {
+		gameWindow.AttrOn(Loose);
 		gameWindow << "PRZEGRALES!!!";
+		gameWindow.AttrOff(Loose);
+	}
 	gameWindow.AttrOff(A_BOLD);
+	Timer::getMutex()->unlock();
 }
 
 void Plansza::undraw_result() {
+	Timer::getMutex()->lock();
 	gameWindow.MoveCursor(2, 80);
 	gameWindow << "             ";
+	Timer::getMutex()->unlock();
+}
+
+void Plansza::draw_timer() {
+	/*gameWindow.MoveCursor();
+	gameWindow << "Grasz: " << timer.second() << "s";*/
 }
 
 void Plansza::znaczniki() {
@@ -180,6 +208,7 @@ void Plansza::znaczniki() {
 
 
 void Plansza::draw() {
+	Timer::getMutex()->lock();
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			moveCoursor(i + 2, j + 2);
@@ -203,23 +232,20 @@ void Plansza::draw() {
 			}
 		}
 	}
-
-	gameWindow.MoveCursor(25, 150);
-	gameWindow << "       ";
-	gameWindow.MoveCursor(25, 150);
-	gameWindow << licznik;
-
 	gameWindow.Refresh();
+	Timer::getMutex()->unlock();
 }
 
 void Plansza::undraw() {
+	Timer::getMutex()->lock();
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			moveCoursor(i + 2, j + 2);
-			gameWindow<<" ";
+			gameWindow << " ";
 		}
 	}
 	gameWindow.Refresh();
+	Timer::getMutex()->unlock();
 }
 
 void Plansza::choose() {
@@ -230,6 +256,9 @@ void Plansza::choose() {
 	while (!esc) {
 		if (win()) {
 			draw_result();
+			Timer::stop();
+			Timer::end();
+			second = Timer::second();
 			break;
 		}
 		noecho();
@@ -317,12 +346,14 @@ void Plansza::choose() {
 				break;
 			case 27:
 				esc = true;
+				Timer::pause();
 				break;
 		}
 		if (click) {
 			if (first_clik == 1) {
 				draw_bombs();
 				first_clik++;
+				Timer::start();
 			}
 			if (Tboard[choice_x][choice_y] == bomb) {
 				uncover();
@@ -332,6 +363,8 @@ void Plansza::choose() {
 				gameWindow.AttrOff(A_BOLD);
 				_loose = true;
 				draw_result();
+				Timer::stop();
+				Timer::end();
 				break;
 			}
 			if (Tboard[choice_x][choice_y] == lowDestinyDots)

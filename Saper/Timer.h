@@ -1,30 +1,33 @@
 #pragma once
 
 #include <chrono>
+#include <mutex>
+#include "Window.h"
 
 class Timer {
 	public:
-		Timer();
 
-		void start();
-		void restart();
-		void resume();
-		void pause();
-		void stop();
-		int second();
+		static void reset();
+		static void start();
+		static void restart();
+		static void resume();
+		static void pause() { _isPaused = (true); }
+		static void stop();
+		static int second() { return _time.count() / 1000; }
+		static void increment();
+		static void end() { _end = true; }
+
+		static std::recursive_mutex* getMutex() { return _mutex; }
+		static void setMutex(std::recursive_mutex* newMutex) { _mutex = newMutex; }
 		
-		void operator()();
-		void operator++();
-		void operator++(int) { operator++(); }
-
-		operator std::chrono::milliseconds();
-		operator long long();
-		operator int() { return second(); }
+		static void run();
 
 	private:
-		bool _isPaused;
-		bool _isWorking;
-		std::chrono::milliseconds _time;
-		std::chrono::steady_clock::time_point _start;
+		static bool _end;
+		static bool _isPaused;
+		static bool _isWorking;
+		static std::chrono::milliseconds _time;
+		static std::chrono::steady_clock::time_point _start;
+		static std::recursive_mutex* _mutex;
 };
 
