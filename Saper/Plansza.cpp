@@ -172,56 +172,34 @@ void Plansza::znaczniki() {
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			int n_mins = 0;
-			if (Tboard[i][j] == '1') {
+			if (Tboard[i][j] != '1') continue;
 				//# Sprawdzamy 3 pola nad komorka i,x
 				int zi = i - 1; // pole wyzej
 				if (zi >= 0) {
-					if (Tboard[zi][j] == bomb) {
-						n_mins++;
-					}
+					if (Tboard[zi][j] == bomb) n_mins++;					
 					int zx = j + 1; // pole wyzej i jedna komorka w prawo
-					if (zx < width) {
-						if (Tboard[zi][zx] == bomb)
-							n_mins++;
-					}
+					if (zx < width && Tboard[zi][zx] == bomb) n_mins++;				
 					zx = j - 1; // pole wyzej i jedna komorka w lewo
-					if (zx >= 0) {
-						if (Tboard[zi][zx] == bomb)
-							n_mins++;
-					}
+					if (zx >= 0 && Tboard[zi][zx] == bomb) n_mins++;					
 				}
 				//# Sprawdzamy pola po prawej i lewej nad komorka i,x
 				int zx = j + 1; // jedna komorka w prawo
-				if (zx < width) {
-					if (Tboard[i][zx] == bomb)
-						n_mins++;
-					zx = j - 1; // jedna komorka w lewo
-					if (zx >= 0) {
-						if (Tboard[i][zx] == bomb) {
-							n_mins++;
-						}
-					}
-					//# Sprawdzamy 3 pola pod komorka i,x
-					int zi = i + 1; // pole wyzej
-					if (zi < height) {
-						if (Tboard[zi][j] == bomb)
-							n_mins++;
-						zx = j + 1; // pole nizej i jedna komorka w prawo
-						if (zx < width) {
-							if (Tboard[zi][zx] == bomb) {
-								n_mins++;
-							}
-						}
-						zx = j - 1; // pole nizej i jedna komorka w lewo
-						if (zx >= 0) {
-							if (Tboard[zi][zx] == bomb)
-								n_mins++;
-						}
-					}
-					if (n_mins > 1)
-						Tboard[i][j] = 48 + n_mins;
+				if (zx < width && Tboard[i][zx] == bomb) n_mins++;
+				zx = j - 1; // jedna komorka w lewo
+				if (zx >= 0 && Tboard[i][zx] == bomb) n_mins++;
+
+					
+				//# Sprawdzamy 3 pola pod komorka i,x
+				zi = i + 1; // pole nizej
+				if (zi < height) {
+					if (Tboard[zi][j] == bomb) n_mins++;
+					zx = j + 1; // pole nizej i jedna komorka w prawo
+					if (zx < width && Tboard[zi][zx] == bomb) n_mins++;
+					zx = j - 1; // pole nizej i jedna komorka w lewo
+					if (zx >= 0 && Tboard[zi][zx] == bomb) n_mins++;
 				}
-			}
+				if (n_mins > 1)
+					Tboard[i][j] = 48 + n_mins;			
 		}
 	}
 }
@@ -233,15 +211,15 @@ void Plansza::draw() {
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
 			moveCoursor(i + 2, j + 2);
-			if (Dboard[i][j] == bomb) {
+			if (Tboard[i][j] == bomb) {
 				static ColorPair color = ColorPair(COLOR_RED, COLOR_WHITE);
 				gameWindow.AttrOn(color);
 				if (i == highlight_x && j == highlight_y) {
 					gameWindow.AttrOn(A_REVERSE);
-					drawSign(Dboard[i][j]);
+					drawSign(Tboard[i][j]);
 					gameWindow.AttrOff(A_REVERSE);
 				} else
-					drawSign(Dboard[i][j]);
+					drawSign(Tboard[i][j]);
 				gameWindow.AttrOff(color);
 			} else {
 				if (i == highlight_x && j == highlight_y) {
@@ -249,21 +227,21 @@ void Plansza::draw() {
 					if (Dboard[i][j] == '?')
 					{
 						gameWindow.AttrOn(green);
-						drawSign(Dboard[i][j]);
+						drawSign(Tboard[i][j]);
 						gameWindow.AttrOff(green);
 					}
 					else
-						drawSign(Dboard[i][j]);
+						drawSign(Tboard[i][j]);
 					gameWindow.AttrOff(A_REVERSE);
 				} else
 					if (Dboard[i][j] == '?')
 					{
 						gameWindow.AttrOn(green);
-						drawSign(Dboard[i][j]);
+						drawSign(Tboard[i][j]);
 						gameWindow.AttrOff(green);
 					}
 					else
-						drawSign(Dboard[i][j]);
+						drawSign(Tboard[i][j]);
 			}
 		}
 	}
