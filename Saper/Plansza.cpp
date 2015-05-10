@@ -29,7 +29,8 @@ Plansza::Plansza(int a, int b, int bomb, Window& win) : gameWindow(win), highlig
 			Tboard[it][it2] = lowDestinyDots;
 		}
 	}
-	if (current != nullptr) delete current;
+	if (current != nullptr) 
+		delete current;
 	if (timer_thread != nullptr) {
 		Timer::end();
 		timer_thread->join();
@@ -55,7 +56,8 @@ Plansza::~Plansza() {
 	first_clik = 0;
 	undraw_result();
 	undraw();
-	Menu::current().setActive(5);
+	if (Menu::current()[5])
+		Menu::current().setActive(5);
 }
 
 void Plansza::run() {
@@ -125,22 +127,15 @@ void Plansza::draw_result() {
 	gameWindow.MoveCursor(2, 80);
 	gameWindow.AttrOn(A_BOLD);
 	if (win() && first_clik != 0) {
-		int win_time = Timer::second();
 		if (!Results::getInstance()->getProblem()) {
 			if (width == 10 && height == 10) {
-				*(Results::getInstance()) << "latwy " + std::to_string(win_time);
-			}
-			else if (width == 15 && height == 15)
-			{
-				*(Results::getInstance()) << "sredni " + std::to_string(win_time);
-			}
-			else if (width == 15 && height == 30)
-			{
-				*(Results::getInstance()) << "trudny " + std::to_string(win_time);
-			}
-			else
-			{
-				std::string text = "wlasny [" + std::to_string(width) + "] [" + std::to_string(height) + "] " + std::to_string(second)+ "\n";
+				*(Results::getInstance()) << "latwy " + std::to_string(second);
+			} else if (width == 15 && height == 15) {
+				*(Results::getInstance()) << "sredni " + std::to_string(second);
+			} else if (width == 15 && height == 30) {
+				*(Results::getInstance()) << "trudny " + std::to_string(second);
+			} else {
+				std::string text = "wlasny [" + std::to_string(width) + "] [" + std::to_string(height) + "] " + std::to_string(second) + "\n";
 				*(Results::getInstance()) << text;
 			}
 		}
@@ -224,24 +219,32 @@ void Plansza::draw() {
 			} else {
 				if (i == highlight_x && j == highlight_y) {
 					gameWindow.AttrOn(A_REVERSE);
-					if (Dboard[i][j] == '?')
-					{
+					if (Dboard[i][j] == '?') {
 						gameWindow.AttrOn(green);
 						drawSign(Tboard[i][j]);
 						gameWindow.AttrOff(green);
+<<<<<<< HEAD
 					}
 					else
 						drawSign(Tboard[i][j]);
+=======
+					} else
+						drawSign(Dboard[i][j]);
+>>>>>>> 2989a7ad806851e938ac13c503afa066a5f6e8b3
 					gameWindow.AttrOff(A_REVERSE);
 				} else
-					if (Dboard[i][j] == '?')
-					{
+					if (Dboard[i][j] == '?') {
 						gameWindow.AttrOn(green);
 						drawSign(Tboard[i][j]);
 						gameWindow.AttrOff(green);
+<<<<<<< HEAD
 					}
 					else
 						drawSign(Tboard[i][j]);
+=======
+					} else
+					drawSign(Dboard[i][j]);
+>>>>>>> 2989a7ad806851e938ac13c503afa066a5f6e8b3
 			}
 		}
 	}
@@ -270,8 +273,9 @@ void Plansza::choose() {
 		if (win()) {
 			draw_result();
 			Timer::stop();
-			Timer::end();
 			second = Timer::second();
+			Timer::end();
+			Menu::current().setActive(5);
 			break;
 		}
 		noecho();
@@ -312,14 +316,14 @@ void Plansza::choose() {
 				break;
 			case 'q':
 			case '7':
-				if(highlight_x > 0 && highlight_y >0){
+				if (highlight_x > 0 && highlight_y >0) {
 					highlight_x--;
 					highlight_y--;
 				}
 				break;
 			case 'e':
 			case '9':
-				if (highlight_x >0 && highlight_y < (width-1)){
+				if (highlight_x >0 && highlight_y < (width - 1)) {
 					highlight_x--;
 					highlight_y++;
 				}
@@ -352,7 +356,7 @@ void Plansza::choose() {
 				break;
 			case '?':
 				click = true;
-				if(Dboard[highlight_x][highlight_y] == mediumDestinyDots)
+				if (Dboard[highlight_x][highlight_y] == mediumDestinyDots)
 					Dboard[highlight_x][highlight_y] = '?';
 				else if (Dboard[highlight_x][highlight_y] == '?')
 					Dboard[highlight_x][highlight_y] = mediumDestinyDots;
@@ -368,7 +372,7 @@ void Plansza::choose() {
 				first_clik++;
 				Timer::start();
 			}
-			if (Tboard[choice_x][choice_y] == bomb && Dboard[choice_x][choice_y]!= '?') {
+			if (Tboard[choice_x][choice_y] == bomb && Dboard[choice_x][choice_y] != '?') {
 				uncover();
 				uncover_bombs();
 				gameWindow.AttrOn(A_BOLD);
@@ -378,6 +382,7 @@ void Plansza::choose() {
 				draw_result();
 				Timer::stop();
 				Timer::end();
+				Menu::current().setActive(5);
 				break;
 			}
 			if (Tboard[choice_x][choice_y] == lowDestinyDots && Dboard[choice_x][choice_y] != '?')
@@ -391,8 +396,7 @@ void Plansza::choose() {
 	noecho();
 }
 
-void Plansza::uncover_bombs()
-{
+void Plansza::uncover_bombs() {
 	for (int it = 0; it < height; it++) {
 		for (int it2 = 0; it2 < width; it2++) {
 			if (Tboard[it][it2] == bomb)
@@ -416,9 +420,9 @@ void Plansza::drawSign(char sign) {
 void Plansza::odslon_pola_wokol(int x, int y) {
 	bool a = true;
 	if ((Dboard[x][y] == mediumDestinyDots || Dboard[x][y] == '?') && Tboard[x][y] != bomb && a) {
-		Dboard[x][y] = Tboard[x][y]; 
+		Dboard[x][y] = Tboard[x][y];
 		licznik--;
-		
+
 		if (Tboard[x][y] != lowDestinyDots) a = false;
 		if (Tboard[x][y] != bomb && Dboard[x][y] != '?' && a) {
 			int zi_p1 = x + 1;

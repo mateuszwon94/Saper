@@ -44,7 +44,7 @@ void Timer::resume() {
 }
 
 void Timer::stop() {
-	//operator++();
+	increment();
 	_isWorking=(false);
 	_isPaused=(false);
 }
@@ -58,12 +58,12 @@ void Timer::run() {
 		prevPos = gameWindow.GetCursorPos();
 		gameWindow.MoveCursor(15 + 2 * 9, 80);
 		gameWindow << "          ";
-		if (stdscr == NULL || _isPaused || !_isWorking) {
+		if (stdscr == NULL || !_isWorking) {
 			_mutex->unlock();
 			this_thread::sleep_for(milliseconds(490));
 			continue;
 		}
-		if (!_isPaused && _isWorking) {
+		if (_isWorking) {
 			increment();
 			gameWindow.MoveCursor(15 + 2 * 9, 80);
 			gameWindow << "Grasz " << second() << "s";

@@ -1,3 +1,11 @@
  wlasny [ 5] [5]0
 wlasny [2] [2]0
+<<<<<<< HEAD
 latwy 0latwy 0latwy 0
+=======
+wlasny [40] [40] 0
+wlasny [40] [40] 0
+wlasny [40] [40] 0
+wlasny [40] [40] 0
+wlasny [40] [40] 0
+>>>>>>> 2989a7ad806851e938ac13c503afa066a5f6e8b3
