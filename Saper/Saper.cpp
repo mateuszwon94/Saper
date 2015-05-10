@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 		[]() { Plansza::setCurrent(new Plansza()); Plansza::getCurrent().run(); },
 		[]() { Plansza::getCurrent().run(); },
 		[]() { },
-		[]() {Help::View(); },// Help::current().View(); },
+		[]() { Help::View(); },
 		[]() { std::exit(0); }
 	},
 	{ 0, 0, 0, 0, 0, 0, 1, 0, 0 }, //wektor specjalnych
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 	menu.RefreshCLB(gameWindow);
 
 	int sign;
-	
+
 	while (true) {
 		console >> sign;
 		menu.Move(sign, console, gameWindow);

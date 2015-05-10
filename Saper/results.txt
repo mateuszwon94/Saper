@@ -1,2 +1,7 @@
  wlasny [ 5] [5]0
 wlasny [2] [2]0
+wlasny [40] [40] 0
+wlasny [40] [40] 0
+wlasny [40] [40] 0
+wlasny [40] [40] 0
+wlasny [40] [40] 0

@@ -7,10 +7,7 @@ Results::Results() {
 }
 void Results::createFile(std::string name) {
 	file.open(name, std::ios::in | std::ios::app);
-	if (file.good() == true)
-	{
-	}
-	else {
+	if (file.good() != true) {
 		problem = true;
 		gameWindow.MoveCursor(1, 97);
 		gameWindow << "Problem z plikiem";

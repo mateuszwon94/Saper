@@ -31,6 +31,7 @@ class Plansza {
 		static void setCLB(std::array<int, 3> values);
 
 		static Plansza& getCurrent() { return *current; }
+		static Plansza* getCurrentPtr() { return current; }
 		static void setCurrent(Plansza& plansza) { current = &plansza; }
 		static void setCurrent(Plansza* plansza) { current = plansza; }
 
