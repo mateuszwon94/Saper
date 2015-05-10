@@ -44,8 +44,6 @@ int main(int argc, char *argv[]) {
 		console >> sign;
 		menu.Move(sign, console, gameWindow);
 	}
-	
-	Timer::end();
 
 	return 0;
 }

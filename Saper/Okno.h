@@ -3,7 +3,7 @@
 #include "Window.h"
 #include "Results.h"
 #define endl "\n"
-#define version "v0.7"
+#define version "v0.9.0 (beta)"
 
 class Okno {
 	public:

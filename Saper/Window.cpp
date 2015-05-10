@@ -70,62 +70,82 @@ void Window::Background(chtype attrybute) {
 }
 
 Window& Window::operator<<(char* text) {
+	Timer::getMutex()->lock();
 	wprintw(_window, text);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(string text) {
+	Timer::getMutex()->lock();
 	wprintw(_window, text.c_str());
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(char sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(wchar_t sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(const unsigned char sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(chtype sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window & Window::operator<<(chtype* sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", *sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(int number) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%d", number);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(unsigned int number) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%d", number);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(double number) {
+	Timer::getMutex()->lock();
 	wprintw(_window,"%f", number);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
@@ -153,7 +173,7 @@ Window& Window::operator<<(MenuEntry& entry) {
 	static ColorPair textColor = ColorPair(COLOR_WHITE, COLOR_BLUE);
 	static ColorPair specialTextColor = ColorPair(COLOR_YELLOW, COLOR_BLUE);
 #endif
-
+	Timer::getMutex()->lock();
 	AttrOn(A_BOLD);
 	if (entry) {
 		for (int i = 0; i < entry.Name().length(); ++i) {
@@ -170,7 +190,7 @@ Window& Window::operator<<(MenuEntry& entry) {
 	} else
 		*(this) << entry.Name();
 	AttrOff(A_BOLD);
-
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 

@@ -31,17 +31,13 @@ Plansza::Plansza(int a, int b, int bomb, Window& win) : gameWindow(win), highlig
 	}
 	if (current != nullptr)
 		delete current;
-	if (timer_thread != nullptr) {
-		Timer::end();
-		timer_thread->join();
-		delete timer_thread;
-	}
+	if (timer_thread == nullptr)
+		timer_thread = new thread([]() {
+			if (Timer::getMutex == nullptr)
+				Timer::setMutex(new recursive_mutex());
+			Timer::run();
+		});
 	Timer::reset();
-	timer_thread = new thread([]() {
-		if (Timer::getMutex == nullptr)
-			Timer::setMutex(new recursive_mutex());
-		Timer::run();
-	});
 	current = this;
 	Menu::current().setActive(5);
 }
@@ -50,6 +46,7 @@ void Plansza::setCLB(std::array<int, 3> values) {
 	wid = values[0];
 	heig = values[1];
 	n_bombs = values[2];
+	Timer::reset();
 }
 
 Plansza::~Plansza() {
@@ -271,7 +268,6 @@ void Plansza::choose() {
 			draw_result();
 			Timer::stop();
 			second = Timer::second();
-			Timer::end();
 			Menu::current().setActive(5);
 			break;
 		}
@@ -378,7 +374,6 @@ void Plansza::choose() {
 				_loose = true;
 				draw_result();
 				Timer::stop();
-				Timer::end();
 				Menu::current().setActive(5);
 				break;
 			}

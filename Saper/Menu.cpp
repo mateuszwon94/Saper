@@ -252,6 +252,7 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				gameWindow << "                 ";
 				gameWindow.MoveCursor(posx + 13, _posColumn - 2);
 				gameWindow << "                  ";
+				Timer::getMutex()->unlock();
 				return;
 			case KEY_ENTER:
 			case '\n':
@@ -304,6 +305,7 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				gameWindow << "                 ";
 				gameWindow.MoveCursor(posx + 13, _posColumn - 2);
 				gameWindow << "                  ";
+				Timer::getMutex()->unlock();
 				return;
 		}
 	}

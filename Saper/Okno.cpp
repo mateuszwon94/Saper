@@ -100,6 +100,24 @@ void Okno::SetBorderColoured(Window& window) {
 	window.MoveCursor(0, 75+21);
 	window << singleHorizontalAndDown;
 
+	window.MoveCursor(3, 75);
+	gameWindow << singleVerticalAndRight;
+	window.MoveCursor(23, 75);
+	gameWindow << singleVerticalAndRight;
+	window.MoveCursor(31, 75);
+	gameWindow << singleVerticalAndRight;
+	window.MoveCursor(40, 75);
+	gameWindow << singleVerticalAndRight;
+
+	window.MoveCursor(3, 75 + 21);
+	gameWindow << singleVerticalAndLeft;
+	window.MoveCursor(23, 75 + 21);
+	gameWindow << singleVerticalAndLeft;
+	window.MoveCursor(31, 75 + 21);
+	gameWindow << singleVerticalAndLeft;
+	window.MoveCursor(40, 75 + 21);
+	gameWindow << singleVerticalAndLeft;
+
 	window.AttrOff(upleft);
 	window.AttrOff(A_BOLD);
 
@@ -127,6 +145,8 @@ void Okno::SetBorderColoured(Window& window) {
 	window << singleHorizontalAndUp;
 	window.MoveCursor(window.lines() - 1, 75+21);
 	window << singleHorizontalAndUp;
+
+	
 
 	window.AttrOff(downright);
 
