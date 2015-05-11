@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); },
 		[]() { Plansza::setCurrent(new Plansza()); Plansza::getCurrent().run(); },
 		[]() { Plansza::getCurrent().run(); },
-		[]() { //RESULTS::VIEW!!!!!},
+		[]() { },//RESULTS::VIEW!!!!!},
 		[]() { Help::View(); },
 		[]() { Timer::end(); std::exit(0); }
 	},
