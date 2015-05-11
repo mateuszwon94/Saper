@@ -265,9 +265,9 @@ void Plansza::choose() {
 	int c;
 	while (!esc) {
 		if (win()) {
-			draw_result();
 			Timer::stop();
 			second = Timer::second();
+			draw_result();
 			Menu::current().setActive(5);
 			break;
 		}

@@ -6,6 +6,7 @@
 #include <list>
 #include <string>
 #include <array>
+#include <thread>
 
 class Window {
 	public:

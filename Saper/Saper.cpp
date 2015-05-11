@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 		[]() { Plansza::getCurrent().run(); },
 		[]() { },
 		[]() { Help::View(); },
-		[]() { std::exit(0); }
+		[]() { Timer::end(); std::exit(0); }
 	},
 	{ 0, 0, 0, 0, 0, 0, 1, 0, 0 }, //wektor specjalnych
 	5, 80); //pozycja
@@ -44,6 +44,8 @@ int main(int argc, char *argv[]) {
 		console >> sign;
 		menu.Move(sign, console, gameWindow);
 	}
+
+	Timer::end();
 
 	return 0;
 }

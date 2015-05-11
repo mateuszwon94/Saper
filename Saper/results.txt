@@ -17,3 +17,7 @@ wlasny [40] [40] 0
 wlasny [40] [40] 0
 wlasny [40] [40] 0
 wlasny [40] [40] 0
+wlasny [40] [40] 0
+wlasny [40] [40] 0
+wlasny [40] [40] 12
+latwy 0

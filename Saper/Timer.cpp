@@ -7,6 +7,7 @@ using namespace std;
 using namespace std::chrono;
 
 recursive_mutex* Timer::_mutex = new recursive_mutex();
+bool Timer::_end = false;
 bool Timer::_isPaused = false;
 bool Timer::_isWorking = false;
 steady_clock::time_point Timer::_start = high_resolution_clock::now();
@@ -48,19 +49,20 @@ void Timer::stop() {
 void Timer::run() {
 	if (_mutex == nullptr) _mutex = new recursive_mutex();
 	while (1) {
+		if (_end) return;
 		if (stdscr == NULL && !_isWorking) {
 			this_thread::sleep_for(milliseconds(490));
 			continue;
 		}
 		_mutex->lock();
-		static array<int, 2> prevPos;
-		prevPos = gameWindow.GetCursorPos();
+		//static array<int, 2> prevPos;
+		//prevPos = gameWindow.GetCursorPos();
 		gameWindow.MoveCursor(15 + 2 * 9, 80);
 		gameWindow << "          ";
 		increment();
 		gameWindow.MoveCursor(15 + 2 * 9, 80);
 		gameWindow << "Grasz " << second() << "s";
-		gameWindow.MoveCursor(prevPos[0], prevPos[1]);
+		//gameWindow.MoveCursor(prevPos[0], prevPos[1]);
 		gameWindow.Refresh();
 		_mutex->unlock();
 		this_thread::sleep_for(milliseconds(490));

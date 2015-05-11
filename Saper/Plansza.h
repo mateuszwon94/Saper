@@ -34,6 +34,7 @@ class Plansza {
 		static Plansza* getCurrentPtr() { return current; }
 		static void setCurrent(Plansza& plansza) { current = &plansza; }
 		static void setCurrent(Plansza* plansza) { current = plansza; }
+		static std::thread* getThread() { return timer_thread; }
 
 		~Plansza();
 

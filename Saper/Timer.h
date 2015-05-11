@@ -2,7 +2,6 @@
 
 #include <chrono>
 #include <mutex>
-#include <atomic>
 #include "Window.h"
 
 class Timer {
@@ -21,8 +20,10 @@ class Timer {
 		static void setMutex(std::recursive_mutex* newMutex) { _mutex = newMutex; }
 		
 		static void run();
+		static void end() { _end = true; }
 
 	private:
+		static bool _end;
 		static bool _isPaused;
 		static bool _isWorking;
 		static std::chrono::milliseconds _time;
