@@ -2,10 +2,12 @@
 #include "Window.h"
 #include <sstream>
 #include <exception>
+#include "Timer.h"
 
 using namespace std;
 
 void Help::View() {
+	Timer::getMutex()->lock();
 	gameWindow.MoveCursor(1, 97);
 	gameWindow.AttrOn(A_BOLD);
 	static ColorPair green = ColorPair(COLOR_GREEN, COLOR_BLACK);
@@ -53,4 +55,5 @@ void Help::View() {
 	gameWindow << "MILEJ ZABAWY :)";
 	gameWindow.AttrOff(green);
 	gameWindow.AttrOff(A_BOLD);
+	Timer::getMutex()->unlock();
 }

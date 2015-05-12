@@ -136,18 +136,22 @@ void Plansza::draw_result() {
 				*(Results::getInstance()) << "trudny " + std::to_string(second);
 			}
 			else {
-				std::string text = "wlasny [" + std::to_string(width) + "] [" + std::to_string(height) + "] " + std::to_string(second) + "\n";
+				std::string text = "wlasny [" + std::to_string(width) + "] [" + std::to_string(height) + "] <" + std::to_string(n_bomb) + ">" + std::to_string(second) + "\n";
 				*(Results::getInstance()) << text;
 			}
 		}
+		Timer::getMutex()->lock();
 		gameWindow.AttrOn(Win);
 		gameWindow << "WYGRALES!!!";
 		gameWindow.AttrOff(Win);
+		Timer::getMutex()->unlock();
 	}
 	else if (!win() && first_clik != 0) {
+		Timer::getMutex()->lock();
 		gameWindow.AttrOn(Loose);
 		gameWindow << "PRZEGRALES!!!";
 		gameWindow.AttrOff(Loose);
+		Timer::getMutex()->unlock();
 	}
 	gameWindow.AttrOff(A_BOLD);
 	Timer::getMutex()->unlock();
