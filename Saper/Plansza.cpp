@@ -127,13 +127,13 @@ void Plansza::draw_result() {
 	if (win() && first_clik != 0) {
 		if (!Results::getInstance()->getProblem()) {
 			if (width == 10 && height == 10) {
-				*(Results::getInstance()) << "latwy " + std::to_string(second);
+				*(Results::getInstance()) << "latwy " + std::to_string(second) + '\n';
 			}
 			else if (width == 15 && height == 15) {
-				*(Results::getInstance()) << "sredni " + std::to_string(second);
+				*(Results::getInstance()) << "sredni " + std::to_string(second) + '\n';
 			}
 			else if (width == 15 && height == 30) {
-				*(Results::getInstance()) << "trudny " + std::to_string(second);
+				*(Results::getInstance()) << "trudny " + std::to_string(second) + '\n';
 			}
 			else {
 				std::string text = "wlasny [" + std::to_string(width) + "] [" + std::to_string(height) + "] <" + std::to_string(n_bomb) + ">" + std::to_string(second) + "\n";

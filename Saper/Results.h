@@ -19,11 +19,12 @@ public:
 	void load();
 	void view();
 private:
+	void viewT();
+	void viewF();
+	bool show;
 	int copy(int first, std::string text);
 	Pair copy(std::string text, int first, int end);
 	void sorting();
-	//bool compare(Pair a, Pair b);
-	//bool compare(int i, int j);
 	std::vector<int> easy;
 	std::vector<int> mild;
 	std::vector<int> hard;
