@@ -23,6 +23,7 @@ class Timer {
 		static void end() { _end = true; }
 
 	private:
+		explicit Timer() = default;
 		static bool _end;
 		static bool _isPaused;
 		static bool _isWorking;

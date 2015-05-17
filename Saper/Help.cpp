@@ -48,7 +48,7 @@ void Help::View() {
 		gameWindow.MoveCursor(20, 97);
 		gameWindow << "[C] [3]                    - poruszanie sie na skos dol-prawo";
 		gameWindow.MoveCursor(21, 97);
-		gameWindow << "[spacja] [S] [5]           - zatwierdzenie i odsloniece pola";
+		gameWindow << "[SPACJA] [S] [5] [ENTER]   - zatwierdzenie i odsloniece pola";
 		gameWindow.MoveCursor(22, 97);
 		gameWindow << "[?]                        - zabezpieczenie pola, flaga";
 		gameWindow.MoveCursor(27, 116);

@@ -19,10 +19,10 @@ int main(int argc, char *argv[]) {
 		"Zamknij"
 	},
 	{ //Vector funkcji
-		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); },
-		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); },
-		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); },
-		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); },
+		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); Menu::current().SetCurrentEntry(4); },
+		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); Menu::current().SetCurrentEntry(4); },
+		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); Menu::current().SetCurrentEntry(4); },
+		[]() { Plansza::setCLB({ Menu::getColumns(), Menu::getLines(), Menu::getBombs() }); Menu::current().SetCurrentEntry(4); },
 		[]() { Plansza::setCurrent(new Plansza()); Plansza::getCurrent().run(); },
 		[]() { Plansza::getCurrent().run(); },
 		[]() { Results::getInstance()->view(); },
