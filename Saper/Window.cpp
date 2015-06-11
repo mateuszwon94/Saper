@@ -216,16 +216,6 @@ array<int, 2>& Window::GetCursorPos() {
 	return pos;
 }
 
-void Window::SetBorder(chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br) {
-	wborder(_window, ls, rs, ts, bs, tl, tr, bl, br);
-	Refresh();
-}
-
-void Window::SetBorder(chtype* ls, chtype* rs, chtype* ts, chtype* bs, chtype* tl, chtype* tr, chtype* bl, chtype* br) {
-	wborder(_window, *ls, *rs, *ts, *bs, *tl, *tr, *bl, *br);
-	Refresh();
-}
-
 void Window::AssumeDefaultColors(int text, int background) {
 	assume_default_colors(text, background);
 	refresh();

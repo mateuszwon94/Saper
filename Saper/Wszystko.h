@@ -11,7 +11,7 @@
 #include <string>
 
 #define endl "\n"
-#define version "v0.7"
+#define version "v0.9"
 
 /*
 ATRYBUTY TEKSTU:

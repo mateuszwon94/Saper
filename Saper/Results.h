@@ -8,6 +8,7 @@ struct Pair {
 	std::string rozmiar;
 	int wynik;
 };
+
 class Results {
 public:
 	Results();
