@@ -1,3 +1,7 @@
 latwy 67
 wlasny [3] [3] <1>12
 latwy 73
+wlasny [9] [9] <1>4
+wlasny [7] [7] <1>2
+wlasny [6] [6] <1>0
+wlasny [9] [11] <1>0

@@ -126,6 +126,8 @@ void Plansza::draw_result() {
 	gameWindow.AttrOn(A_BOLD);
 	if (win() && first_clik != 0) {
 		if (!(Results::getInstance()->getProblem())){
+			Results::getInstance()->file.clear();
+			Results::getInstance()->file.seekg(0, ios::end);
 			if (width == 10 && height == 10) {
 				*(Results::getInstance()) << "latwy " + std::to_string(second) + '\n';
 			}
