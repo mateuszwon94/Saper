@@ -125,7 +125,7 @@ void Plansza::draw_result() {
 	gameWindow.MoveCursor(2, 80);
 	gameWindow.AttrOn(A_BOLD);
 	if (win() && first_clik != 0) {
-		if (!Results::getInstance()->getProblem()) {
+		if (!(Results::getInstance()->getProblem())){
 			if (width == 10 && height == 10) {
 				*(Results::getInstance()) << "latwy " + std::to_string(second) + '\n';
 			}
@@ -139,6 +139,7 @@ void Plansza::draw_result() {
 				std::string text = "wlasny [" + std::to_string(width) + "] [" + std::to_string(height) + "] <" + std::to_string(n_bomb) + ">" + std::to_string(second) + "\n";
 				*(Results::getInstance()) << text;
 			}
+			Results::getInstance()->file.flush();
 		}
 		Timer::getMutex()->lock();
 		gameWindow.AttrOn(Win);

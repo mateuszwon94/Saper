@@ -19,6 +19,7 @@ public:
 	Results& operator<<(std::string text);
 	void load();
 	void view();
+	std::fstream file;
 private:
 	void viewT();
 	void viewF();
@@ -32,7 +33,7 @@ private:
 	std::vector<Pair> own30;
 	std::vector<Pair> own70;
 	std::vector<Pair> own;
-	std::fstream file;
+
 	static Results* _instance;
 	bool problem;
 	//SORTOWANIE

@@ -28,6 +28,8 @@ Results& Results::operator<<(string text) {
 }
 void Results::load() {
 	string text;
+	file.clear();
+	file.seekg(0, ios::beg);
 	while (getline(file, text))
 	{
 		int first = 0;
@@ -192,6 +194,13 @@ void Results::viewT() {
 	Timer::getMutex()->unlock();
 }
 void Results::viewF(){
+	easy.clear();
+	mild.clear();
+	hard.clear();
+	own30.clear();
+	own70.clear();
+	own.clear();
+
 	Timer::getMutex()->lock();
 	for (int i = 0; i < 30;i++)
 	{
