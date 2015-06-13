@@ -89,10 +89,10 @@ Pair Results::copy(string text, int first, int end) {
 	return elem;
 }
 bool compare(Pair a, Pair b) {
-	if (a.wynik > b.wynik) return true; else return false;
+	if (a.wynik < b.wynik) return true; else return false;
 }
 bool compareI(int i, int j) {
-	if (i > j) return true; else return false;
+	if (i < j) return true; else return false;
 }
 void Results::sorting() {
 	sort(easy.begin(), easy.end(), compareI);

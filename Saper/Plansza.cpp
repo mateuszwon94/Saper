@@ -278,8 +278,6 @@ void Plansza::choose() {
 			Menu::current().setActive(5);
 			break;
 		}
-		gameWindow.MoveCursor(2, 97);
-		gameWindow << licznik;
 		noecho();
 		gameWindow >> c;
 		echo();
@@ -392,8 +390,6 @@ void Plansza::choose() {
 			
 			click = false;
 		}
-		gameWindow.MoveCursor(2, 97);
-		gameWindow << "  ";
 		draw();
 	}
 	noecho();

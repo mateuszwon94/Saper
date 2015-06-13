@@ -14,3 +14,4 @@ wlasny [7] [8] <1>3
 wlasny [7] [8] <1>13
 latwy 104
 wlasny [10] [9] <1>0
+wlasny [10] [11] <1>0
