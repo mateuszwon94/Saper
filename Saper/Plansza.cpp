@@ -128,13 +128,13 @@ void Plansza::draw_result() {
 		if (!(Results::getInstance()->getProblem())){
 			Results::getInstance()->file.clear();
 			Results::getInstance()->file.seekg(0, ios::end);
-			if (width == 10 && height == 10) {
+			if (width == 10 && height == 10 && n_bomb == 10) {
 				*(Results::getInstance()) << "latwy " + std::to_string(second) + '\n';
 			}
-			else if (width == 15 && height == 15) {
+			else if (width == 15 && height == 15 && n_bomb == 35) {
 				*(Results::getInstance()) << "sredni " + std::to_string(second) + '\n';
 			}
-			else if (width == 15 && height == 30) {
+			else if (width == 15 && height == 30 && n_bomb == 99) {
 				*(Results::getInstance()) << "trudny " + std::to_string(second) + '\n';
 			}
 			else {
