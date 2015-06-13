@@ -278,6 +278,8 @@ void Plansza::choose() {
 			Menu::current().setActive(5);
 			break;
 		}
+		gameWindow.MoveCursor(2, 97);
+		gameWindow << licznik;
 		noecho();
 		gameWindow >> c;
 		echo();
@@ -355,7 +357,6 @@ void Plansza::choose() {
 			}
 			break;
 		case '?':
-			click = true;
 			if (Dboard[highlight_x][highlight_y] == mediumDestinyDots)
 				Dboard[highlight_x][highlight_y] = '?';
 			else if (Dboard[highlight_x][highlight_y] == '?')
@@ -384,12 +385,15 @@ void Plansza::choose() {
 				Menu::current().setActive(5);
 				break;
 			}
-			if (Tboard[choice_x][choice_y] == lowDestinyDots && Dboard[choice_x][choice_y] != '?')
+			else if (Tboard[choice_x][choice_y] == lowDestinyDots && Dboard[choice_x][choice_y] != '?')
 				odslon_pola_wokol(choice_x, choice_y);
 			else if (Dboard[choice_x][choice_y] != '?')
-				uncover();
+				uncover();	
+			
 			click = false;
 		}
+		gameWindow.MoveCursor(2, 97);
+		gameWindow << "  ";
 		draw();
 	}
 	noecho();
@@ -418,7 +422,7 @@ void Plansza::drawSign(char sign) {
 
 void Plansza::odslon_pola_wokol(int x, int y) {
 	bool a = true;
-	if ((Dboard[x][y] == mediumDestinyDots || Dboard[x][y] == '?') && Tboard[x][y] != bomb && a) {
+	if ((Dboard[x][y] == mediumDestinyDots ) && Tboard[x][y] != bomb && a) {
 		Dboard[x][y] = Tboard[x][y];
 		licznik--;
 
