@@ -17,3 +17,5 @@ wlasny [10] [9] <1>0
 wlasny [10] [11] <1>0
 latwy 102
 wlasny [10] [10] <1>0
+wlasny [2] [5] <1>0
+wlasny [55] [40] <20>9

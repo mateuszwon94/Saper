@@ -48,11 +48,13 @@ class Menu {
 
 		void RefreshCLB(Window& gameWindow);
 
+		void setCLB(int number, int which, std::array<std::string, 3>& svars);
+
 		static Menu& current() { return *_menu; }
 
 	private:
 		std::vector<MenuEntry> _entrys = std::vector<MenuEntry>();
-		int _currEntry = 0;
+		int _currEntry = 4;
 		unsigned int _posLine = 0;
 		unsigned int _posColumn = 0;
 		bool _visible = true;
