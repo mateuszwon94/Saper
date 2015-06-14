@@ -17,6 +17,11 @@ wlasny [10] [9] <1>0
 wlasny [10] [11] <1>0
 latwy 102
 wlasny [10] [10] <1>0
+<<<<<<< HEAD
 wlasny [10] [10] <99>0
 wlasny [2] [5] <1>2
 wlasny [2] [5] <1>0
+=======
+wlasny [2] [5] <1>0
+wlasny [55] [40] <20>9
+>>>>>>> a12c369cf5ff68a36778bbe1065c308e8cb003cd

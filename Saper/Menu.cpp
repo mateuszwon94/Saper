@@ -2,6 +2,7 @@
 #include "Window.h"
 #include "Timer.h"
 #include <cstdarg>
+#include <stdexcept>
 
 using namespace std;
 
@@ -133,7 +134,7 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 	static ColorPair error = ColorPair(COLOR_RED, COLOR_WHITE);
 	static char mult = 158;
 	array<int*, 3> vars = { &_columns, &_lines, &_bombs };
-	array<string, 3> svars = { "0","0","0" };
+	array<string, 3> svars = { "","","" };
 	for (int* var : vars)
 		*var = 0;
 	RefreshCLB(gameWindow);
@@ -159,83 +160,59 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 		console >> sign;
 		switch (sign) {
 			case KEY_UP:
+				gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+				gameWindow << "                   ";
 				if (which == 0) which = 2;
 				else --which;
 				console.MoveCursor(gameWindow.x() + posx - 4 + 2 * which, gameWindow.y() + posy);
 				gameWindow.MoveCursor(posx -4+ 2 * which, posy);
 				break;
 			case KEY_DOWN:
+				gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+				gameWindow << "                   ";
 				if (which == 2) which = 0;
 				else ++which;
 				console.MoveCursor(gameWindow.x() + posx - 4 + 2 * which, gameWindow.y() + posy);
 				gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 				break;
 			case '1':
-				if (svars[which].length() <= 2) {
-					svars[which] += "1";
-					gameWindow << '1';
-				}
+				setCLB(1, which, svars);
 				break;
 			case '2':
-				if (svars[which].length() <= 2) {
-					svars[which] += "2";
-					gameWindow << '2';
-				}
+				setCLB(2, which, svars);
 				break;
 			case '3':
-				if (svars[which].length() <= 2) {
-					svars[which] += "3";
-					gameWindow << '3';
-				}
+				setCLB(3, which, svars);
 				break;
 			case '4':
-				if (svars[which].length() <= 2) {
-					svars[which] += "4";
-					gameWindow << '4';
-				}
+				setCLB(4, which, svars);
 				break;
 			case '5':
-				if (svars[which].length() <= 2) {
-					svars[which] += "5";
-					gameWindow << '5';
-				}
+				setCLB(5, which, svars);
 				break;
 			case '6':
-				if (svars[which].length() <= 2) {
-					svars[which] += "6";
-					gameWindow << '6';
-				}
+				setCLB(6, which, svars);
 				break;
 			case '7':
-				if (svars[which].length() <= 2) {
-					svars[which] += "7";
-					gameWindow << '7';
-				}
+				setCLB(7, which, svars);
 				break;
 			case '8':
-				if (svars[which].length() <= 2) {
-					svars[which] += "8";
-					gameWindow << '8';
-				}
+				setCLB(8, which, svars);
 				break;
 			case '9':
-				if (svars[which].length() <= 2) {
-					svars[which] += "9";
-					gameWindow << '9';
-				}
+				setCLB(9, which, svars);
 				break;
 			case '0':
-				if (svars[which].length() <= 2) {
-					svars[which] += "0";
-					gameWindow << '0';
-				}
+				setCLB(0, which, svars);
 				break;
 			case '\b':
 			case KEY_BACKSPACE:
+				gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+				gameWindow << "                   ";
 				gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 				gameWindow << "    ";
 				gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
-				svars[which] = "0";
+				svars[which] = "";
 				break;
 			case 27:
 				setMode(EASY);
@@ -250,19 +227,19 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				gameWindow << "                 ";
 				gameWindow.MoveCursor(posx + 9, _posColumn - 2);
 				gameWindow << "                 ";
-				gameWindow.MoveCursor(posx + 13, _posColumn - 2);
-				gameWindow << "                  ";
+				gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+				gameWindow << "                   ";
 				Timer::getMutex()->unlock();
 				return;
 			case KEY_ENTER:
 			case '\n':
 			case '\r':
-				for (int i = 0; i < 3; ++i)
-					*vars[i] = stoi(svars[i]);
-				if (0 >= *vars[0] || *vars[0] > 70) {
-					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
-					gameWindow << "                  ";
-					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
+				try {
+					*vars[0] = stoi(svars[0]);
+				} catch (invalid_argument& e) {
+					gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+					gameWindow << "                   ";
+					gameWindow.MoveCursor(posx + 13, _posColumn - 3);
 					gameWindow.AttrOn(A_BOLD);
 					gameWindow.AttrOn(error);
 					gameWindow << "Zla liczba kolumn";
@@ -270,10 +247,14 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 					gameWindow.AttrOff(A_BOLD);
 					gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 					continue;
-				} else if (0 >= *vars[1] || *vars[1] > 40) {
-					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
-					gameWindow << "                  ";
-					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
+				}
+				
+				try {
+					*vars[1] = stoi(svars[1]);
+				} catch (invalid_argument& e) {
+					gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+					gameWindow << "                   ";
+					gameWindow.MoveCursor(posx + 13, _posColumn - 3);
 					gameWindow.AttrOn(A_BOLD);
 					gameWindow.AttrOn(error);
 					gameWindow << "Zla liczba wierszy";
@@ -281,10 +262,14 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 					gameWindow.AttrOff(A_BOLD);
 					gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
 					continue;
-				} else if (0 >= *vars[2] || *vars[2] > *vars[0] * (*vars[1]) - 1) {
-					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
-					gameWindow << "                  ";
-					gameWindow.MoveCursor(posx + 13, _posColumn - 2);
+				}
+
+				try {
+					*vars[2] = stoi(svars[2]);
+				} catch (invalid_argument& e) {
+					gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+					gameWindow << "                   ";
+					gameWindow.MoveCursor(posx + 13, _posColumn - 3);
 					gameWindow.AttrOn(A_BOLD);
 					gameWindow.AttrOn(error);
 					gameWindow << "Zla liczba bomb";
@@ -303,10 +288,18 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				gameWindow << "                 ";
 				gameWindow.MoveCursor(posx + 9, _posColumn - 2);
 				gameWindow << "                 ";
-				gameWindow.MoveCursor(posx + 13, _posColumn - 2);
-				gameWindow << "                  ";
+				gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+				gameWindow << "                   ";
 				Timer::getMutex()->unlock();
 				return;
+			default:
+				gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+				gameWindow.AttrOn(A_BOLD);
+				gameWindow.AttrOn(error);
+				gameWindow << "Nieobslugiwany znak";
+				gameWindow.AttrOff(error);
+				gameWindow.AttrOff(A_BOLD);
+				break;
 		}
 	}
 	Timer::getMutex()->unlock();
@@ -345,4 +338,114 @@ void Menu::RefreshCLB(Window & gameWindow) {
 	else
 		gameWindow << "   ";
 	Timer::getMutex()->unlock();
+}
+
+void Menu::setCLB(int number, int which, array<string, 3>& svars) {
+	static ColorPair error = ColorPair(COLOR_RED, COLOR_WHITE);
+
+	int posx = _posLine + 4 + 2 * _entrys.size() + 2;
+	int posy = _posColumn + 9;
+
+	gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+	gameWindow << "                   ";
+
+	if (which == 2) {
+		int maxBombs;
+		int bombsWanted;
+
+		try {
+			maxBombs = stoi(svars[0]) * stoi(svars[1]) - 1;
+		} catch (invalid_argument& e) {
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow << "                   ";
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow.AttrOn(A_BOLD);
+			gameWindow.AttrOn(error);
+			gameWindow << "Brak kolumn/wierszy";
+			gameWindow.AttrOff(error);
+			gameWindow.AttrOff(A_BOLD);
+			gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
+			return;
+		}
+
+		try {
+			bombsWanted = stoi(svars[2]) * 10 + number;
+		} catch (invalid_argument& e) {
+			bombsWanted = number;
+		}
+
+		if (0 >= bombsWanted || bombsWanted > maxBombs) {
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow << "                   ";
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow.AttrOn(A_BOLD);
+			gameWindow.AttrOn(error);
+			gameWindow << "Zla liczba bomb";
+			gameWindow.AttrOff(error);
+			gameWindow.AttrOff(A_BOLD);
+			gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
+			return;
+		} else {
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow << "                   ";
+			gameWindow.MoveCursor(posx - 4 + 2 * which, posy + svars[2].length());
+			gameWindow << number;
+			svars[2] += to_string(number);
+		}
+	} else if (which == 1) {
+		int maxLines = 40;
+		int linesWanted;
+		try {
+			linesWanted = stoi(svars[1]) * 10 + number;
+		} catch (invalid_argument& e) {
+			linesWanted = number;
+		}
+
+		if (1 >= linesWanted || linesWanted > maxLines) {
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow << "                   ";
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow.AttrOn(A_BOLD);
+			gameWindow.AttrOn(error);
+			gameWindow << "Zla liczba wierszy";
+			gameWindow.AttrOff(error);
+			gameWindow.AttrOff(A_BOLD);
+			gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
+			return;
+		} else {
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow << "                   ";
+			gameWindow.MoveCursor(posx - 4 + 2 * which, posy + svars[1].length());
+			gameWindow << number;
+			svars[1] += to_string(number);
+		}
+	} else if (which == 0) {
+		int maxColumn = 70;
+		int columnsWanted;
+		try {
+			columnsWanted = stoi(svars[0]) * 10 + number;
+		} catch (invalid_argument e) {
+			columnsWanted = number;
+		}
+		
+		if (1 >= columnsWanted || columnsWanted > maxColumn) {
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow << "                   ";
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow.AttrOn(A_BOLD);
+			gameWindow.AttrOn(error);
+			gameWindow << "Zla liczba kolumn";
+			gameWindow.AttrOff(error);
+			gameWindow.AttrOff(A_BOLD);
+			gameWindow.MoveCursor(posx - 4 + 2 * which, posy);
+			return;
+		} else {
+			gameWindow.MoveCursor(posx + 13, _posColumn - 3);
+			gameWindow << "                   ";
+			gameWindow.MoveCursor(posx - 4 + 2 * which, posy + svars[0].length());
+			gameWindow << number;
+			svars[0] += to_string(number);
+		}
+	}
+
 }
