@@ -35,18 +35,15 @@ class Window {
 
 		static void SetCursor(bool isCurorVisible) { curs_set(isCurorVisible); }
 
-		static void AssumeDefaultColors(int text, int background);
 		static void AssumeDefaultColors(ColorPair colorPair);
 
 		static void SetEcho(bool isActive);
 
 		void MoveCursor(int line, int column);
-		void MoveWindow(int line, int column);
 		void AttrOn(chtype attrybute); 
 		void AttrOff(chtype attrybute);
 		void Refresh() { wrefresh(_window); }
 		void Background(chtype attrybute);
-		void SetBorder(char leftSide, char rightSide, char topSide, char bottomSide, char topLeftCorner, char topRightCorner, char bottomLeftCorner, char bottomRightCorner);
 
 		std::array<int, 2>& GetCursorPos();
 

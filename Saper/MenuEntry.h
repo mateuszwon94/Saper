@@ -12,7 +12,6 @@ class MenuEntry {
 		std::string& Name() { return _name; }
 		int Special() { return _special; }
 		operator bool() { return _isActive; }
-		bool IsActive() { return _isActive; }
 		void ChangeActive() { _isActive = !_isActive; }
 
 		void operator()() { _function(); }

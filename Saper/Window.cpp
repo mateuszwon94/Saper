@@ -199,26 +199,11 @@ void Window::MoveCursor(int line, int column) {
 	Refresh();
 }
 
-void Window::MoveWindow(int line, int column) {
-	mvwin(_window, line, column);
-	Refresh();
-}
-
-void Window::SetBorder(char ls, char rs, char ts, char bs, char tl, char tr, char bl, char br) {
-	wborder(_window, (chtype)ls, (chtype)rs, (chtype)ts, (chtype)bs, (chtype)tl, (chtype)tr, (chtype)bl, (chtype)br);
-	Refresh();
-}
-
 array<int, 2>& Window::GetCursorPos() {
 	int x, y;
 	getyx(_window, y, x);
 	static array<int, 2> pos = { x,y };
 	return pos;
-}
-
-void Window::AssumeDefaultColors(int text, int background) {
-	assume_default_colors(text, background);
-	refresh();
 }
 
 void Window::AssumeDefaultColors(ColorPair colorPair) {

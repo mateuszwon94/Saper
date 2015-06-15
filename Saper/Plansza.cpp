@@ -385,7 +385,7 @@ void Plansza::choose() {
 			}
 			else if (Tboard[choice_x][choice_y] == lowDestinyDots && Dboard[choice_x][choice_y] != '?')
 				odslon_pola_wokol(choice_x, choice_y);
-			else if (Dboard[choice_x][choice_y] != '?')
+			else if (Dboard[choice_x][choice_y] == mediumDestinyDots)
 				uncover();	
 			
 			click = false;

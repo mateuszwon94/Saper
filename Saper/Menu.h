@@ -19,11 +19,9 @@ class Menu {
 		MenuEntry& operator[](unsigned int count) { return _entrys[count]; }
 		void setActive(unsigned int i);
 
-		int CurrentEntry() { return _currEntry; }
 		size_t size() { return _entrys.size(); }
 		unsigned int PosLine() { return _posLine; }
 		unsigned int PosColumn() { return _posColumn; }
-		bool IsVisible() { return _visible; }
 
 		void SetCurrentEntry(int which) { _currEntry = which; }
 		void MoveUp();
@@ -38,10 +36,6 @@ class Menu {
 		static int getLines() { return _lines; }
 		static int getBombs() { return _bombs; }
 
-		static void setColumns(int columns) { _columns = columns; }
-		static void setLines(int lines) { _lines = lines; }
-		static void setBombs(int bombs) { _bombs = bombs; }
-
 		void setCustmMode(Window& console, Window & gameWindow);
 
 		void setMode(std::array<int, 3> mode);
@@ -53,6 +47,8 @@ class Menu {
 		static Menu& current() { return *_menu; }
 
 	private:
+		int CurrentEntry() { return _currEntry; }
+
 		std::vector<MenuEntry> _entrys = std::vector<MenuEntry>();
 		int _currEntry = 4;
 		unsigned int _posLine = 0;

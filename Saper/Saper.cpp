@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 	},
 	{ 0, 0, 0, 0, 0, 0, 1, 0, 0 }, //wektor specjalnych
 	5, 80); //pozycja
-
+	//Plansza::setCLB({ 10,10,10 });
 	gameWindow << menu;
 
 	menu.MoveCursor(console, gameWindow);

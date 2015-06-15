@@ -17,24 +17,14 @@ class Plansza {
 		bool win() { if (licznik == 0) return true; else return false; }
 		int getLicznik() { return licznik; }
 
-		static int getWidth() { return wid; }
-		static int getHeight() { return heig; }
 		static int getColumns() { return wid; }
 		static int getLines() { return heig; }
 		static int getBombs() { return n_bombs; }
 
-		static void setWidth(int width) { wid = width; }
-		static void setHeight(int heigth) { heig = heigth; }
-		static void setColumns(int columns) { wid = columns; }
-		static void setLines(int lines) { heig = lines; }
-		static void setBombs(int bombs) { n_bombs = bombs; }
 		static void setCLB(std::array<int, 3> values);
 
 		static Plansza& getCurrent() { return *current; }
-		static Plansza* getCurrentPtr() { return current; }
-		static void setCurrent(Plansza& plansza) { current = &plansza; }
 		static void setCurrent(Plansza* plansza) { current = plansza; }
-		static std::thread* getThread() { return timer_thread; }
 
 		~Plansza();
 
