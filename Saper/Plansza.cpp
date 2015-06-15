@@ -372,7 +372,7 @@ void Plansza::choose() {
 				Timer::start();
 			}
 			if (Tboard[choice_x][choice_y] == bomb && Dboard[choice_x][choice_y] != '?') {
-				uncover();
+				Dboard[choice_x][choice_y] = Tboard[choice_x][choice_y];
 				uncover_bombs();
 				gameWindow.AttrOn(A_BOLD);
 				draw();
