@@ -83,7 +83,6 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Help.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="MenuEntry.cpp" />
     <ClCompile Include="Okno.cpp" />
     <ClCompile Include="Plansza.cpp" />
     <ClCompile Include="Results.cpp" />

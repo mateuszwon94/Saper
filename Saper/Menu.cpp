@@ -12,8 +12,8 @@ array<int, 3> EASY = { 10,10,10 };
 array<int, 3> NORMAL = { 15,15,35 };
 array<int, 3> HARD = { 30,15,99 };
 
-int Menu::_columns = 8;
-int Menu::_lines = 8;
+int Menu::_columns = 10;
+int Menu::_lines = 10;
 int Menu::_bombs = 10;
 
 Menu::Menu(std::vector<std::string> entrys, std::vector<void(*)()> functions, std::vector<int> specials, unsigned int line, unsigned int column, bool visibility) {
@@ -27,8 +27,7 @@ Menu::Menu(std::vector<std::string> entrys, std::vector<void(*)()> functions, st
 		else
 			_entrys.push_back(MenuEntry(entrys[i], functions[i], specials[i]));
 	}
-		
-		
+
 	_posLine = line;
 	_posColumn = column;
 	_visible = visibility;
@@ -57,7 +56,7 @@ void Menu::MoveDown() {
 		++_currEntry;
 }
 
-void Menu::Move(int sign, Window& console, Window& gameWindow) {
+void Menu::Move(int sign) {
 	bool isSet = false;
 	switch (sign) {
 		case 27:
@@ -80,7 +79,7 @@ void Menu::Move(int sign, Window& console, Window& gameWindow) {
 		case '\n':
 		case '\r':
 		case ' ':
-			CallCurrentFunction(console,gameWindow);
+			CallCurrentFunction();
 			isSet = true;
 			break;
 	}
@@ -96,40 +95,40 @@ void Menu::Move(int sign, Window& console, Window& gameWindow) {
 		}
 	}
 
-	MoveCursor(console, gameWindow);
+	MoveCursor();
 }
 
-void Menu::MoveCursor(Window& console, Window& gameWindow) {
+void Menu::MoveCursor() {
 	Timer::getMutex()->lock();
 	console.MoveCursor(gameWindow.x() + PosLine() + CurrentEntry() * 2, gameWindow.y() + PosColumn() + _entrys[CurrentEntry()].Special() +3);
 	Timer::getMutex()->unlock();
 }
 
-void Menu::CallCurrentFunction(Window& console, Window& gameWindow) {
+void Menu::CallCurrentFunction() {
 	switch (_currEntry) {
 		case 0:
 			setMode(EASY);
-			RefreshCLB(gameWindow);
+			RefreshCLB();
 			break;
 		case 1:
 			setMode(NORMAL);
-			RefreshCLB(gameWindow);
+			RefreshCLB();
 			break;
 		case 2:
 			setMode(HARD);
-			RefreshCLB(gameWindow);
+			RefreshCLB();
 			break;
 		case 3:
-			setCustmMode(console,gameWindow);
+			setCustmMode();
 			setMode({_columns,_lines,_bombs });
-			RefreshCLB(gameWindow);
+			RefreshCLB();
 			break;
 
 	}
 	_entrys[_currEntry]();
 }
 
-void Menu::setCustmMode(Window & console, Window & gameWindow) {
+void Menu::setCustmMode() {
 	Timer::getMutex()->lock();
 	static ColorPair error = ColorPair(COLOR_RED, COLOR_WHITE);
 	static char mult = 158;
@@ -137,7 +136,7 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 	array<string, 3> svars = { "","","" };
 	for (int* var : vars)
 		*var = 0;
-	RefreshCLB(gameWindow);
+	RefreshCLB();
 	int which = 0;
 	int posx = _posLine + 4 + 2 * _entrys.size() + 2;
 	int posy = _posColumn + 9;
@@ -216,7 +215,7 @@ void Menu::setCustmMode(Window & console, Window & gameWindow) {
 				break;
 			case 27:
 				setMode(EASY);
-				RefreshCLB(gameWindow);
+				RefreshCLB();
 				gameWindow.MoveCursor(posx + 4, _posColumn - 2);
 				gameWindow << "                 ";
 				gameWindow.MoveCursor(posx + 5, _posColumn - 2);
@@ -311,7 +310,7 @@ void Menu::setMode(std::array<int, 3> mode) {
 	_bombs = mode[2];
 }
 
-void Menu::RefreshCLB(Window & gameWindow) {
+void Menu::RefreshCLB() {
 	Timer::getMutex()->lock();
 	gameWindow.MoveCursor(_posLine + 2 * _entrys.size() + 2, _posColumn+9);
 	gameWindow << "   ";

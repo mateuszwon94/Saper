@@ -3,11 +3,27 @@
 #include "Window.h"
 #include "Results.h"
 #define endl "\n"
-#define version "v0.9.0 (beta)"
+#define version "v1.0.0"
 
+/*!
+*  \brief     Klasa pomocnicza
+*  \details   Jest to klasa pomocnicza zajmujaca sie inicjalizacja wszystkich okien i odpowiednim ich przygotowaniem do wyswietlenia
+*  \author    Mateusz Winiarski
+*  \version   v1.0
+*  \date      2015
+*/
 class Okno {
 	public:
+		/*!
+		*  \brief     Funkcja inicjalizuje wiele potrzebnych zmienych
+		*  \details   Stworzona w calu zawarcia inicjalizacji potrzebnych w pliku Saper.cpp w jednym miejscu
+		*/
 		static void Initialize();
+
+		/*!
+		*  \brief     Ustawia obramowanie dla wskazanego okna
+		*  @param window Okno dla ktorego maja byc ustawione obramowania
+		*/
 		static void SetBorderColoured(Window& window);
 };
 

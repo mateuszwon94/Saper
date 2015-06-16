@@ -31,18 +31,18 @@ int main(int argc, char *argv[]) {
 	},
 	{ 0, 0, 0, 0, 0, 0, 1, 0, 0 }, //wektor specjalnych
 	5, 80); //pozycja
-	//Plansza::setCLB({ 10,10,10 });
+
 	gameWindow << menu;
 
-	menu.MoveCursor(console, gameWindow);
-	menu.CallCurrentFunction(console,gameWindow);
-	menu.RefreshCLB(gameWindow);
+	menu.MoveCursor();
+	menu.CallCurrentFunction();
+	menu.RefreshCLB();
 
 	int sign;
 
 	while (true) {
 		console >> sign;
-		menu.Move(sign, console, gameWindow);
+		menu.Move(sign);
 	}
 
 	Timer::end();

@@ -1,0 +1,70 @@
+\hypertarget{class_timer}{}\section{Timer Class Reference}
+\label{class_timer}\index{Timer@{Timer}}
+
+
+Klasa odpowiedzialna za licznik czasu.  
+
+
+
+
+{\ttfamily \#include $<$Timer.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_timer_a9020542d73357a4eef512eefaf57524b}{}static void {\bfseries reset} ()\label{class_timer_a9020542d73357a4eef512eefaf57524b}
+
+\item 
+\hypertarget{class_timer_a3a8b5272198d029779dc9302a54305a8}{}static void {\bfseries start} ()\label{class_timer_a3a8b5272198d029779dc9302a54305a8}
+
+\item 
+\hypertarget{class_timer_aa3f7871196bb56202af2bc982bfbfff6}{}static void {\bfseries restart} ()\label{class_timer_aa3f7871196bb56202af2bc982bfbfff6}
+
+\item 
+\hypertarget{class_timer_a4ac55a73bb3431db9d4d2fd70ae9a2e8}{}static void {\bfseries resume} ()\label{class_timer_a4ac55a73bb3431db9d4d2fd70ae9a2e8}
+
+\item 
+\hypertarget{class_timer_ab2a6e0b9d6b9c93c06c89ff6dd6291c1}{}static void {\bfseries pause} ()\label{class_timer_ab2a6e0b9d6b9c93c06c89ff6dd6291c1}
+
+\item 
+\hypertarget{class_timer_a63f0eb44b27402196590a03781515dba}{}static void {\bfseries stop} ()\label{class_timer_a63f0eb44b27402196590a03781515dba}
+
+\item 
+\hypertarget{class_timer_a2e2f6c73ec2eefe72042f3c52a632806}{}static int {\bfseries second} ()\label{class_timer_a2e2f6c73ec2eefe72042f3c52a632806}
+
+\item 
+\hypertarget{class_timer_a6998144d90d80227e9dd7451556f5ff6}{}static std\+::recursive\+\_\+mutex $\ast$ {\bfseries get\+Mutex} ()\label{class_timer_a6998144d90d80227e9dd7451556f5ff6}
+
+\item 
+\hypertarget{class_timer_a963623dd91d8379685d31add61ae54af}{}static void {\bfseries set\+Mutex} (std\+::recursive\+\_\+mutex $\ast$new\+Mutex)\label{class_timer_a963623dd91d8379685d31add61ae54af}
+
+\item 
+\hypertarget{class_timer_a1323444ebd7f2c1407518a03a193b5f4}{}static void {\bfseries run} ()\label{class_timer_a1323444ebd7f2c1407518a03a193b5f4}
+
+\item 
+\hypertarget{class_timer_af8c9d9213ff483fb73c82132c9b097ff}{}static void {\bfseries end} ()\label{class_timer_af8c9d9213ff483fb73c82132c9b097ff}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Klasa odpowiedzialna za licznik czasu. 
+
+Jest to klasa zajmujaca sie mozliwosciami licznika czasu. Moze go uruchomic, spauzowac, wznowic czy zrestartowac oraz podac czas w sekundach. \begin{DoxyAuthor}{Author}
+Mateusz Winiarski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+v1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2015 
+\end{DoxyDate}
+\begin{DoxyWarning}{Warning}
+Moze mylic sie przy dluzszych okresach czasu co wyniki z narzutu wywolywania metod. 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Timer.\+h\item 
+Timer.\+cpp\end{DoxyCompactItemize}
