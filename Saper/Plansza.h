@@ -8,7 +8,7 @@
 #include <thread>
 /*!
 *  \brief     Klasa odpowiadajaca za logike gry i wyswietlanie Planszy
-*  \details   Jest to klasa odpowiadajaca za logike gry, wyswietlanie planszy, sprawdzanie stanu gry ogólnie za gre.
+*  \details   Jest to klasa odpowiadajaca za logike gry, wyswietlanie planszy, sprawdzanie stanu gry ogolnie za gre.
 *  \author    Magdalena Wieczorek
 *  \version   v1.0
 *  \date      2015
@@ -32,8 +32,8 @@ class Plansza {
 		*/
 		bool isPause() { return esc; }
 		/*!
-		*  \brief     Funkcja odpowiedzialna za gólówna petle gry
-		*  \details Glówna petla gry - logika, sprawdzanie eventów rysowanie. 
+		*  \brief     Funkcja odpowiedzialna za glowna petle gry
+		*  \details Glowna petla gry - logika, sprawdzanie eventow rysowanie. 
 		*/
 		void run();
 		/*!

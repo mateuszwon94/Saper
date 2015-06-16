@@ -4,7 +4,7 @@
 #include <vector>
 /*!
 *  \brief     Klasa Wyswietlajaca tekst pomocy
-*  \details   Jest to klasa wyœwietlajaca instrukjce sterowania i gry w Sapera
+*  \details   Jest to klasa wyswietlajaca instrukjce sterowania i gry w Sapera
 *  \author    Magdalena Wieczorek
 *  \version   v1.0
 *  \date      2015

@@ -9,7 +9,7 @@ struct Pair {
 	int wynik;
 };
 /*!
-*  \brief     Klasa zajmujaca sie zapisem i wyswietlaniem wyników
+*  \brief     Klasa zajmujaca sie zapisem i wyswietlaniem wynikow
 *  \details   Jest to klasa zajmujaca sie zapisem wyników do pliku, wyswietlaniem w kolejnosci od najlepszego z podzialem na poziomy trudnosci. Jest ona singletonem
 *  \author    Magdalena Wieczorek
 *  \version   v1.0
