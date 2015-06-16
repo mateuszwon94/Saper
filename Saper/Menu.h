@@ -80,7 +80,7 @@ class Menu {
 		*  \brief     Funkcja ustawiajaca obecnie aktywne MenuEntry na zadane
 		*  @param which Ktore MenuEntry ma byc ustawione na aktywne
 		*/
-		void SetCurrentEntry(int which) { _currEntry = which; }
+		void SetCurrentEntry(int which);
 
 		/*!
 		*  \brief     Funkcja zajmujaca sie przesuwaniem po Menu

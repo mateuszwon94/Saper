@@ -37,6 +37,8 @@ int main(int argc, char *argv[]) {
 	menu.MoveCursor();
 	menu.CallCurrentFunction();
 	menu.RefreshCLB();
+	menu.SetCurrentEntry(4);
+	menu.MoveCursor();
 
 	int sign;
 

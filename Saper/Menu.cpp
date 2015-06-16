@@ -37,6 +37,11 @@ Menu::Menu(std::vector<std::string> entrys, std::vector<void(*)()> functions, st
 	_menu = this;
 }
 
+void Menu::SetCurrentEntry(int which) { 
+	if (_entrys[which])
+		_currEntry = which;
+}
+
 void Menu::setActive(unsigned int i) {
 	_entrys[i].ChangeActive();
 	gameWindow << *this;
@@ -59,6 +64,42 @@ void Menu::MoveDown() {
 void Menu::Move(int sign) {
 	bool isSet = false;
 	switch (sign) {
+		case '1':
+			SetCurrentEntry(0);
+			isSet = true;
+			break;
+		case '2':
+			SetCurrentEntry(1);
+			isSet = true;
+			break;
+		case '3':
+			SetCurrentEntry(2);
+			isSet = true;
+			break;
+		case '4':
+			SetCurrentEntry(3);
+			isSet = true;
+			break;
+		case '5':
+			SetCurrentEntry(4);
+			isSet = true;
+			break;
+		case '6':
+			SetCurrentEntry(5);
+			isSet = true;
+			break;
+		case '7':
+			SetCurrentEntry(6);
+			isSet = true;
+			break;
+		case '8':
+			SetCurrentEntry(7);
+			isSet = true;
+			break;
+		case '9':
+			SetCurrentEntry(8);
+			isSet = true;
+			break;
 		case 27:
 			if (_currEntry == _entrys.size() - 1) _entrys[_currEntry]();
 			SetCurrentEntry(_entrys.size() - 1);
@@ -125,7 +166,8 @@ void Menu::CallCurrentFunction() {
 			break;
 
 	}
-	_entrys[_currEntry]();
+	if (_entrys[_currEntry])
+		_entrys[_currEntry]();
 }
 
 void Menu::setCustmMode() {

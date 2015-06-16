@@ -50,7 +50,7 @@ void Timer::run() {
 	if (_mutex == nullptr) _mutex = new recursive_mutex();
 	while (1) {
 		if (_end) return;
-		if (stdscr == NULL || !_isWorking) {
+		if (stdscr == NULL || !_isWorking || _isPaused) {
 			this_thread::sleep_for(milliseconds(490));
 			continue;
 		}
