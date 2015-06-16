@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['refresh',['Refresh',['../class_window.html#ae2408e16042a51630a490c2831638a4c',1,'Window']]],
-  ['refreshclb',['RefreshCLB',['../class_menu.html#a1166aeaa1849a13d80291ea0a734415f',1,'Menu']]],
-  ['resize',['Resize',['../class_window.html#af895612c78b06c729eb19428cd323483',1,'Window']]]
+  ['pause',['pause',['../class_timer.html#ab2a6e0b9d6b9c93c06c89ff6dd6291c1',1,'Timer']]],
+  ['poscolumn',['PosColumn',['../class_menu.html#a206bfce5dab4f8170bfd3e22ef47613b',1,'Menu']]],
+  ['posline',['PosLine',['../class_menu.html#a5cd3d248fdd22d045b7689cb8b558a5c',1,'Menu']]]
 ];

@@ -91,27 +91,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_menu_entry.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_menu_entry.html">MenuEntry</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="class_menu_entry.html">MenuEntry</a>(std::string name, action <span class="keyword">function</span>, <span class="keywordtype">int</span> special = 0, <span class="keywordtype">bool</span> isActive = <span class="keyword">true</span>) : _name(name), _special(special), _isActive(isActive), _function(<span class="keyword">function</span>) { }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">operator</span> std::string() { <span class="keywordflow">return</span> _name; }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::string&amp; Name() { <span class="keywordflow">return</span> _name; }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">int</span> Special() { <span class="keywordflow">return</span> _special; }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">operator</span> bool() { <span class="keywordflow">return</span> _isActive; }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> ChangeActive() { _isActive = !_isActive; }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> operator()() { _function(); }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::string _name;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">int</span> _special = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">bool</span> _isActive;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        void(*_function)();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_menu_entry.html#a400100dee10c9aab7af558f854120fbd">   23</a></span>&#160;        <a class="code" href="class_menu_entry.html#a400100dee10c9aab7af558f854120fbd">MenuEntry</a>(std::string name, action <span class="keyword">function</span>, <span class="keywordtype">int</span> special = 0, <span class="keywordtype">bool</span> isActive = <span class="keyword">true</span>) : _name(name), _special(special), _isActive(isActive), _function(function) { }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_menu_entry.html#a94ce04cb1d1a97506416ab206665ed22">   29</a></span>&#160;        std::string&amp; <a class="code" href="class_menu_entry.html#a94ce04cb1d1a97506416ab206665ed22">Name</a>() { <span class="keywordflow">return</span> _name; }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_menu_entry.html#a8c3eb591798f523d010c21cbf8f2d6f7">   35</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_menu_entry.html#a8c3eb591798f523d010c21cbf8f2d6f7">Special</a>() { <span class="keywordflow">return</span> _special; }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_menu_entry.html#adb576d6c52b0065a9a3e0f200799ab19">   41</a></span>&#160;        <span class="keyword">operator</span> bool() { <span class="keywordflow">return</span> _isActive; }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_menu_entry.html#a2e8401a0092bd024580cd4f3c17820f9">   46</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_menu_entry.html#a2e8401a0092bd024580cd4f3c17820f9">ChangeActive</a>() { _isActive = !_isActive; }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_menu_entry.html#a885d1c55d01b54a3071b477ff142a678">   51</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_menu_entry.html#a885d1c55d01b54a3071b477ff142a678">operator()</a>() { _function(); }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::string _name;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">int</span> _special = 0;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">bool</span> _isActive;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        void(*_function)();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="ttc" id="class_menu_entry_html_a885d1c55d01b54a3071b477ff142a678"><div class="ttname"><a href="class_menu_entry.html#a885d1c55d01b54a3071b477ff142a678">MenuEntry::operator()</a></div><div class="ttdeci">void operator()()</div><div class="ttdoc">Funkcja wolajaca funkcje ktora jest przypisana do konkretnego MenuEntry. </div><div class="ttdef"><b>Definition:</b> MenuEntry.h:51</div></div>
+<div class="ttc" id="class_menu_entry_html_a2e8401a0092bd024580cd4f3c17820f9"><div class="ttname"><a href="class_menu_entry.html#a2e8401a0092bd024580cd4f3c17820f9">MenuEntry::ChangeActive</a></div><div class="ttdeci">void ChangeActive()</div><div class="ttdoc">Funkcja zmieniajaca aktywnosc danego MenuEntry. </div><div class="ttdef"><b>Definition:</b> MenuEntry.h:46</div></div>
+<div class="ttc" id="class_menu_entry_html_a400100dee10c9aab7af558f854120fbd"><div class="ttname"><a href="class_menu_entry.html#a400100dee10c9aab7af558f854120fbd">MenuEntry::MenuEntry</a></div><div class="ttdeci">MenuEntry(std::string name, action function, int special=0, bool isActive=true)</div><div class="ttdoc">Konstruktor klasy MenuEntry. </div><div class="ttdef"><b>Definition:</b> MenuEntry.h:23</div></div>
+<div class="ttc" id="class_menu_entry_html_a8c3eb591798f523d010c21cbf8f2d6f7"><div class="ttname"><a href="class_menu_entry.html#a8c3eb591798f523d010c21cbf8f2d6f7">MenuEntry::Special</a></div><div class="ttdeci">int Special()</div><div class="ttdoc">Funkcja zwracajace indeks znaku specjalnego. </div><div class="ttdef"><b>Definition:</b> MenuEntry.h:35</div></div>
 <div class="ttc" id="class_menu_entry_html"><div class="ttname"><a href="class_menu_entry.html">MenuEntry</a></div><div class="ttdoc">Klasa obslugujaca pojedyncza pozycje w menu. </div><div class="ttdef"><b>Definition:</b> MenuEntry.h:14</div></div>
+<div class="ttc" id="class_menu_entry_html_a94ce04cb1d1a97506416ab206665ed22"><div class="ttname"><a href="class_menu_entry.html#a94ce04cb1d1a97506416ab206665ed22">MenuEntry::Name</a></div><div class="ttdeci">std::string &amp; Name()</div><div class="ttdoc">Funkcja zwracajace napis reprezentujacy przycisk. </div><div class="ttdef"><b>Definition:</b> MenuEntry.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 16 2015 02:15:40 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 16 2015 02:35:02 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

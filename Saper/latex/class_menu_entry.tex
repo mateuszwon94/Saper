@@ -12,27 +12,20 @@ Klasa obslugujaca pojedyncza pozycje w menu.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_menu_entry_a400100dee10c9aab7af558f854120fbd}{}{\bfseries Menu\+Entry} (std\+::string name, action function, int special=0, bool is\+Active=true)\label{class_menu_entry_a400100dee10c9aab7af558f854120fbd}
+\hyperlink{class_menu_entry_a400100dee10c9aab7af558f854120fbd}{Menu\+Entry} (std\+::string name, action function, int special=0, bool is\+Active=true)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \hyperlink{class_menu_entry}{Menu\+Entry}. \end{DoxyCompactList}\item 
+std\+::string \& \hyperlink{class_menu_entry_a94ce04cb1d1a97506416ab206665ed22}{Name} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajace napis reprezentujacy przycisk. \end{DoxyCompactList}\item 
+int \hyperlink{class_menu_entry_a8c3eb591798f523d010c21cbf8f2d6f7}{Special} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajace indeks znaku specjalnego. \end{DoxyCompactList}\item 
+\hyperlink{class_menu_entry_adb576d6c52b0065a9a3e0f200799ab19}{operator bool} ()
+\begin{DoxyCompactList}\small\item\em Funkcja konwertujaca \hyperlink{class_menu_entry}{Menu\+Entry} na zmienna typu bool. \end{DoxyCompactList}\item 
+\hypertarget{class_menu_entry_a2e8401a0092bd024580cd4f3c17820f9}{}void \hyperlink{class_menu_entry_a2e8401a0092bd024580cd4f3c17820f9}{Change\+Active} ()\label{class_menu_entry_a2e8401a0092bd024580cd4f3c17820f9}
 
-\item 
-\hypertarget{class_menu_entry_a8314e960e8670d18d703984b49aa1675}{}{\bfseries operator std\+::string} ()\label{class_menu_entry_a8314e960e8670d18d703984b49aa1675}
+\begin{DoxyCompactList}\small\item\em Funkcja zmieniajaca aktywnosc danego \hyperlink{class_menu_entry}{Menu\+Entry}. \end{DoxyCompactList}\item 
+\hypertarget{class_menu_entry_a885d1c55d01b54a3071b477ff142a678}{}void \hyperlink{class_menu_entry_a885d1c55d01b54a3071b477ff142a678}{operator()} ()\label{class_menu_entry_a885d1c55d01b54a3071b477ff142a678}
 
-\item 
-\hypertarget{class_menu_entry_a94ce04cb1d1a97506416ab206665ed22}{}std\+::string \& {\bfseries Name} ()\label{class_menu_entry_a94ce04cb1d1a97506416ab206665ed22}
-
-\item 
-\hypertarget{class_menu_entry_a8c3eb591798f523d010c21cbf8f2d6f7}{}int {\bfseries Special} ()\label{class_menu_entry_a8c3eb591798f523d010c21cbf8f2d6f7}
-
-\item 
-\hypertarget{class_menu_entry_adb576d6c52b0065a9a3e0f200799ab19}{}{\bfseries operator bool} ()\label{class_menu_entry_adb576d6c52b0065a9a3e0f200799ab19}
-
-\item 
-\hypertarget{class_menu_entry_a2e8401a0092bd024580cd4f3c17820f9}{}void {\bfseries Change\+Active} ()\label{class_menu_entry_a2e8401a0092bd024580cd4f3c17820f9}
-
-\item 
-\hypertarget{class_menu_entry_a885d1c55d01b54a3071b477ff142a678}{}void {\bfseries operator()} ()\label{class_menu_entry_a885d1c55d01b54a3071b477ff142a678}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Funkcja wolajaca funkcje ktora jest przypisana do konkretnego \hyperlink{class_menu_entry}{Menu\+Entry}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -47,6 +40,79 @@ v1.\+0
 \begin{DoxyDate}{Date}
 2015 
 \end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_menu_entry_a400100dee10c9aab7af558f854120fbd}{}\index{Menu\+Entry@{Menu\+Entry}!Menu\+Entry@{Menu\+Entry}}
+\index{Menu\+Entry@{Menu\+Entry}!Menu\+Entry@{Menu\+Entry}}
+\subsubsection[{Menu\+Entry}]{\setlength{\rightskip}{0pt plus 5cm}Menu\+Entry\+::\+Menu\+Entry (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{action}]{function, }
+\item[{int}]{special = {\ttfamily 0}, }
+\item[{bool}]{is\+Active = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_entry_a400100dee10c9aab7af558f854120fbd}
+
+
+Konstruktor klasy \hyperlink{class_menu_entry}{Menu\+Entry}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & String zawierajacy opis przycisku \\
+\hline
+{\em function} & Funkcja przypisana przyciskowi \\
+\hline
+{\em special} & Zmienna zawierajaca ktore z liter w danym wpisie jest wyrozniona \\
+\hline
+{\em is\+Active} & Zmienna reprezentujaca czy mozna wejsc w interakcje z danym przyciskiem \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_menu_entry_a94ce04cb1d1a97506416ab206665ed22}{}\index{Menu\+Entry@{Menu\+Entry}!Name@{Name}}
+\index{Name@{Name}!Menu\+Entry@{Menu\+Entry}}
+\subsubsection[{Name}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string\& Menu\+Entry\+::\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_entry_a94ce04cb1d1a97506416ab206665ed22}
+
+
+Funkcja zwracajace napis reprezentujacy przycisk. 
+
+\begin{DoxyReturn}{Returns}
+Napis reprezentujacy przycisk 
+\end{DoxyReturn}
+\hypertarget{class_menu_entry_adb576d6c52b0065a9a3e0f200799ab19}{}\index{Menu\+Entry@{Menu\+Entry}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!Menu\+Entry@{Menu\+Entry}}
+\subsubsection[{operator bool}]{\setlength{\rightskip}{0pt plus 5cm}Menu\+Entry\+::operator bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_entry_adb576d6c52b0065a9a3e0f200799ab19}
+
+
+Funkcja konwertujaca \hyperlink{class_menu_entry}{Menu\+Entry} na zmienna typu bool. 
+
+\begin{DoxyReturn}{Returns}
+Czy \hyperlink{class_menu_entry}{Menu\+Entry} jest aktywne 
+\end{DoxyReturn}
+\hypertarget{class_menu_entry_a8c3eb591798f523d010c21cbf8f2d6f7}{}\index{Menu\+Entry@{Menu\+Entry}!Special@{Special}}
+\index{Special@{Special}!Menu\+Entry@{Menu\+Entry}}
+\subsubsection[{Special}]{\setlength{\rightskip}{0pt plus 5cm}int Menu\+Entry\+::\+Special (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_entry_a8c3eb591798f523d010c21cbf8f2d6f7}
+
+
+Funkcja zwracajace indeks znaku specjalnego. 
+
+\begin{DoxyReturn}{Returns}
+Indeks znaku specjalnego 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

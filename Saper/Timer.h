@@ -14,20 +14,62 @@
 */
 class Timer {
 	public:
-
+		/*!
+		*  \brief     Funkcja startujaca licznik
+		*/
 		static void start();
+
+		/*!
+		*  \brief     Funkcja zatrzymujaca licznik
+		*/
 		static void pause() { _isPaused = (true); }
+
+		/*!
+		*  \brief     Funkcja wznawiajaca prace licznika
+		*/
 		static void resume();
+
+		/*!
+		*  \brief     Funkcja konczaca prace licznika
+		*/
 		static void stop();
+
+		/*!
+		*  \brief     Funkcja restartujaca prace licznika
+		*/
 		static void restart();
+
+		/*!
+		*  \brief     Funkcja resetujaca ustawienia licznika
+		*/
 		static void reset();
 
+		/*!
+		*  \brief     Funkcja obliczajaca przez ile sekund pracowal licznik
+		*  \return    Ilosc sekund przez jakie licznik pracowal
+		*/
 		static int second() { return _time.count() / 1000; }
 		
+		/*!
+		*  \brief     Funkcja zwracajaca Mutex.
+		*  \details   Jest on uzywany do chronienia wyswietlania w konsoli, zeby przypadkiem watek licznika nie zaczal konfliktowac sie z watkiem aplikacji
+		*/
 		static std::recursive_mutex* getMutex() { return _mutex; }
+
+		/*!
+		*  \brief     Funkcja ustawiajaca Mutex.
+		*  @param newMutex nowy Mutex jaki ma byc ustawiony. Wykorzystywane jesli z jakiegos powodu nie ma w danej chwili ustalonego Mutexu
+		*/
 		static void setMutex(std::recursive_mutex* newMutex) { _mutex = newMutex; }
 		
+		/*!
+		*  \brief     Funkcja uruchamiana przez drugi watek w Plansza.
+		*/
 		static void run();
+
+		/*!
+		*  \brief     Funkcja ustawiajaca flage konca pracy. Po jej wykonaniu watek odpowiedzialny za licznik jest zamykany.
+		*/
 		static void end() { _end = true; }
 
 	private:

@@ -91,37 +91,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_timer.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_timer.html">Timer</a> {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> reset();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> start();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> restart();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> resume();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> pause() { _isPaused = (<span class="keyword">true</span>); }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> stop();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> second() { <span class="keywordflow">return</span> _time.count() / 1000; }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">static</span> std::recursive_mutex* getMutex() { <span class="keywordflow">return</span> _mutex; }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> setMutex(std::recursive_mutex* newMutex) { _mutex = newMutex; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> run();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> end() { _end = <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_timer.html#a3a8b5272198d029779dc9302a54305a8">start</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_timer.html#ab2a6e0b9d6b9c93c06c89ff6dd6291c1">   25</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_timer.html#ab2a6e0b9d6b9c93c06c89ff6dd6291c1">pause</a>() { _isPaused = (<span class="keyword">true</span>); }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_timer.html#a4ac55a73bb3431db9d4d2fd70ae9a2e8">resume</a>();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> increment();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="class_timer.html">Timer</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> _end;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> _isPaused;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> _isWorking;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">static</span> std::chrono::milliseconds _time;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">static</span> std::chrono::steady_clock::time_point _start;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">static</span> std::recursive_mutex* _mutex;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_timer.html#a63f0eb44b27402196590a03781515dba">stop</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_timer.html#aa3f7871196bb56202af2bc982bfbfff6">restart</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_timer.html#a9020542d73357a4eef512eefaf57524b">reset</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_timer.html#a2e2f6c73ec2eefe72042f3c52a632806">   51</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_timer.html#a2e2f6c73ec2eefe72042f3c52a632806">second</a>() { <span class="keywordflow">return</span> _time.count() / 1000; }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_timer.html#a6998144d90d80227e9dd7451556f5ff6">   57</a></span>&#160;        <span class="keyword">static</span> std::recursive_mutex* <a class="code" href="class_timer.html#a6998144d90d80227e9dd7451556f5ff6">getMutex</a>() { <span class="keywordflow">return</span> _mutex; }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_timer.html#a963623dd91d8379685d31add61ae54af">   63</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_timer.html#a963623dd91d8379685d31add61ae54af">setMutex</a>(std::recursive_mutex* newMutex) { _mutex = newMutex; }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_timer.html#a1323444ebd7f2c1407518a03a193b5f4">run</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="class_timer.html#af8c9d9213ff483fb73c82132c9b097ff">   73</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_timer.html#af8c9d9213ff483fb73c82132c9b097ff">end</a>() { _end = <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> increment();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="class_timer.html">Timer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> _end;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> _isPaused;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> _isWorking;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">static</span> std::chrono::milliseconds _time;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">static</span> std::chrono::steady_clock::time_point _start;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">static</span> std::recursive_mutex* _mutex;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="ttc" id="class_timer_html"><div class="ttname"><a href="class_timer.html">Timer</a></div><div class="ttdoc">Klasa odpowiedzialna za licznik czasu. </div><div class="ttdef"><b>Definition:</b> Timer.h:15</div></div>
+<div class="ttc" id="class_timer_html_a4ac55a73bb3431db9d4d2fd70ae9a2e8"><div class="ttname"><a href="class_timer.html#a4ac55a73bb3431db9d4d2fd70ae9a2e8">Timer::resume</a></div><div class="ttdeci">static void resume()</div><div class="ttdoc">Funkcja wznawiajaca prace licznika. </div><div class="ttdef"><b>Definition:</b> Timer.cpp:37</div></div>
+<div class="ttc" id="class_timer_html_a1323444ebd7f2c1407518a03a193b5f4"><div class="ttname"><a href="class_timer.html#a1323444ebd7f2c1407518a03a193b5f4">Timer::run</a></div><div class="ttdeci">static void run()</div><div class="ttdoc">Funkcja uruchamiana przez drugi watek w Plansza. </div><div class="ttdef"><b>Definition:</b> Timer.cpp:49</div></div>
+<div class="ttc" id="class_timer_html_aa3f7871196bb56202af2bc982bfbfff6"><div class="ttname"><a href="class_timer.html#aa3f7871196bb56202af2bc982bfbfff6">Timer::restart</a></div><div class="ttdeci">static void restart()</div><div class="ttdoc">Funkcja restartujaca prace licznika. </div><div class="ttdef"><b>Definition:</b> Timer.cpp:29</div></div>
+<div class="ttc" id="class_timer_html_a63f0eb44b27402196590a03781515dba"><div class="ttname"><a href="class_timer.html#a63f0eb44b27402196590a03781515dba">Timer::stop</a></div><div class="ttdeci">static void stop()</div><div class="ttdoc">Funkcja konczaca prace licznika. </div><div class="ttdef"><b>Definition:</b> Timer.cpp:43</div></div>
+<div class="ttc" id="class_timer_html_a3a8b5272198d029779dc9302a54305a8"><div class="ttname"><a href="class_timer.html#a3a8b5272198d029779dc9302a54305a8">Timer::start</a></div><div class="ttdeci">static void start()</div><div class="ttdoc">Funkcja startujaca licznik. </div><div class="ttdef"><b>Definition:</b> Timer.cpp:23</div></div>
+<div class="ttc" id="class_timer_html_a963623dd91d8379685d31add61ae54af"><div class="ttname"><a href="class_timer.html#a963623dd91d8379685d31add61ae54af">Timer::setMutex</a></div><div class="ttdeci">static void setMutex(std::recursive_mutex *newMutex)</div><div class="ttdoc">Funkcja ustawiajaca Mutex. </div><div class="ttdef"><b>Definition:</b> Timer.h:63</div></div>
+<div class="ttc" id="class_timer_html_a6998144d90d80227e9dd7451556f5ff6"><div class="ttname"><a href="class_timer.html#a6998144d90d80227e9dd7451556f5ff6">Timer::getMutex</a></div><div class="ttdeci">static std::recursive_mutex * getMutex()</div><div class="ttdoc">Funkcja zwracajaca Mutex. </div><div class="ttdef"><b>Definition:</b> Timer.h:57</div></div>
+<div class="ttc" id="class_timer_html_a2e2f6c73ec2eefe72042f3c52a632806"><div class="ttname"><a href="class_timer.html#a2e2f6c73ec2eefe72042f3c52a632806">Timer::second</a></div><div class="ttdeci">static int second()</div><div class="ttdoc">Funkcja obliczajaca przez ile sekund pracowal licznik. </div><div class="ttdef"><b>Definition:</b> Timer.h:51</div></div>
+<div class="ttc" id="class_timer_html_ab2a6e0b9d6b9c93c06c89ff6dd6291c1"><div class="ttname"><a href="class_timer.html#ab2a6e0b9d6b9c93c06c89ff6dd6291c1">Timer::pause</a></div><div class="ttdeci">static void pause()</div><div class="ttdoc">Funkcja zatrzymujaca licznik. </div><div class="ttdef"><b>Definition:</b> Timer.h:25</div></div>
+<div class="ttc" id="class_timer_html_af8c9d9213ff483fb73c82132c9b097ff"><div class="ttname"><a href="class_timer.html#af8c9d9213ff483fb73c82132c9b097ff">Timer::end</a></div><div class="ttdeci">static void end()</div><div class="ttdoc">Funkcja ustawiajaca flage konca pracy. Po jej wykonaniu watek odpowiedzialny za licznik jest zamykany...</div><div class="ttdef"><b>Definition:</b> Timer.h:73</div></div>
+<div class="ttc" id="class_timer_html_a9020542d73357a4eef512eefaf57524b"><div class="ttname"><a href="class_timer.html#a9020542d73357a4eef512eefaf57524b">Timer::reset</a></div><div class="ttdeci">static void reset()</div><div class="ttdoc">Funkcja resetujaca ustawienia licznika. </div><div class="ttdef"><b>Definition:</b> Timer.cpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 16 2015 02:15:40 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 16 2015 02:35:02 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
