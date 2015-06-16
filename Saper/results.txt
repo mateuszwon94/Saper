@@ -26,3 +26,4 @@ wlasny [2] [5] <1>0
 wlasny [55] [40] <20>9
 >>>>>>> a12c369cf5ff68a36778bbe1065c308e8cb003cd
 wlasny [5] [2] <1>2
+wlasny [5] [3] <1>3
