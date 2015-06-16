@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['window',['Window',['../class_window.html',1,'Window'],['../class_window.html#aec537c1c6aa1855eb41444fc67b6b362',1,'Window::Window()']]]
+  ['text',['text',['../class_color_pair.html#aea1cad9443dc9af5c21cc2eff02d25fa',1,'ColorPair']]],
+  ['timer',['Timer',['../class_timer.html',1,'']]]
 ];

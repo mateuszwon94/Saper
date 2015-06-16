@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['refresh',['Refresh',['../class_window.html#ae2408e16042a51630a490c2831638a4c',1,'Window']]],
-  ['refreshclb',['RefreshCLB',['../class_menu.html#a1166aeaa1849a13d80291ea0a734415f',1,'Menu']]],
-  ['reset',['reset',['../class_timer.html#a9020542d73357a4eef512eefaf57524b',1,'Timer']]],
-  ['resize',['Resize',['../class_window.html#af895612c78b06c729eb19428cd323483',1,'Window']]],
-  ['restart',['restart',['../class_timer.html#aa3f7871196bb56202af2bc982bfbfff6',1,'Timer']]],
-  ['results',['Results',['../class_results.html',1,'']]],
-  ['resume',['resume',['../class_timer.html#a4ac55a73bb3431db9d4d2fd70ae9a2e8',1,'Timer']]],
-  ['run',['run',['../class_timer.html#a1323444ebd7f2c1407518a03a193b5f4',1,'Timer']]]
+  ['pair',['Pair',['../struct_pair.html',1,'']]],
+  ['pause',['pause',['../class_timer.html#ab2a6e0b9d6b9c93c06c89ff6dd6291c1',1,'Timer']]],
+  ['plansza',['Plansza',['../class_plansza.html',1,'Plansza'],['../class_plansza.html#a526fcce132482d87bd11cfbd3252671b',1,'Plansza::Plansza()']]],
+  ['poscolumn',['PosColumn',['../class_menu.html#a206bfce5dab4f8170bfd3e22ef47613b',1,'Menu']]],
+  ['posline',['PosLine',['../class_menu.html#a5cd3d248fdd22d045b7689cb8b558a5c',1,'Menu']]]
 ];

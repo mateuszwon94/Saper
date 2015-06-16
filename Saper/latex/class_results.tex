@@ -1,38 +1,141 @@
-\hypertarget{class_results}{}\section{Results Class Reference}
+\hypertarget{class_results}{}\section{Dokumentacja klasy Results}
 \label{class_results}\index{Results@{Results}}
-\subsection*{Public Member Functions}
+
+
+Klasa zajmujaca sie zapisem i wyswietlaniem wyników  
+
+
+
+
+{\ttfamily \#include $<$Results.\+h$>$}
+
+\subsection*{Metody publiczne}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_results_a524b63b8928aa4a85fb29b89197b4134}{}void {\bfseries create\+File} (std\+::string name)\label{class_results_a524b63b8928aa4a85fb29b89197b4134}
+\hyperlink{class_results_ae15a9e843b67c54e98a6f59a56104e1f}{Results} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \hyperlink{class_results}{Results}. \end{DoxyCompactList}\item 
+void \hyperlink{class_results_a524b63b8928aa4a85fb29b89197b4134}{create\+File} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Funkcja odpowiadajaca za tworzenie pliku. \end{DoxyCompactList}\item 
+\hyperlink{class_results_a0547c32c2061192a72cad9db694ffb16}{$\sim$\+Results} ()
+\begin{DoxyCompactList}\small\item\em Destruktor klasy \hyperlink{class_results}{Results}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_results_a263e6cd51ac69ad6705c0f79f9179b63}{get\+Problem} ()
+\begin{DoxyCompactList}\small\item\em Funkcja sprawdzajaca czy nie wystapil problem z plikiem. \end{DoxyCompactList}\item 
+\hyperlink{class_results}{Results} \& \hyperlink{class_results_a069effb369c067ea8a8e2b5b0a647e72}{operator$<$$<$} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em Przeladowany operator $<$$<$. \end{DoxyCompactList}\item 
+void \hyperlink{class_results_ab6d8f1711b2d9a611df1f5c460bd454a}{load} ()
+\begin{DoxyCompactList}\small\item\em Funkcja ladujaca stan pliku. \end{DoxyCompactList}\item 
+\hypertarget{class_results_a546671884adf0df06f778cdb9752b453}{}void \hyperlink{class_results_a546671884adf0df06f778cdb9752b453}{view} ()\label{class_results_a546671884adf0df06f778cdb9752b453}
 
-\item 
-\hypertarget{class_results_a263e6cd51ac69ad6705c0f79f9179b63}{}bool {\bfseries get\+Problem} ()\label{class_results_a263e6cd51ac69ad6705c0f79f9179b63}
-
-\item 
-\hypertarget{class_results_a069effb369c067ea8a8e2b5b0a647e72}{}\hyperlink{class_results}{Results} \& {\bfseries operator$<$$<$} (std\+::string text)\label{class_results_a069effb369c067ea8a8e2b5b0a647e72}
-
-\item 
-\hypertarget{class_results_ab6d8f1711b2d9a611df1f5c460bd454a}{}void {\bfseries load} ()\label{class_results_ab6d8f1711b2d9a611df1f5c460bd454a}
-
-\item 
-\hypertarget{class_results_a546671884adf0df06f778cdb9752b453}{}void {\bfseries view} ()\label{class_results_a546671884adf0df06f778cdb9752b453}
-
-\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\begin{DoxyCompactList}\small\item\em Funkcja odpowiadjaca za wyswietlanie wyników \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Statyczne metody publiczne}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_results_a489b09ca0e160c7d8d43c925a8a33b88}{}static \hyperlink{class_results}{Results} $\ast$ {\bfseries get\+Instance} ()\label{class_results_a489b09ca0e160c7d8d43c925a8a33b88}
+\hypertarget{class_results_a489b09ca0e160c7d8d43c925a8a33b88}{}static \hyperlink{class_results}{Results} $\ast$ \hyperlink{class_results_a489b09ca0e160c7d8d43c925a8a33b88}{get\+Instance} ()\label{class_results_a489b09ca0e160c7d8d43c925a8a33b88}
 
-\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\begin{DoxyCompactList}\small\item\em getter pobierajacy instancje klasy \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atrybuty publiczne}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_results_ac3ea8baf9f877af886bb70b259ca464a}{}std\+::fstream {\bfseries file}\label{class_results_ac3ea8baf9f877af886bb70b259ca464a}
+\hypertarget{class_results_ac3ea8baf9f877af886bb70b259ca464a}{}std\+::fstream \hyperlink{class_results_ac3ea8baf9f877af886bb70b259ca464a}{file}\label{class_results_ac3ea8baf9f877af886bb70b259ca464a}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em zmienna przechowujaca wskaznik na plik \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\subsection{Opis szczegÃ³Å‚owy}
+Klasa zajmujaca sie zapisem i wyswietlaniem wyników 
+
+Jest to klasa zajmujaca sie zapisem wyników do pliku, wyswietlaniem w kolejnosci od najlepszego z podzialem na poziomy trudnosci. Jest ona singletonem \begin{DoxyAuthor}{Autor}
+Magdalena Wieczorek 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Wersja}
+v1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2015 
+\end{DoxyDate}
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{class_results_ae15a9e843b67c54e98a6f59a56104e1f}{}\index{Results@{Results}!Results@{Results}}
+\index{Results@{Results}!Results@{Results}}
+\subsubsection[{Results}]{\setlength{\rightskip}{0pt plus 5cm}Results\+::\+Results (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_results_ae15a9e843b67c54e98a6f59a56104e1f}
+
+
+Konstruktor klasy \hyperlink{class_results}{Results}. 
+
+odpowiada za wywolanie funkcji tworzacej plik w celu automatycznej mozliwosci zapisu odczytu \hypertarget{class_results_a0547c32c2061192a72cad9db694ffb16}{}\index{Results@{Results}!````~Results@{$\sim$\+Results}}
+\index{````~Results@{$\sim$\+Results}!Results@{Results}}
+\subsubsection[{$\sim$\+Results}]{\setlength{\rightskip}{0pt plus 5cm}Results\+::$\sim$\+Results (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_results_a0547c32c2061192a72cad9db694ffb16}
+
+
+Destruktor klasy \hyperlink{class_results}{Results}. 
+
+odpowiada za zamkniecie pliku 
+
+\subsection{Dokumentacja funkcji skÅ‚adowych}
+\hypertarget{class_results_a524b63b8928aa4a85fb29b89197b4134}{}\index{Results@{Results}!create\+File@{create\+File}}
+\index{create\+File@{create\+File}!Results@{Results}}
+\subsubsection[{create\+File}]{\setlength{\rightskip}{0pt plus 5cm}void Results\+::create\+File (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name}
+\end{DoxyParamCaption}
+)}\label{class_results_a524b63b8928aa4a85fb29b89197b4134}
+
+
+Funkcja odpowiadajaca za tworzenie pliku. 
+
+Funkcja odpowiadajaca za tworzenie pliku o zadanej nazwie i sprawdzenie jego poprawnosci 
+\begin{DoxyParams}{Parametry}
+{\em name} & parametr podajacy nazwe pliku \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_results_a263e6cd51ac69ad6705c0f79f9179b63}{}\index{Results@{Results}!get\+Problem@{get\+Problem}}
+\index{get\+Problem@{get\+Problem}!Results@{Results}}
+\subsubsection[{get\+Problem}]{\setlength{\rightskip}{0pt plus 5cm}bool Results\+::get\+Problem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_results_a263e6cd51ac69ad6705c0f79f9179b63}
+
+
+Funkcja sprawdzajaca czy nie wystapil problem z plikiem. 
+
+\begin{DoxyReturn}{Zwraca}
+wartosc true jesli wystapil problem, false jesli nie 
+\end{DoxyReturn}
+\hypertarget{class_results_ab6d8f1711b2d9a611df1f5c460bd454a}{}\index{Results@{Results}!load@{load}}
+\index{load@{load}!Results@{Results}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}void Results\+::load (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_results_ab6d8f1711b2d9a611df1f5c460bd454a}
+
+
+Funkcja ladujaca stan pliku. 
+
+Funkcja ladujaca stan pliku, zapisuje wyniki do opowiednich kontenerów w celu sortowania i poprawnego wyswietlania \hypertarget{class_results_a069effb369c067ea8a8e2b5b0a647e72}{}\index{Results@{Results}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Results@{Results}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Results} \& Results\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{text}
+\end{DoxyParamCaption}
+)}\label{class_results_a069effb369c067ea8a8e2b5b0a647e72}
+
+
+Przeladowany operator $<$$<$. 
+
+Przeladowany operator $<$$<$ pozwalajacy szybko zapisac do pliku 
+
+Dokumentacja dla tej klasy zostaÅ‚a wygenerowana z plikÃ³w\+:\begin{DoxyCompactItemize}
 \item 
 Results.\+h\item 
 Results.\+cpp\end{DoxyCompactItemize}

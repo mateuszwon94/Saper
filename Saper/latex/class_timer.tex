@@ -1,4 +1,4 @@
-\hypertarget{class_timer}{}\section{Timer Class Reference}
+\hypertarget{class_timer}{}\section{Dokumentacja klasy Timer}
 \label{class_timer}\index{Timer@{Timer}}
 
 
@@ -9,7 +9,7 @@ Klasa odpowiedzialna za licznik czasu.
 
 {\ttfamily \#include $<$Timer.\+h$>$}
 
-\subsection*{Static Public Member Functions}
+\subsection*{Statyczne metody publiczne}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_timer_a3a8b5272198d029779dc9302a54305a8}{}static void \hyperlink{class_timer_a3a8b5272198d029779dc9302a54305a8}{start} ()\label{class_timer_a3a8b5272198d029779dc9302a54305a8}
@@ -44,24 +44,24 @@ static void \hyperlink{class_timer_a963623dd91d8379685d31add61ae54af}{set\+Mutex
 \begin{DoxyCompactList}\small\item\em Funkcja ustawiajaca flage konca pracy. Po jej wykonaniu watek odpowiedzialny za licznik jest zamykany. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{Opis szczegółowy}
 Klasa odpowiedzialna za licznik czasu. 
 
-Jest to klasa zajmujaca sie mozliwosciami licznika czasu. Moze go uruchomic, spauzowac, wznowic czy zrestartowac oraz podac czas w sekundach. \begin{DoxyAuthor}{Author}
+Jest to klasa zajmujaca sie mozliwosciami licznika czasu. Moze go uruchomic, spauzowac, wznowic czy zrestartowac oraz podac czas w sekundach. \begin{DoxyAuthor}{Autor}
 Mateusz Winiarski 
 \end{DoxyAuthor}
-\begin{DoxyVersion}{Version}
+\begin{DoxyVersion}{Wersja}
 v1.\+0 
 \end{DoxyVersion}
-\begin{DoxyDate}{Date}
+\begin{DoxyDate}{Data}
 2015 
 \end{DoxyDate}
-\begin{DoxyWarning}{Warning}
+\begin{DoxyWarning}{Ostrzeżenie}
 Moze mylic sie przy dluzszych okresach czasu co wyniki z narzutu wywolywania metod. 
 \end{DoxyWarning}
 
 
-\subsection{Member Function Documentation}
+\subsection{Dokumentacja funkcji składowych}
 \hypertarget{class_timer_a6998144d90d80227e9dd7451556f5ff6}{}\index{Timer@{Timer}!get\+Mutex@{get\+Mutex}}
 \index{get\+Mutex@{get\+Mutex}!Timer@{Timer}}
 \subsubsection[{get\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::recursive\+\_\+mutex$\ast$ Timer\+::get\+Mutex (
@@ -84,7 +84,7 @@ Jest on uzywany do chronienia wyswietlania w konsoli, zeby przypadkiem watek lic
 
 Funkcja obliczajaca przez ile sekund pracowal licznik. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Ilosc sekund przez jakie licznik pracowal 
 \end{DoxyReturn}
 \hypertarget{class_timer_a963623dd91d8379685d31add61ae54af}{}\index{Timer@{Timer}!set\+Mutex@{set\+Mutex}}
@@ -99,13 +99,13 @@ Ilosc sekund przez jakie licznik pracowal
 Funkcja ustawiajaca Mutex. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em new\+Mutex} & nowy Mutex jaki ma byc ustawiony. Wykorzystywane jesli z jakiegos powodu nie ma w danej chwili ustalonego Mutexu \\
 \hline
 \end{DoxyParams}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
 \item 
 Timer.\+h\item 
 Timer.\+cpp\end{DoxyCompactItemize}

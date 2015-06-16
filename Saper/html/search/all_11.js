@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../class_window.html#a8049228817b0e699f35f46dcd6166db5',1,'Window']]]
+  ['window',['Window',['../class_window.html',1,'Window'],['../class_window.html#aec537c1c6aa1855eb41444fc67b6b362',1,'Window::Window()']]]
 ];

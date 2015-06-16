@@ -1,4 +1,4 @@
-\hypertarget{class_window}{}\section{Window Class Reference}
+\hypertarget{class_window}{}\section{Dokumentacja klasy Window}
 \label{class_window}\index{Window@{Window}}
 
 
@@ -9,7 +9,7 @@ Adapter klasy bibliotecznej ncurses.
 
 {\ttfamily \#include $<$Window.\+h$>$}
 
-\subsection*{Public Member Functions}
+\subsection*{Metody publiczne}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_window_aec537c1c6aa1855eb41444fc67b6b362}{Window} (int \hyperlink{class_window_a2d89f391164858a8e53d301f247873dd}{lines}=0, int \hyperlink{class_window_a9df6358fb547f10baa070fc811995ba7}{columns}=0, int pos\+Line=0, int pos\+Column=0, W\+I\+N\+D\+O\+W $\ast$window=N\+U\+L\+L)
@@ -75,7 +75,7 @@ int \hyperlink{class_window_a8049228817b0e699f35f46dcd6166db5}{y} ()
 \begin{DoxyCompactList}\small\item\em Funkcja zwraca pozycje Y okna. \end{DoxyCompactList}\item 
 W\+I\+N\+D\+O\+W $\ast$ \hyperlink{class_window_a17c622ebd30f9fe06c643d235e64c545}{get\+Win} ()
 \begin{DoxyCompactList}\small\item\em Funkcja pobierajaca z obiekt \hyperlink{class_window}{Window} jego biblioteczna reprezentacje czyli W\+I\+N\+D\+O\+W$\ast$. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\subsection*{Statyczne metody publiczne}
 \begin{DoxyCompactItemize}
 \item 
 static void \hyperlink{class_window_aa236ccfebd21bb8283f530cb5b7fab89}{Set\+Cursor} (bool is\+Curor\+Visible)
@@ -84,7 +84,7 @@ static void \hyperlink{class_window_a7b1725e57ac5d7b5a90661fa0bad373e}{Assume\+D
 \begin{DoxyCompactList}\small\item\em Ustawiany jest domyslny kolor tla i tekstu w konsoli. \end{DoxyCompactList}\item 
 static void \hyperlink{class_window_ad89f757546282b04fc640146750aff22}{Set\+Echo} (bool is\+Active)
 \begin{DoxyCompactList}\small\item\em Ustawiana jest widocznosc wpisywanych znakow w konsoli. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Protected Attributes}
+\subsection*{Atrybuty chronione}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_window_a6b8554b20546907c275c7ad61a529aa2}{}W\+I\+N\+D\+O\+W $\ast$ {\bfseries \+\_\+window}\label{class_window_a6b8554b20546907c275c7ad61a529aa2}
@@ -105,7 +105,7 @@ static void \hyperlink{class_window_ad89f757546282b04fc640146750aff22}{Set\+Echo
 \hypertarget{class_window_ac233c371c76b0b5cf81ab30de683c79a}{}std\+::list$<$ chtype $>$ {\bfseries \+\_\+attrybutes} = std\+::list$<$chtype$>$()\label{class_window_ac233c371c76b0b5cf81ab30de683c79a}
 
 \end{DoxyCompactItemize}
-\subsection*{Static Protected Attributes}
+\subsection*{Statyczne atrybuty chronione}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_window_a16ca5780696c6c1d21beda483d67b41a}{}static int {\bfseries count} = 0\label{class_window_a16ca5780696c6c1d21beda483d67b41a}
@@ -113,24 +113,24 @@ static void \hyperlink{class_window_ad89f757546282b04fc640146750aff22}{Set\+Echo
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{Opis szczegółowy}
 Adapter klasy bibliotecznej ncurses. 
 
-Jest to klasa konwertujaca proceduralny interfejs (obslugujacy okna) biblioteki ncurses na interfejs obiektowy, o wiele wygodniejszy w uzyciu \begin{DoxyAuthor}{Author}
+Jest to klasa konwertujaca proceduralny interfejs (obslugujacy okna) biblioteki ncurses na interfejs obiektowy, o wiele wygodniejszy w uzyciu \begin{DoxyAuthor}{Autor}
 Mateusz Winiarski 
 \end{DoxyAuthor}
-\begin{DoxyVersion}{Version}
+\begin{DoxyVersion}{Wersja}
 v1.\+0 
 \end{DoxyVersion}
-\begin{DoxyDate}{Date}
+\begin{DoxyDate}{Data}
 2015 
 \end{DoxyDate}
-\begin{DoxyWarning}{Warning}
+\begin{DoxyWarning}{Ostrzeżenie}
 Zaimplementowane tylko metody potrzebne w naszym projekcie 
 \end{DoxyWarning}
 
 
-\subsection{Constructor \& Destructor Documentation}
+\subsection{Dokumentacja konstruktora i destruktora}
 \hypertarget{class_window_aec537c1c6aa1855eb41444fc67b6b362}{}\index{Window@{Window}!Window@{Window}}
 \index{Window@{Window}!Window@{Window}}
 \subsubsection[{Window}]{\setlength{\rightskip}{0pt plus 5cm}Window\+::\+Window (
@@ -147,7 +147,7 @@ Zaimplementowane tylko metody potrzebne w naszym projekcie
 Konstruktor klasy \hyperlink{class_window}{Window}. 
 
 Tworzy obiekt okna, jesli podamy bez zadnych parametrow stworzy nam domyslny obiekt konsoli (odpowiadajacy stdscr w ncurses). 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em lines,columns} & Wysokosc i szerokosc okna \\
 \hline
 {\em pos\+Line,Pos\+Column} & Polozenie okna na ekranie \\
@@ -168,7 +168,7 @@ Destruktor klasy \hyperlink{class_window}{Window}.
 
 Usuwaobiekt \hyperlink{class_window}{Window} czyszczac jego atrybuty i usuwajac z pamieci okno. 
 
-\subsection{Member Function Documentation}
+\subsection{Dokumentacja funkcji składowych}
 \hypertarget{class_window_a7b1725e57ac5d7b5a90661fa0bad373e}{}\index{Window@{Window}!Assume\+Default\+Colors@{Assume\+Default\+Colors}}
 \index{Assume\+Default\+Colors@{Assume\+Default\+Colors}!Window@{Window}}
 \subsubsection[{Assume\+Default\+Colors}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Assume\+Default\+Colors (
@@ -181,7 +181,7 @@ Usuwaobiekt \hyperlink{class_window}{Window} czyszczac jego atrybuty i usuwajac 
 Ustawiany jest domyslny kolor tla i tekstu w konsoli. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em color\+Pair} & Para kolorow (tekst, tlo) na jaki chcemy ustawic domyslne okno. \\
 \hline
 \end{DoxyParams}
@@ -197,7 +197,7 @@ Ustawiany jest domyslny kolor tla i tekstu w konsoli.
 Wylaczany jest atrybut dla okna. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em attrybute} & Atrybut ktory chcemy usunac \\
 \hline
 \end{DoxyParams}
@@ -213,7 +213,7 @@ Wylaczany jest atrybut dla okna.
 Wlaczany jest atrybut dla okna. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em attrybute} & Atrybut ktory chcemy ustawic \\
 \hline
 \end{DoxyParams}
@@ -229,7 +229,7 @@ Wlaczany jest atrybut dla okna.
 Ustawiamy kolor tla. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em attrybute} & Kolor tla jaki chcemy ustawic \\
 \hline
 \end{DoxyParams}
@@ -244,7 +244,7 @@ Ustawiamy kolor tla.
 
 Funkcja zwraca ilosc kolumn w oknie. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 ilosc kolumn w oknie 
 \end{DoxyReturn}
 \hypertarget{class_window_a0c9cc2ff9b09f68dd0071ec2d989f957}{}\index{Window@{Window}!Get\+Cursor\+Pos@{Get\+Cursor\+Pos}}
@@ -258,7 +258,7 @@ ilosc kolumn w oknie
 
 Funkcja zwraca obecna pozycje kursora. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 attrybute Pozycja kursora zapakowana w std\+::array 
 \end{DoxyReturn}
 \hypertarget{class_window_a17c622ebd30f9fe06c643d235e64c545}{}\index{Window@{Window}!get\+Win@{get\+Win}}
@@ -272,7 +272,7 @@ attrybute Pozycja kursora zapakowana w std\+::array
 
 Funkcja pobierajaca z obiekt \hyperlink{class_window}{Window} jego biblioteczna reprezentacje czyli W\+I\+N\+D\+O\+W$\ast$. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Reprezentacja obiektu jako W\+I\+N\+D\+O\+W$\ast$ 
 \end{DoxyReturn}
 \hypertarget{class_window_a2d89f391164858a8e53d301f247873dd}{}\index{Window@{Window}!lines@{lines}}
@@ -286,7 +286,7 @@ Reprezentacja obiektu jako W\+I\+N\+D\+O\+W$\ast$
 
 Funkcja zwraca ilosc linii w oknie. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 ilosc linii w oknie 
 \end{DoxyReturn}
 \hypertarget{class_window_ac6e11dee115c399181fa26c0b490d2f5}{}\index{Window@{Window}!Move\+Cursor@{Move\+Cursor}}
@@ -302,7 +302,7 @@ ilosc linii w oknie
 Ustawiana jest pozycja kursora. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em line,column} & Zmienna reprezentujaca pozycje ustawienia kursora \\
 \hline
 \end{DoxyParams}
@@ -317,7 +317,7 @@ Ustawiana jest pozycja kursora.
 
 Funkcja konwertujaca obiekt \hyperlink{class_window}{Window} na biblioteczna reprezentacje W\+I\+N\+D\+O\+W. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Reprezentacja obiektu jako W\+I\+N\+D\+O\+W 
 \end{DoxyReturn}
 \hypertarget{class_window_a5f2e3efa7b8654cdcf8235ae9f15c6fb}{}\index{Window@{Window}!operator W\+I\+N\+D\+O\+W $\ast$@{operator W\+I\+N\+D\+O\+W $\ast$}}
@@ -331,7 +331,7 @@ Reprezentacja obiektu jako W\+I\+N\+D\+O\+W
 
 Funkcja konwertujaca obiekt \hyperlink{class_window}{Window} na biblioteczna reprezentacje W\+I\+N\+D\+O\+W$\ast$. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Reprezentacja obiektu jako W\+I\+N\+D\+O\+W$\ast$ 
 \end{DoxyReturn}
 \hypertarget{class_window_a60f74654f00a5c9688295c8ec0d18126}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -346,11 +346,11 @@ Reprezentacja obiektu jako W\+I\+N\+D\+O\+W$\ast$
 Wyswietla tekst. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em text} & Tekst do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany tekst w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_ac8de224c4fc4e781879b464f8606f804}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -365,11 +365,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany
 Wyswietla tekst. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em text} & Tekst do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany tekst w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_a76fd2af7fc113d29f5488a7a629115d8}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -384,11 +384,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany
 Wyswietla pojedynczy znak. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em sign} & Znak do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_a34c29e6bf9c6a26a9bf3e0b72580a56f}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -403,11 +403,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany
 Wyswietla pojedynczy znak. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em sign} & Znak do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_a2577daac6833ba6aa6693c0ba3cd6b60}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -422,11 +422,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany
 Wyswietla pojedynczy znak. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em sign} & Znak do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_a476ccb66073a36fead82735edf14667c}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -441,11 +441,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany
 Wyswietla pojedynczy znak. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em sign} & Znak do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_ac2dc5c37f9456fc8b75013cec9df19bf}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -460,11 +460,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany
 Wyswietla pojedynczy znak. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em sign} & Znak do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_addc6a1cbce0c54b2e0c730b131181b1e}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -479,11 +479,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany
 Wyswietla liczba calkowita. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em number} & Liczba do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlana liczba w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_ab1398fdf47e455c69f5886ec40b5429c}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -498,11 +498,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlana
 Wyswietla liczba calkowita bez znaku. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em number} & Liczba do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlana liczba w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_a2c75d176a50fa848d13997e14d832b50}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -517,11 +517,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlana
 Wyswietla liczba zmiennoprzecinkowa. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em number} & Liczba do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlana liczba w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_a54ce1a8639b3576063f4267868fb7625}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -536,11 +536,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlana
 Wyswietla menu. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em menu} & \hyperlink{class_menu}{Menu} do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlane menu w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_a93288ef1367a2786c9b813e1964e6477}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
@@ -555,11 +555,11 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlane
 Wyswietla pojedynczy wpis z menu. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em entry} & Wpis z menu do wyswietlenia \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany wpis z menu w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
 \end{DoxyReturn}
 \hypertarget{class_window_a7b0cae35f572f46c87033747117bbebd}{}\index{Window@{Window}!operator$>$$>$@{operator$>$$>$}}
@@ -574,7 +574,7 @@ Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany
 Wczytywany jest tekst z konsoli. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em text} & Zmienna do ktorej wczytujemy tekst \\
 \hline
 \end{DoxyParams}
@@ -590,7 +590,7 @@ Wczytywany jest tekst z konsoli.
 Wczytywany jest pojedynczy znak z konsoli. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em sign} & Zmienna do ktorej wczytujemy znak \\
 \hline
 \end{DoxyParams}
@@ -606,7 +606,7 @@ Wczytywany jest pojedynczy znak z konsoli.
 Wczytywany jest pojedyncza liczbe z konsoli. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em sign} & Zmienna do ktorej wczytujemy liczbe \\
 \hline
 \end{DoxyParams}
@@ -623,7 +623,7 @@ Wczytywany jest pojedyncza liczbe z konsoli.
 Zmiana wielkosci okna. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em line,column} & Zmienna reprezentujaca nowe wymiary okna \\
 \hline
 \end{DoxyParams}
@@ -639,7 +639,7 @@ Zmiana wielkosci okna.
 Ustawiana jest widocznosc kursora. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em is\+Curor\+Visible} & Zmienna reprezentujaca czy chcemy widziec kursor na ekranie w danym momencie czy nie. \\
 \hline
 \end{DoxyParams}
@@ -655,7 +655,7 @@ Ustawiana jest widocznosc kursora.
 Ustawiana jest widocznosc wpisywanych znakow w konsoli. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em is\+Curor\+Visible} & Zmienna reprezentujaca czy chcemy widziec wpisywane znaki na ekranie w danym momencie czy nie. \\
 \hline
 \end{DoxyParams}
@@ -670,7 +670,7 @@ Ustawiana jest widocznosc wpisywanych znakow w konsoli.
 
 Funkcja zwraca pozycje X okna. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Pozycja X okna 
 \end{DoxyReturn}
 \hypertarget{class_window_a8049228817b0e699f35f46dcd6166db5}{}\index{Window@{Window}!y@{y}}
@@ -684,12 +684,12 @@ Pozycja X okna
 
 Funkcja zwraca pozycje Y okna. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Pozycja Y okna 
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
 \item 
 Window.\+h\item 
 Window.\+cpp\end{DoxyCompactItemize}

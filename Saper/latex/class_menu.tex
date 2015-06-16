@@ -1,4 +1,4 @@
-\hypertarget{class_menu}{}\section{Menu Class Reference}
+\hypertarget{class_menu}{}\section{Dokumentacja klasy Menu}
 \label{class_menu}\index{Menu@{Menu}}
 
 
@@ -9,13 +9,13 @@ Klasa obslugujaca menu.
 
 {\ttfamily \#include $<$Menu.\+h$>$}
 
-\subsection*{Public Types}
+\subsection*{Typy publiczne}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_menu_aceaa934be18280340c221593bbee54d6}{}typedef \hyperlink{class_menu_entry}{Menu\+Entry} $\ast$ \hyperlink{class_menu_aceaa934be18280340c221593bbee54d6}{Iterator}\label{class_menu_aceaa934be18280340c221593bbee54d6}
 
 \begin{DoxyCompactList}\small\item\em Typedef definiujacy czym jest w tej klasie Iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsection*{Metody publiczne}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_menu_ad705e11e42f40448689344e9028b7dc6}{Menu} (std\+::vector$<$ std\+::string $>$ entrys, std\+::vector$<$ void($\ast$)()$>$ functions, std\+::vector$<$ int $>$ specials=\{\}, unsigned int line=0, unsigned int column=0, bool visibility=true)
@@ -47,7 +47,7 @@ void \hyperlink{class_menu_a2538dd9ab4e5f0613b7c47b4a6fbbe96}{Move} (int sign)
 \hypertarget{class_menu_a1166aeaa1849a13d80291ea0a734415f}{}void \hyperlink{class_menu_a1166aeaa1849a13d80291ea0a734415f}{Refresh\+C\+L\+B} ()\label{class_menu_a1166aeaa1849a13d80291ea0a734415f}
 
 \begin{DoxyCompactList}\small\item\em Funkcja odswierzajaca wyswietlana liczbe kolumn wierszy i bomb. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\subsection*{Statyczne metody publiczne}
 \begin{DoxyCompactItemize}
 \item 
 static int \hyperlink{class_menu_a7b0fbc17641f35b4d5cdab708b14c659}{get\+Columns} ()
@@ -60,21 +60,21 @@ static \hyperlink{class_menu}{Menu} \& \hyperlink{class_menu_a2388f6a7d18a9866cb
 \begin{DoxyCompactList}\small\item\em Funkcja zwracajaca obecna instancje \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{Opis szczegółowy}
 Klasa obslugujaca menu. 
 
-Jest to klasa zajmujaca sie obsluga menu w grze. Ustawia poziom, uruchamia gra, wyswietla wyniki czy pomoc oraz konczy program \begin{DoxyAuthor}{Author}
+Jest to klasa zajmujaca sie obsluga menu w grze. Ustawia poziom, uruchamia gra, wyswietla wyniki czy pomoc oraz konczy program \begin{DoxyAuthor}{Autor}
 Mateusz Winiarski 
 \end{DoxyAuthor}
-\begin{DoxyVersion}{Version}
+\begin{DoxyVersion}{Wersja}
 v1.\+0 
 \end{DoxyVersion}
-\begin{DoxyDate}{Date}
+\begin{DoxyDate}{Data}
 2015 
 \end{DoxyDate}
 
 
-\subsection{Constructor \& Destructor Documentation}
+\subsection{Dokumentacja konstruktora i destruktora}
 \hypertarget{class_menu_ad705e11e42f40448689344e9028b7dc6}{}\index{Menu@{Menu}!Menu@{Menu}}
 \index{Menu@{Menu}!Menu@{Menu}}
 \subsubsection[{Menu}]{\setlength{\rightskip}{0pt plus 5cm}Menu\+::\+Menu (
@@ -92,7 +92,7 @@ v1.\+0
 Konstruktor klasy \hyperlink{class_menu}{Menu}. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em entrys} & Vector zawierajacy opis przyciskow \\
 \hline
 {\em functions} & Vector zawierajacy funkcje przypisane odpowiednim przyciskom \\
@@ -106,7 +106,7 @@ Konstruktor klasy \hyperlink{class_menu}{Menu}.
 \end{DoxyParams}
 
 
-\subsection{Member Function Documentation}
+\subsection{Dokumentacja funkcji składowych}
 \hypertarget{class_menu_ad463178d6970e3db29a3d6289d72c5f0}{}\index{Menu@{Menu}!begin@{begin}}
 \index{begin@{begin}!Menu@{Menu}}
 \subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Iterator} Menu\+::begin (
@@ -118,7 +118,7 @@ Konstruktor klasy \hyperlink{class_menu}{Menu}.
 
 Funkcja zwracajaca Iterator na pierwszy element \hyperlink{class_menu}{Menu}. 
 
-Wykorzystywana w ranged base for loop \begin{DoxyReturn}{Returns}
+Wykorzystywana w ranged base for loop \begin{DoxyReturn}{Zwraca}
 Iterator na pierwszy element \hyperlink{class_menu}{Menu} 
 \end{DoxyReturn}
 \hypertarget{class_menu_a2388f6a7d18a9866cb81a8741d2dc2d2}{}\index{Menu@{Menu}!current@{current}}
@@ -132,7 +132,7 @@ Iterator na pierwszy element \hyperlink{class_menu}{Menu}
 
 Funkcja zwracajaca obecna instancje \hyperlink{class_menu}{Menu}. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Obecnie uzywana instancja \hyperlink{class_menu}{Menu} 
 \end{DoxyReturn}
 \hypertarget{class_menu_a17613d2e18e1b61105697bf20da2a202}{}\index{Menu@{Menu}!end@{end}}
@@ -146,7 +146,7 @@ Obecnie uzywana instancja \hyperlink{class_menu}{Menu}
 
 Funkcja zwracajaca Iterator na miejsca za ostatnim elementem \hyperlink{class_menu}{Menu}. 
 
-Wykorzystywana w ranged base for loop \begin{DoxyReturn}{Returns}
+Wykorzystywana w ranged base for loop \begin{DoxyReturn}{Zwraca}
 Iterator na miejsca za ostatnim elementem \hyperlink{class_menu}{Menu} 
 \end{DoxyReturn}
 \hypertarget{class_menu_a4654d30d5950859f8cd3ca4bb4d6774a}{}\index{Menu@{Menu}!get\+Bombs@{get\+Bombs}}
@@ -160,7 +160,7 @@ Iterator na miejsca za ostatnim elementem \hyperlink{class_menu}{Menu}
 
 Funkcja zwracajaca obecnie ustalona liczbe bomb. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Obecna liczba bomb 
 \end{DoxyReturn}
 \hypertarget{class_menu_a7b0fbc17641f35b4d5cdab708b14c659}{}\index{Menu@{Menu}!get\+Columns@{get\+Columns}}
@@ -174,7 +174,7 @@ Obecna liczba bomb
 
 Funkcja zwracajaca obecnie ustalona liczbe kolumne. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Obecna liczba kolumn 
 \end{DoxyReturn}
 \hypertarget{class_menu_a36ba53f24eacd853bc98da7a4fff291d}{}\index{Menu@{Menu}!get\+Lines@{get\+Lines}}
@@ -188,7 +188,7 @@ Obecna liczba kolumn
 
 Funkcja zwracajaca obecnie ustalona liczbe wierszy. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Obecna liczba wierszy 
 \end{DoxyReturn}
 \hypertarget{class_menu_a2538dd9ab4e5f0613b7c47b4a6fbbe96}{}\index{Menu@{Menu}!Move@{Move}}
@@ -203,7 +203,7 @@ Obecna liczba wierszy
 Funkcja zajmujaca sie przesuwaniem po \hyperlink{class_menu}{Menu}. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em sign} & Przechwyycony klawisz z klawiatury \\
 \hline
 \end{DoxyParams}
@@ -219,11 +219,11 @@ Funkcja zajmujaca sie przesuwaniem po \hyperlink{class_menu}{Menu}.
 Funkcja zwracajaca \hyperlink{class_menu_entry}{Menu\+Entry} spod konkretnego indeksu. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em count} & Indeks spod ktorego ma byc zwrucone \hyperlink{class_menu_entry}{Menu\+Entry} \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 \hyperlink{class_menu_entry}{Menu\+Entry} spod indeksu count 
 \end{DoxyReturn}
 \hypertarget{class_menu_a206bfce5dab4f8170bfd3e22ef47613b}{}\index{Menu@{Menu}!Pos\+Column@{Pos\+Column}}
@@ -237,7 +237,7 @@ Funkcja zwracajaca \hyperlink{class_menu_entry}{Menu\+Entry} spod konkretnego in
 
 Funkcja podajaca poczatkowa kolumne \hyperlink{class_menu}{Menu}. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Poczatkowa kolumna \hyperlink{class_menu}{Menu} 
 \end{DoxyReturn}
 \hypertarget{class_menu_a5cd3d248fdd22d045b7689cb8b558a5c}{}\index{Menu@{Menu}!Pos\+Line@{Pos\+Line}}
@@ -251,7 +251,7 @@ Poczatkowa kolumna \hyperlink{class_menu}{Menu}
 
 Funkcja podajaca poczatkowa linie \hyperlink{class_menu}{Menu}. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Poczatkowa linia \hyperlink{class_menu}{Menu} 
 \end{DoxyReturn}
 \hypertarget{class_menu_a823da268994dc5e067f65e6e8101a07b}{}\index{Menu@{Menu}!set\+Active@{set\+Active}}
@@ -266,7 +266,7 @@ Poczatkowa linia \hyperlink{class_menu}{Menu}
 Funkcja ustawiajaca \hyperlink{class_menu_entry}{Menu\+Entry} spod konkretnego indeksu na aktywne. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em count} & Indeks spod ktorego \hyperlink{class_menu_entry}{Menu\+Entry} ma byc ustawione na aktywne \\
 \hline
 \end{DoxyParams}
@@ -282,7 +282,7 @@ Funkcja ustawiajaca \hyperlink{class_menu_entry}{Menu\+Entry} spod konkretnego i
 Funkcja ustawiajaca obecnie aktywne \hyperlink{class_menu_entry}{Menu\+Entry} na zadane. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em which} & Ktore \hyperlink{class_menu_entry}{Menu\+Entry} ma byc ustawione na aktywne \\
 \hline
 \end{DoxyParams}
@@ -297,12 +297,12 @@ Funkcja ustawiajaca obecnie aktywne \hyperlink{class_menu_entry}{Menu\+Entry} na
 
 Funkcja podajaca rozmiar \hyperlink{class_menu}{Menu}. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Ilosc elementow w \hyperlink{class_menu}{Menu} 
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
 \item 
 Menu.\+h\item 
 Menu.\+cpp\end{DoxyCompactItemize}
