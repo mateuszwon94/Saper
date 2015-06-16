@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 /*!
-*  \brief     Klasa Wyœwietlaj¹ca tekst pomocy
-*  \details   Jest to klasa wyœwietlaj¹ca instrukjce sterowania i gry w Sapera
+*  \brief     Klasa Wyswietlajaca tekst pomocy
+*  \details   Jest to klasa wyœwietlajaca instrukjce sterowania i gry w Sapera
 *  \author    Magdalena Wieczorek
 *  \version   v1.0
 *  \date      2015
@@ -12,7 +12,7 @@
 class Help {
 	public:
 		/*!
-		*  \brief     Funkcja wyœwietlaj¹ca tekst pomocy
+		*  \brief     Funkcja wyswietlajaca tekst pomocy
 		*/
 		static void View();
 private:
