@@ -1,0 +1,17 @@
+digraph "Okno::SetBorderColoured"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Okno::SetBorderColoured",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Window::AttrOn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#ac68276b9e19407a0c78c0a47c5786f1a",tooltip="Wlaczany jest atrybut dla okna. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Window::lines",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#a2d89f391164858a8e53d301f247873dd",tooltip="Funkcja zwraca ilosc linii w oknie. "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Window::MoveCursor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#ac6e11dee115c399181fa26c0b490d2f5",tooltip="Ustawiana jest pozycja kursora. "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Window::columns",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#a9df6358fb547f10baa070fc811995ba7",tooltip="Funkcja zwraca ilosc kolumn w oknie. "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Window::AttrOff",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#a8baa301a84f4575a519f413e0d46d388",tooltip="Wylaczany jest atrybut dla okna. "];
+}

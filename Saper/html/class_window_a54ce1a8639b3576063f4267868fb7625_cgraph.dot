@@ -1,0 +1,13 @@
+digraph "Window::operator&lt;&lt;"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Window::operator\<\<",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Timer::getMutex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_timer.html#a6998144d90d80227e9dd7451556f5ff6",tooltip="Funkcja zwracajaca Mutex. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Menu::PosLine",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a5cd3d248fdd22d045b7689cb8b558a5c",tooltip="Funkcja podajaca poczatkowa linie Menu. "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Menu::PosColumn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a206bfce5dab4f8170bfd3e22ef47613b",tooltip="Funkcja podajaca poczatkowa kolumne Menu. "];
+}

@@ -17,7 +17,7 @@ Klasa odpowiadajaca za logike gry i wyswietlanie Planszy.
 bool \hyperlink{class_plansza_a511ac13ebb4efb199052dd02927b932c}{is\+Pause} ()
 \begin{DoxyCompactList}\small\item\em Funkcja sprawdzajaca stan gry. \end{DoxyCompactList}\item 
 void \hyperlink{class_plansza_a916fd5990699501f56bc6a12f371e12a}{run} ()
-\begin{DoxyCompactList}\small\item\em Funkcja odpowiedzialna za gólówna petle gry. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Funkcja odpowiedzialna za glowna petle gry. \end{DoxyCompactList}\item 
 \hyperlink{class_plansza_a4f246f46c88413936c5ee794e97032fc}{$\sim$\+Plansza} ()
 \begin{DoxyCompactList}\small\item\em Destruktor Klasy \hyperlink{class_plansza}{Plansza}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Statyczne metody publiczne}
@@ -40,7 +40,7 @@ static void \hyperlink{class_plansza_a4f2b71f1200d71fd32987b107c17dba1}{set\+Cur
 \subsection{Opis szczegÃ³Å‚owy}
 Klasa odpowiadajaca za logike gry i wyswietlanie Planszy. 
 
-Jest to klasa odpowiadajaca za logike gry, wyswietlanie planszy, sprawdzanie stanu gry ogólnie za gre. \begin{DoxyAuthor}{Autor}
+Jest to klasa odpowiadajaca za logike gry, wyswietlanie planszy, sprawdzanie stanu gry ogolnie za gre. \begin{DoxyAuthor}{Autor}
 Magdalena Wieczorek 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Wersja}
@@ -74,9 +74,15 @@ Konstruktor klasy Planszy
 \hline
 {\em bombs} & okresla ilosc bomb na planszy \\
 \hline
-{\em win} & jest referencja do okna na którym sie rysuje plansza \\
+{\em win} & jest referencja do okna na ktorym sie rysuje plansza \\
 \hline
 \end{DoxyParams}
+
+
+Oto graf wywoÅ‚aÅ„ dla tej funkcji\+:
+% FIG 0
+
+
 \hypertarget{class_plansza_a4f246f46c88413936c5ee794e97032fc}{}\index{Plansza@{Plansza}!````~Plansza@{$\sim$\+Plansza}}
 \index{````~Plansza@{$\sim$\+Plansza}!Plansza@{Plansza}}
 \subsubsection[{$\sim$\+Plansza}]{\setlength{\rightskip}{0pt plus 5cm}Plansza\+::$\sim$\+Plansza (
@@ -89,6 +95,12 @@ Konstruktor klasy Planszy
 Destruktor Klasy \hyperlink{class_plansza}{Plansza}. 
 
 Czysci ekran i zeruje flagi 
+
+Oto graf wywoÅ‚aÅ„ dla tej funkcji\+:
+% FIG 1
+
+
+
 
 \subsection{Dokumentacja funkcji skÅ‚adowych}
 \hypertarget{class_plansza_a8d3c8a148a2b88969b04b661ca833de7}{}\index{Plansza@{Plansza}!get\+Bombs@{get\+Bombs}}
@@ -159,7 +171,7 @@ heig liczba wierszy planszy
 Funkcja sprawdzajaca stan gry. 
 
 Funkcja sprawdzajaca stan gry, pausa lub nie \begin{DoxyReturn}{Zwraca}
-falaga esc, równa true jesli uzytkownik wcisnal esc czyli jesli jest pausa. 
+falaga esc, rowna true jesli uzytkownik wcisnal esc czyli jesli jest pausa. 
 \end{DoxyReturn}
 \hypertarget{class_plansza_a916fd5990699501f56bc6a12f371e12a}{}\index{Plansza@{Plansza}!run@{run}}
 \index{run@{run}!Plansza@{Plansza}}
@@ -170,9 +182,15 @@ falaga esc, równa true jesli uzytkownik wcisnal esc czyli jesli jest pausa.
 )}\label{class_plansza_a916fd5990699501f56bc6a12f371e12a}
 
 
-Funkcja odpowiedzialna za gólówna petle gry. 
+Funkcja odpowiedzialna za glowna petle gry. 
 
-Glówna petla gry -\/ logika, sprawdzanie eventów rysowanie. \hypertarget{class_plansza_a9b25d696343a129d729ce30ae7f51ca5}{}\index{Plansza@{Plansza}!set\+C\+L\+B@{set\+C\+L\+B}}
+Glowna petla gry -\/ logika, sprawdzanie eventow rysowanie. 
+
+Oto graf wywoÅ‚aÅ„ dla tej funkcji\+:
+% FIG 2
+
+
+\hypertarget{class_plansza_a9b25d696343a129d729ce30ae7f51ca5}{}\index{Plansza@{Plansza}!set\+C\+L\+B@{set\+C\+L\+B}}
 \index{set\+C\+L\+B@{set\+C\+L\+B}!Plansza@{Plansza}}
 \subsubsection[{set\+C\+L\+B}]{\setlength{\rightskip}{0pt plus 5cm}void Plansza\+::set\+C\+L\+B (
 \begin{DoxyParamCaption}
@@ -188,6 +206,12 @@ Funkcja ustawiajaca liczbe kolumn, wierszy i bomb na planszy.
 {\em values} & tablica 3 wartosci, kolumn, wierszy i bomb \\
 \hline
 \end{DoxyParams}
+
+
+Oto graf wywoÅ‚aÅ„ dla tej funkcji\+:
+% FIG 3
+
+
 \hypertarget{class_plansza_a4f2b71f1200d71fd32987b107c17dba1}{}\index{Plansza@{Plansza}!set\+Current@{set\+Current}}
 \index{set\+Current@{set\+Current}!Plansza@{Plansza}}
 \subsubsection[{set\+Current}]{\setlength{\rightskip}{0pt plus 5cm}static void Plansza\+::set\+Current (

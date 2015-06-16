@@ -21,14 +21,14 @@ class Plansza {
 		*  @param a okresla ilosc kolumn planszy
 		*  @param b okresla ilosc wierszy planszy
 		*  @param bombs okresla ilosc bomb na planszy
-		*  @param win jest referencja do okna na którym sie rysuje plansza
+		*  @param win jest referencja do okna na ktorym sie rysuje plansza
 		*/
 		Plansza(int a = Plansza::getColumns(), int b = Plansza::getLines(), int bombs = Plansza::getBombs(), Window& win = ::gameWindow);
 
 		/*!
 		*  \brief     Funkcja sprawdzajaca stan gry
 		*  \details   Funkcja  sprawdzajaca stan gry, pausa lub nie
-		*  \return falaga esc, równa true jesli uzytkownik wcisnal esc czyli jesli jest pausa.
+		*  \return falaga esc, rowna true jesli uzytkownik wcisnal esc czyli jesli jest pausa.
 		*/
 		bool isPause() { return esc; }
 		/*!

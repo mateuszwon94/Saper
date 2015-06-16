@@ -1,0 +1,9 @@
+digraph "Window::AssumeDefaultColors"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Window::AssumeDefaultColors",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Window::Window",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#aec537c1c6aa1855eb41444fc67b6b362",tooltip="Konstruktor klasy Window. "];
+}

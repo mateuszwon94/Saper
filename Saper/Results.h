@@ -10,7 +10,7 @@ struct Pair {
 };
 /*!
 *  \brief     Klasa zajmujaca sie zapisem i wyswietlaniem wynikow
-*  \details   Jest to klasa zajmujaca sie zapisem wyników do pliku, wyswietlaniem w kolejnosci od najlepszego z podzialem na poziomy trudnosci. Jest ona singletonem
+*  \details   Jest to klasa zajmujaca sie zapisem wynikow do pliku, wyswietlaniem w kolejnosci od najlepszego z podzialem na poziomy trudnosci. Jest ona singletonem
 *  \author    Magdalena Wieczorek
 *  \version   v1.0
 *  \date      2015
@@ -49,11 +49,11 @@ public:
 	Results& operator<<(std::string text);
 	/*!
 	*  \brief    Funkcja ladujaca stan pliku
-	*  \details  Funkcja ladujaca stan pliku, zapisuje wyniki do opowiednich kontenerów w celu sortowania i poprawnego wyswietlania
+	*  \details  Funkcja ladujaca stan pliku, zapisuje wyniki do opowiednich kontenerow w celu sortowania i poprawnego wyswietlania
 	*/
 	void load();
 	/*!
-	*  \brief    Funkcja odpowiadjaca za wyswietlanie wyników
+	*  \brief    Funkcja odpowiadjaca za wyswietlanie wynikow
 	*/
 	void view();
 	/*!

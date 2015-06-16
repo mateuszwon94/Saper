@@ -1,0 +1,11 @@
+digraph "ColorPair::ColorPair"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ColorPair::ColorPair",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ColorPair::background",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_color_pair.html#ada47f2ba6bd0ebaabe969f279a9e24a7",tooltip="Funkcja zwracajaca biblioteczna reprezentacje koloru tla. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ColorPair::text",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_color_pair.html#aea1cad9443dc9af5c21cc2eff02d25fa",tooltip="Funkcja zwracajaca biblioteczna reprezentacje koloru tekstu. "];
+}

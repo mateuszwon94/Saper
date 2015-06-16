@@ -1,0 +1,19 @@
+digraph "Timer::getMutex"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Timer::getMutex",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Help::View",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_help.html#ac985b795e504eec0e66a2d64ea380f33",tooltip="Funkcja wyswietlajaca tekst pomocy. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Menu::MoveCursor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a882bc77032049522a968ebb959060951",tooltip="Funkcja zajmujaca sie przesuwaniem po Menu kursora. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Menu::RefreshCLB",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a1166aeaa1849a13d80291ea0a734415f",tooltip="Funkcja odswierzajaca wyswietlana liczbe kolumn wierszy i bomb. "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Okno::Initialize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_okno.html#a48a5b9af8dbf76e60be2e5d464f62d1e",tooltip="Funkcja inicjalizuje wiele potrzebnych zmienych. "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Plansza::Plansza",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_plansza.html#a526fcce132482d87bd11cfbd3252671b",tooltip="Konstruktor klasy Plansza. "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Window::operator\<\<",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#a60f74654f00a5c9688295c8ec0d18126",tooltip="Wyswietla tekst. "];
+}
