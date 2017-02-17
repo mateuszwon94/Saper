@@ -1,12 +1,23 @@
 #include "Window.h"
+#include "Timer.h"
+#include <stdexcept>
 
 using namespace std;
 
-/*Window::Window() {
-	Window::Window();
-}*/
+int Window::count = 0;
+
+Window& console = Window();
+Window& gameWindow = Window(console.lines() - 5, console.columns() - 8, 3, 4);
+Window& shadow = Window(console.lines() - 5, console.columns() - 8, 4, 6);
 
 Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* window) {
+	if (!count) {
+		initscr();
+		raw();
+		window = stdscr;
+		lines = LINES;
+		columns = COLS;
+	}
 	_x = posLine;
 	_y = posColumn;
 	_lines = lines;
@@ -31,6 +42,7 @@ Window::Window(int lines, int columns, int posLine, int posColumn, WINDOW* windo
 	else if (window == NULL)
 		_window = newwin(lines, columns, posLine, posColumn);
 	else _window = window;
+	++count;
 }
 
 Window::~Window() {
@@ -58,70 +70,99 @@ void Window::Background(chtype attrybute) {
 }
 
 Window& Window::operator<<(char* text) {
+	Timer::getMutex()->lock();
 	wprintw(_window, text);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(string text) {
+	Timer::getMutex()->lock();
 	wprintw(_window, text.c_str());
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(char sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(wchar_t sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(const unsigned char sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(chtype sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window & Window::operator<<(chtype* sign) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%c", *sign);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(int number) {
+	Timer::getMutex()->lock();
 	wprintw(_window, "%d", number);
 	Refresh();
+	Timer::getMutex()->unlock();
+	return *(this);
+}
+
+Window& Window::operator<<(unsigned int number) {
+	Timer::getMutex()->lock();
+	wprintw(_window, "%d", number);
+	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(double number) {
+	Timer::getMutex()->lock();
 	wprintw(_window,"%f", number);
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
 Window& Window::operator<<(Menu& menu) {
-
+	Timer::getMutex()->lock();
 	unsigned int line = menu.PosLine();
 	unsigned int column = menu.PosColumn();
+	int i = 1;
 	for (MenuEntry& entry : menu) {
 		MoveCursor(line, column);
-		(*this) << entry;
+		(*this) << i <<". " << entry;
 		line += 2;
+		i++;
 	}
 
 	Refresh();
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
@@ -129,24 +170,27 @@ Window& Window::operator<<(MenuEntry& entry) {
 
 #ifndef TEXT_COLOR
 #define TEXT_COLOR
-	ColorPair textColor = ColorPair(COLOR_WHITE, COLOR_BLUE);
-	ColorPair specialTextColor = ColorPair(COLOR_YELLOW, COLOR_BLUE);
+	static ColorPair textColor = ColorPair(COLOR_WHITE, COLOR_BLUE);
+	static ColorPair specialTextColor = ColorPair(COLOR_YELLOW, COLOR_BLUE);
 #endif
-
+	Timer::getMutex()->lock();
 	AttrOn(A_BOLD);
-	for (int i = 0; i < entry.Name().length(); ++i) {
-		if (i == entry.Special()) {
-			AttrOn(specialTextColor);
-			*(this) << entry.Name()[i];
-			AttrOff(specialTextColor);
-		} else {
-			AttrOn(textColor);
-			*(this) << entry.Name()[i];
-			AttrOff(textColor);
+	if (entry) {
+		for (int i = 0; i < entry.Name().length(); ++i) {
+			if (i == entry.Special()) {
+				AttrOn(specialTextColor);
+				*(this) << entry.Name()[i];
+				AttrOff(specialTextColor);
+			} else {
+				AttrOn(textColor);
+				*(this) << entry.Name()[i];
+				AttrOff(textColor);
+			}
 		}
-	}
+	} else
+		*(this) << entry.Name();
 	AttrOff(A_BOLD);
-
+	Timer::getMutex()->unlock();
 	return *(this);
 }
 
@@ -155,29 +199,11 @@ void Window::MoveCursor(int line, int column) {
 	Refresh();
 }
 
-void Window::MoveWindow(int line, int column) {
-	mvwin(_window, line, column);
-	Refresh();
-}
-
-void Window::SetBorder(char ls, char rs, char ts, char bs, char tl, char tr, char bl, char br) {
-	wborder(_window, (chtype)ls, (chtype)rs, (chtype)ts, (chtype)bs, (chtype)tl, (chtype)tr, (chtype)bl, (chtype)br);
-	Refresh();
-}
-
-void Window::SetBorder(chtype ls, chtype rs, chtype ts, chtype bs, chtype tl, chtype tr, chtype bl, chtype br) {
-	wborder(_window, ls, rs, ts, bs, tl, tr, bl, br);
-	Refresh();
-}
-
-void Window::SetBorder(chtype* ls, chtype* rs, chtype* ts, chtype* bs, chtype* tl, chtype* tr, chtype* bl, chtype* br) {
-	wborder(_window, *ls, *rs, *ts, *bs, *tl, *tr, *bl, *br);
-	Refresh();
-}
-
-void Window::AssumeDefaultColors(int text, int background) {
-	assume_default_colors(text, background);
-	refresh();
+array<int, 2>& Window::GetCursorPos() {
+	int x, y;
+	getyx(_window, y, x);
+	static array<int, 2> pos = { x,y };
+	return pos;
 }
 
 void Window::AssumeDefaultColors(ColorPair colorPair) {
@@ -197,4 +223,8 @@ void Window::Resize(int lines, int columns) {
 		wresize(_window, lines, columns);
 	_lines = lines;
 	_columns = columns;
+}
+WINDOW * Window::getWin()
+{
+	return _window;
 }

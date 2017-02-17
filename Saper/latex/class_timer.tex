@@ -1,0 +1,123 @@
+\hypertarget{class_timer}{}\section{Dokumentacja klasy Timer}
+\label{class_timer}\index{Timer@{Timer}}
+
+
+Klasa odpowiedzialna za licznik czasu.  
+
+
+
+
+{\ttfamily \#include $<$Timer.\+h$>$}
+
+\subsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_timer_a3a8b5272198d029779dc9302a54305a8}{}static void \hyperlink{class_timer_a3a8b5272198d029779dc9302a54305a8}{start} ()\label{class_timer_a3a8b5272198d029779dc9302a54305a8}
+
+\begin{DoxyCompactList}\small\item\em Funkcja startujaca licznik. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_ab2a6e0b9d6b9c93c06c89ff6dd6291c1}{}static void \hyperlink{class_timer_ab2a6e0b9d6b9c93c06c89ff6dd6291c1}{pause} ()\label{class_timer_ab2a6e0b9d6b9c93c06c89ff6dd6291c1}
+
+\begin{DoxyCompactList}\small\item\em Funkcja zatrzymujaca licznik. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_a4ac55a73bb3431db9d4d2fd70ae9a2e8}{}static void \hyperlink{class_timer_a4ac55a73bb3431db9d4d2fd70ae9a2e8}{resume} ()\label{class_timer_a4ac55a73bb3431db9d4d2fd70ae9a2e8}
+
+\begin{DoxyCompactList}\small\item\em Funkcja wznawiajaca prace licznika. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_a63f0eb44b27402196590a03781515dba}{}static void \hyperlink{class_timer_a63f0eb44b27402196590a03781515dba}{stop} ()\label{class_timer_a63f0eb44b27402196590a03781515dba}
+
+\begin{DoxyCompactList}\small\item\em Funkcja konczaca prace licznika. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_aa3f7871196bb56202af2bc982bfbfff6}{}static void \hyperlink{class_timer_aa3f7871196bb56202af2bc982bfbfff6}{restart} ()\label{class_timer_aa3f7871196bb56202af2bc982bfbfff6}
+
+\begin{DoxyCompactList}\small\item\em Funkcja restartujaca prace licznika. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_a9020542d73357a4eef512eefaf57524b}{}static void \hyperlink{class_timer_a9020542d73357a4eef512eefaf57524b}{reset} ()\label{class_timer_a9020542d73357a4eef512eefaf57524b}
+
+\begin{DoxyCompactList}\small\item\em Funkcja resetujaca ustawienia licznika. \end{DoxyCompactList}\item 
+static int \hyperlink{class_timer_a2e2f6c73ec2eefe72042f3c52a632806}{second} ()
+\begin{DoxyCompactList}\small\item\em Funkcja obliczajaca przez ile sekund pracowal licznik. \end{DoxyCompactList}\item 
+static std\+::recursive\+\_\+mutex $\ast$ \hyperlink{class_timer_a6998144d90d80227e9dd7451556f5ff6}{get\+Mutex} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca Mutex. \end{DoxyCompactList}\item 
+static void \hyperlink{class_timer_a963623dd91d8379685d31add61ae54af}{set\+Mutex} (std\+::recursive\+\_\+mutex $\ast$new\+Mutex)
+\begin{DoxyCompactList}\small\item\em Funkcja ustawiajaca Mutex. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_a1323444ebd7f2c1407518a03a193b5f4}{}static void \hyperlink{class_timer_a1323444ebd7f2c1407518a03a193b5f4}{run} ()\label{class_timer_a1323444ebd7f2c1407518a03a193b5f4}
+
+\begin{DoxyCompactList}\small\item\em Funkcja uruchamiana przez drugi watek w \hyperlink{class_plansza}{Plansza}. \end{DoxyCompactList}\item 
+\hypertarget{class_timer_af8c9d9213ff483fb73c82132c9b097ff}{}static void \hyperlink{class_timer_af8c9d9213ff483fb73c82132c9b097ff}{end} ()\label{class_timer_af8c9d9213ff483fb73c82132c9b097ff}
+
+\begin{DoxyCompactList}\small\item\em Funkcja ustawiajaca flage konca pracy. Po jej wykonaniu watek odpowiedzialny za licznik jest zamykany. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa odpowiedzialna za licznik czasu. 
+
+Jest to klasa zajmujaca sie mozliwosciami licznika czasu. Moze go uruchomic, spauzowac, wznowic czy zrestartowac oraz podac czas w sekundach. \begin{DoxyAuthor}{Autor}
+Mateusz Winiarski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Wersja}
+v1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2015 
+\end{DoxyDate}
+\begin{DoxyWarning}{Ostrzeżenie}
+Moze mylic sie przy dluzszych okresach czasu co wyniki z narzutu wywolywania metod. 
+\end{DoxyWarning}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{class_timer_a6998144d90d80227e9dd7451556f5ff6}{}\index{Timer@{Timer}!get\+Mutex@{get\+Mutex}}
+\index{get\+Mutex@{get\+Mutex}!Timer@{Timer}}
+\subsubsection[{get\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::recursive\+\_\+mutex$\ast$ Timer\+::get\+Mutex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_timer_a6998144d90d80227e9dd7451556f5ff6}
+
+
+Funkcja zwracajaca Mutex. 
+
+Jest on uzywany do chronienia wyswietlania w konsoli, zeby przypadkiem watek licznika nie zaczal konfliktowac sie z watkiem aplikacji 
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 0
+
+
+\hypertarget{class_timer_a2e2f6c73ec2eefe72042f3c52a632806}{}\index{Timer@{Timer}!second@{second}}
+\index{second@{second}!Timer@{Timer}}
+\subsubsection[{second}]{\setlength{\rightskip}{0pt plus 5cm}static int Timer\+::second (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_timer_a2e2f6c73ec2eefe72042f3c52a632806}
+
+
+Funkcja obliczajaca przez ile sekund pracowal licznik. 
+
+\begin{DoxyReturn}{Zwraca}
+Ilosc sekund przez jakie licznik pracowal 
+\end{DoxyReturn}
+\hypertarget{class_timer_a963623dd91d8379685d31add61ae54af}{}\index{Timer@{Timer}!set\+Mutex@{set\+Mutex}}
+\index{set\+Mutex@{set\+Mutex}!Timer@{Timer}}
+\subsubsection[{set\+Mutex}]{\setlength{\rightskip}{0pt plus 5cm}static void Timer\+::set\+Mutex (
+\begin{DoxyParamCaption}
+\item[{std\+::recursive\+\_\+mutex $\ast$}]{new\+Mutex}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_timer_a963623dd91d8379685d31add61ae54af}
+
+
+Funkcja ustawiajaca Mutex. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em new\+Mutex} & nowy Mutex jaki ma byc ustawiony. Wykorzystywane jesli z jakiegos powodu nie ma w danej chwili ustalonego Mutexu \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 1
+
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+Timer.\+h\item 
+Timer.\+cpp\end{DoxyCompactItemize}

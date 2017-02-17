@@ -1,42 +1,49 @@
 ﻿#include "Okno.h"
-//#include "Menu.h"
+#include "Help.h"
+#include "Timer.h"
 #include <vector>
 
 int ile = 2;
 std::string nazwy[] = { "Nowa Gra", "Zamknij" };
 int specjalne[] = { 0, 0 };
 
-const unsigned char doubleDownLeftCorner = 200;    //╚
-const unsigned char doubleUpLeftCorner = 201;      //╔
-const unsigned char doubleUpRightCorner = 187;     //╗
-const unsigned char doubleDownRightCorner = 188;   //╝
-const unsigned char doubleHorizontalAndUp = 202;   //╩
-const unsigned char doubleHorizontalAndDown = 203; //╦
-const unsigned char doubleVerticalAndRight = 204;  //╠
-const unsigned char doubleVerticalAndLeft = 185;   //╣
-const unsigned char doubleHorizontal = 205;        //═
-const unsigned char doubleVertical = 186;          //║
-const unsigned char doubleCross = 206;             //╬
+char doubleDownLeftCorner = 200;	//╚
+char doubleUpLeftCorner = 201;      //╔
+char doubleUpRightCorner = 187;     //╗
+char doubleDownRightCorner = 188;   //╝
+char doubleHorizontalAndUp = 202;   //╩
+char doubleHorizontalAndDown = 203; //╦
+char doubleVerticalAndRight = 204;  //╠
+char doubleVerticalAndLeft = 185;   //╣
+char doubleHorizontal = 205;        //═
+char doubleVertical = 186;          //║
+char doubleCross = 206;             //╬
 
-const unsigned char singleDownLeftCorner = 192;    //└
-const unsigned char singleUpLeftCorner = 218;      //┌
-const unsigned char singleUpRightCorner = 191;     //┐
-const unsigned char singleDownRightCorner = 217;   //┘
-const unsigned char singleHorizontalAndUp = 193;   //┴
-const unsigned char singleHorizontalAndDown = 194; //┬
-const unsigned char singleVerticalAndRight = 195;  //├
-const unsigned char singleVerticalAndLeft = 180;   //┤
-const unsigned char singleHorizontal = 196;        //─
-const unsigned char singleVertical = 179;          //│
-const unsigned char singleCross = 197;             //┼
+char singleDownLeftCorner = 192;	//└
+char singleUpLeftCorner = 218;      //┌
+char singleUpRightCorner = 191;     //┐
+char singleDownRightCorner = 217;   //┘
+char singleHorizontalAndUp = 193;   //┴
+char singleHorizontalAndDown = 194; //┬
+char singleVerticalAndRight = 195;  //├
+char singleVerticalAndLeft = 180;   //┤
+char singleHorizontal = 196;        //─
+char singleVertical = 179;          //│
+char singleCross = 197;             //┼
 
-const unsigned char lowDestinyDots = 176;          //░
-const unsigned char mediumDestinyDots = 177;       //▒
-const unsigned char highDestinyDots = 178;         //▓
+char lowDestinyDots = 176;          //░
+char mediumDestinyDots = 177;       //▒
+char highDestinyDots = 178;         //▓
+char bomb = 207;
+char fklag = '?';
 
-void Okno::Initialize(Window& console, Window& gameWindow, Window& shadow) {
+void Okno::Initialize() {
+	Timer::getMutex()->lock();
+	keypad(console, true);
+	keypad(gameWindow, true);
+	keypad(shadow, true);
 
-	console << "Saper v0.0.0" << endl;
+	console << "Saper " << version << endl;
 	for (int i = 0; i < console.columns(); ++i)
 		console << "_";
 
@@ -50,6 +57,9 @@ void Okno::Initialize(Window& console, Window& gameWindow, Window& shadow) {
 
 	gameWindow.AttrOn(okno1);
 	gameWindow.Background(okno1);
+
+	//static Help help = Help(65, 40, 1, 97);
+	Timer::getMutex()->unlock();
 }
 
 void Okno::SetBorderColoured(Window& window) {
@@ -67,14 +77,46 @@ void Okno::SetBorderColoured(Window& window) {
 		window << singleVertical; 
 		window.MoveCursor(i, 75);
 		window << singleVertical;
+		window.MoveCursor(i, 75+21);
+		window << singleVertical;
 	}
 	for (register int i = 1; i < window.columns() - 1; ++i) {
 		window.MoveCursor(0, i);
 		window << singleHorizontal;
+		if ( 75 < i && i < 75+21) {
+			window.MoveCursor(3, i);
+			window << singleHorizontal;
+			window.MoveCursor(23, i);
+			window << singleHorizontal;
+			window.MoveCursor(31, i);
+			window << singleHorizontal;
+			window.MoveCursor(40, i);
+			window << singleHorizontal;
+		}
 	}
 	
 	window.MoveCursor(0, 75);
 	window << singleHorizontalAndDown;
+	window.MoveCursor(0, 75+21);
+	window << singleHorizontalAndDown;
+
+	window.MoveCursor(3, 75);
+	gameWindow << singleVerticalAndRight;
+	window.MoveCursor(23, 75);
+	gameWindow << singleVerticalAndRight;
+	window.MoveCursor(31, 75);
+	gameWindow << singleVerticalAndRight;
+	window.MoveCursor(40, 75);
+	gameWindow << singleVerticalAndRight;
+
+	window.MoveCursor(3, 75 + 21);
+	gameWindow << singleVerticalAndLeft;
+	window.MoveCursor(23, 75 + 21);
+	gameWindow << singleVerticalAndLeft;
+	window.MoveCursor(31, 75 + 21);
+	gameWindow << singleVerticalAndLeft;
+	window.MoveCursor(40, 75 + 21);
+	gameWindow << singleVerticalAndLeft;
 
 	window.AttrOff(upleft);
 	window.AttrOff(A_BOLD);
@@ -101,6 +143,10 @@ void Okno::SetBorderColoured(Window& window) {
 	
 	window.MoveCursor(window.lines() - 1, 75);
 	window << singleHorizontalAndUp;
+	window.MoveCursor(window.lines() - 1, 75+21);
+	window << singleHorizontalAndUp;
+
+	
 
 	window.AttrOff(downright);
 

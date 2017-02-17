@@ -1,16 +1,17 @@
-#ifndef WSZYSTKO_H
-#define WSZYSTKO_H
-
+#pragma once
 #pragma execution_character_set("utf-8")
 
 #include "Window.h"
 #include "Color.h"
 #include "Okno.h"
 #include "Menu.h"
+#include "Plansza.h"
+#include "Help.h"
+#include "Results.h"
+#include <string>
 
 #define endl "\n"
-
-#endif
+#define version "v0.9"
 
 /*
 ATRYBUTY TEKSTU:

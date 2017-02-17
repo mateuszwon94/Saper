@@ -1,0 +1,132 @@
+\hypertarget{class_menu_entry}{}\section{Dokumentacja klasy Menu\+Entry}
+\label{class_menu_entry}\index{Menu\+Entry@{Menu\+Entry}}
+
+
+Klasa obslugujaca pojedyncza pozycje w menu.  
+
+
+
+
+{\ttfamily \#include $<$Menu\+Entry.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_menu_entry_a400100dee10c9aab7af558f854120fbd}{Menu\+Entry} (std\+::string name, action function, int special=0, bool is\+Active=true)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \hyperlink{class_menu_entry}{Menu\+Entry}. \end{DoxyCompactList}\item 
+std\+::string \& \hyperlink{class_menu_entry_a94ce04cb1d1a97506416ab206665ed22}{Name} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajace napis reprezentujacy przycisk. \end{DoxyCompactList}\item 
+int \hyperlink{class_menu_entry_a8c3eb591798f523d010c21cbf8f2d6f7}{Special} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajace indeks znaku specjalnego. \end{DoxyCompactList}\item 
+\hyperlink{class_menu_entry_adb576d6c52b0065a9a3e0f200799ab19}{operator bool} ()
+\begin{DoxyCompactList}\small\item\em Funkcja konwertujaca \hyperlink{class_menu_entry}{Menu\+Entry} na zmienna typu bool. \end{DoxyCompactList}\item 
+\hypertarget{class_menu_entry_a2e8401a0092bd024580cd4f3c17820f9}{}void \hyperlink{class_menu_entry_a2e8401a0092bd024580cd4f3c17820f9}{Change\+Active} ()\label{class_menu_entry_a2e8401a0092bd024580cd4f3c17820f9}
+
+\begin{DoxyCompactList}\small\item\em Funkcja zmieniajaca aktywnosc danego \hyperlink{class_menu_entry}{Menu\+Entry}. \end{DoxyCompactList}\item 
+\hypertarget{class_menu_entry_a885d1c55d01b54a3071b477ff142a678}{}void \hyperlink{class_menu_entry_a885d1c55d01b54a3071b477ff142a678}{operator()} ()\label{class_menu_entry_a885d1c55d01b54a3071b477ff142a678}
+
+\begin{DoxyCompactList}\small\item\em Funkcja wolajaca funkcje ktora jest przypisana do konkretnego \hyperlink{class_menu_entry}{Menu\+Entry}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa obslugujaca pojedyncza pozycje w menu. 
+
+Jest to klasa zajmujaca sie wszystkimi czynnosciami jakie moze wykonac pojedynczy wpis w menu \begin{DoxyAuthor}{Autor}
+Mateusz Winiarski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Wersja}
+v1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2015 
+\end{DoxyDate}
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{class_menu_entry_a400100dee10c9aab7af558f854120fbd}{}\index{Menu\+Entry@{Menu\+Entry}!Menu\+Entry@{Menu\+Entry}}
+\index{Menu\+Entry@{Menu\+Entry}!Menu\+Entry@{Menu\+Entry}}
+\subsubsection[{Menu\+Entry}]{\setlength{\rightskip}{0pt plus 5cm}Menu\+Entry\+::\+Menu\+Entry (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{action}]{function, }
+\item[{int}]{special = {\ttfamily 0}, }
+\item[{bool}]{is\+Active = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_entry_a400100dee10c9aab7af558f854120fbd}
+
+
+Konstruktor klasy \hyperlink{class_menu_entry}{Menu\+Entry}. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em name} & String zawierajacy opis przycisku \\
+\hline
+{\em function} & Funkcja przypisana przyciskowi \\
+\hline
+{\em special} & Zmienna zawierajaca ktore z liter w danym wpisie jest wyrozniona \\
+\hline
+{\em is\+Active} & Zmienna reprezentujaca czy mozna wejsc w interakcje z danym przyciskiem \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{class_menu_entry_a94ce04cb1d1a97506416ab206665ed22}{}\index{Menu\+Entry@{Menu\+Entry}!Name@{Name}}
+\index{Name@{Name}!Menu\+Entry@{Menu\+Entry}}
+\subsubsection[{Name}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string\& Menu\+Entry\+::\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_entry_a94ce04cb1d1a97506416ab206665ed22}
+
+
+Funkcja zwracajace napis reprezentujacy przycisk. 
+
+\begin{DoxyReturn}{Zwraca}
+Napis reprezentujacy przycisk 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 0
+
+
+\hypertarget{class_menu_entry_adb576d6c52b0065a9a3e0f200799ab19}{}\index{Menu\+Entry@{Menu\+Entry}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!Menu\+Entry@{Menu\+Entry}}
+\subsubsection[{operator bool}]{\setlength{\rightskip}{0pt plus 5cm}Menu\+Entry\+::operator bool (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_entry_adb576d6c52b0065a9a3e0f200799ab19}
+
+
+Funkcja konwertujaca \hyperlink{class_menu_entry}{Menu\+Entry} na zmienna typu bool. 
+
+\begin{DoxyReturn}{Zwraca}
+Czy \hyperlink{class_menu_entry}{Menu\+Entry} jest aktywne 
+\end{DoxyReturn}
+\hypertarget{class_menu_entry_a8c3eb591798f523d010c21cbf8f2d6f7}{}\index{Menu\+Entry@{Menu\+Entry}!Special@{Special}}
+\index{Special@{Special}!Menu\+Entry@{Menu\+Entry}}
+\subsubsection[{Special}]{\setlength{\rightskip}{0pt plus 5cm}int Menu\+Entry\+::\+Special (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_entry_a8c3eb591798f523d010c21cbf8f2d6f7}
+
+
+Funkcja zwracajace indeks znaku specjalnego. 
+
+\begin{DoxyReturn}{Zwraca}
+Indeks znaku specjalnego 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 1
+
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+Menu\+Entry.\+h\end{DoxyCompactItemize}

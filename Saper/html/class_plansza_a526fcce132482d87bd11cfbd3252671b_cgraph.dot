@@ -1,0 +1,23 @@
+digraph "Plansza::Plansza"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Plansza::Plansza",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Timer::getMutex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_timer.html#a6998144d90d80227e9dd7451556f5ff6",tooltip="Funkcja zwracajaca Mutex. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Timer::setMutex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_timer.html#a963623dd91d8379685d31add61ae54af",tooltip="Funkcja ustawiajaca Mutex. "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Timer::run",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_timer.html#a1323444ebd7f2c1407518a03a193b5f4",tooltip="Funkcja uruchamiana przez drugi watek w Plansza. "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Window::MoveCursor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#ac6e11dee115c399181fa26c0b490d2f5",tooltip="Ustawiana jest pozycja kursora. "];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Window::Refresh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#ae2408e16042a51630a490c2831638a4c",tooltip="Odswierzanie okna. Powoduje wyczyszczenie bufora i wyswietlenie wszystkich zmian w oknie..."];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Timer::reset",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_timer.html#a9020542d73357a4eef512eefaf57524b",tooltip="Funkcja resetujaca ustawienia licznika. "];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Menu::current",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a2388f6a7d18a9866cb81a8741d2dc2d2",tooltip="Funkcja zwracajaca obecna instancje Menu. "];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Menu::setActive",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a823da268994dc5e067f65e6e8101a07b",tooltip="Funkcja ustawiajaca MenuEntry spod konkretnego indeksu na aktywne. "];
+}

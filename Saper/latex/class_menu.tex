@@ -1,0 +1,344 @@
+\hypertarget{class_menu}{}\section{Dokumentacja klasy Menu}
+\label{class_menu}\index{Menu@{Menu}}
+
+
+Klasa obslugujaca menu.  
+
+
+
+
+{\ttfamily \#include $<$Menu.\+h$>$}
+
+\subsection*{Typy publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_menu_aceaa934be18280340c221593bbee54d6}{}typedef \hyperlink{class_menu_entry}{Menu\+Entry} $\ast$ \hyperlink{class_menu_aceaa934be18280340c221593bbee54d6}{Iterator}\label{class_menu_aceaa934be18280340c221593bbee54d6}
+
+\begin{DoxyCompactList}\small\item\em Typedef definiujacy czym jest w tej klasie Iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_menu_ad705e11e42f40448689344e9028b7dc6}{Menu} (std\+::vector$<$ std\+::string $>$ entrys, std\+::vector$<$ void($\ast$)()$>$ functions, std\+::vector$<$ int $>$ specials=\{\}, unsigned int line=0, unsigned int column=0, bool visibility=true)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\item 
+\hyperlink{class_menu_aceaa934be18280340c221593bbee54d6}{Iterator} \hyperlink{class_menu_ad463178d6970e3db29a3d6289d72c5f0}{begin} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca Iterator na pierwszy element \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\item 
+\hyperlink{class_menu_aceaa934be18280340c221593bbee54d6}{Iterator} \hyperlink{class_menu_a17613d2e18e1b61105697bf20da2a202}{end} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca Iterator na miejsca za ostatnim elementem \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\item 
+\hyperlink{class_menu_entry}{Menu\+Entry} \& \hyperlink{class_menu_a4dc775abd74159477e8036f163f654c4}{operator\mbox{[}$\,$\mbox{]}} (unsigned int count)
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca \hyperlink{class_menu_entry}{Menu\+Entry} spod konkretnego indeksu. \end{DoxyCompactList}\item 
+void \hyperlink{class_menu_a823da268994dc5e067f65e6e8101a07b}{set\+Active} (unsigned int i)
+\begin{DoxyCompactList}\small\item\em Funkcja ustawiajaca \hyperlink{class_menu_entry}{Menu\+Entry} spod konkretnego indeksu na aktywne. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{class_menu_a79efb8be5c70958590c886e4b988c36a}{size} ()
+\begin{DoxyCompactList}\small\item\em Funkcja podajaca rozmiar \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_menu_a5cd3d248fdd22d045b7689cb8b558a5c}{Pos\+Line} ()
+\begin{DoxyCompactList}\small\item\em Funkcja podajaca poczatkowa linie \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_menu_a206bfce5dab4f8170bfd3e22ef47613b}{Pos\+Column} ()
+\begin{DoxyCompactList}\small\item\em Funkcja podajaca poczatkowa kolumne \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\item 
+void \hyperlink{class_menu_a4c7a6ae76ffe0de91b9948b033984f54}{Set\+Current\+Entry} (int which)
+\begin{DoxyCompactList}\small\item\em Funkcja ustawiajaca obecnie aktywne \hyperlink{class_menu_entry}{Menu\+Entry} na zadane. \end{DoxyCompactList}\item 
+void \hyperlink{class_menu_a2538dd9ab4e5f0613b7c47b4a6fbbe96}{Move} (int sign)
+\begin{DoxyCompactList}\small\item\em Funkcja zajmujaca sie przesuwaniem po \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\item 
+\hypertarget{class_menu_a882bc77032049522a968ebb959060951}{}void \hyperlink{class_menu_a882bc77032049522a968ebb959060951}{Move\+Cursor} ()\label{class_menu_a882bc77032049522a968ebb959060951}
+
+\begin{DoxyCompactList}\small\item\em Funkcja zajmujaca sie przesuwaniem po \hyperlink{class_menu}{Menu} kursora. \end{DoxyCompactList}\item 
+\hypertarget{class_menu_ae22e08593df3fe9cb33ffae4e71386b9}{}void \hyperlink{class_menu_ae22e08593df3fe9cb33ffae4e71386b9}{Call\+Current\+Function} ()\label{class_menu_ae22e08593df3fe9cb33ffae4e71386b9}
+
+\begin{DoxyCompactList}\small\item\em Funkcja zajmujaca sie wywolaniem odpowiedniej funkcji dla obecnego \hyperlink{class_menu_entry}{Menu\+Entry}. \end{DoxyCompactList}\item 
+\hypertarget{class_menu_a1166aeaa1849a13d80291ea0a734415f}{}void \hyperlink{class_menu_a1166aeaa1849a13d80291ea0a734415f}{Refresh\+C\+L\+B} ()\label{class_menu_a1166aeaa1849a13d80291ea0a734415f}
+
+\begin{DoxyCompactList}\small\item\em Funkcja odswierzajaca wyswietlana liczbe kolumn wierszy i bomb. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{class_menu_a7b0fbc17641f35b4d5cdab708b14c659}{get\+Columns} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca obecnie ustalona liczbe kolumne. \end{DoxyCompactList}\item 
+static int \hyperlink{class_menu_a36ba53f24eacd853bc98da7a4fff291d}{get\+Lines} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca obecnie ustalona liczbe wierszy. \end{DoxyCompactList}\item 
+static int \hyperlink{class_menu_a4654d30d5950859f8cd3ca4bb4d6774a}{get\+Bombs} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca obecnie ustalona liczbe bomb. \end{DoxyCompactList}\item 
+static \hyperlink{class_menu}{Menu} \& \hyperlink{class_menu_a2388f6a7d18a9866cb81a8741d2dc2d2}{current} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca obecna instancje \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa obslugujaca menu. 
+
+Jest to klasa zajmujaca sie obsluga menu w grze. Ustawia poziom, uruchamia gra, wyswietla wyniki czy pomoc oraz konczy program \begin{DoxyAuthor}{Autor}
+Mateusz Winiarski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Wersja}
+v1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2015 
+\end{DoxyDate}
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{class_menu_ad705e11e42f40448689344e9028b7dc6}{}\index{Menu@{Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Menu@{Menu}}
+\subsubsection[{Menu}]{\setlength{\rightskip}{0pt plus 5cm}Menu\+::\+Menu (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::string $>$}]{entrys, }
+\item[{std\+::vector$<$ void($\ast$)()$>$}]{functions, }
+\item[{std\+::vector$<$ int $>$}]{specials = {\ttfamily \{~\}}, }
+\item[{unsigned int}]{line = {\ttfamily 0}, }
+\item[{unsigned int}]{column = {\ttfamily 0}, }
+\item[{bool}]{visibility = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\label{class_menu_ad705e11e42f40448689344e9028b7dc6}
+
+
+Konstruktor klasy \hyperlink{class_menu}{Menu}. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em entrys} & Vector zawierajacy opis przyciskow \\
+\hline
+{\em functions} & Vector zawierajacy funkcje przypisane odpowiednim przyciskom \\
+\hline
+{\em specials} & Vector zawierajacy ktore z liter w danym wpisie jest wyrozniona \\
+\hline
+{\em line,column} & Pozycja w jakiej \hyperlink{class_menu}{Menu} bedzie wyswietlane \\
+\hline
+{\em visibility} & Zmienna reprezentujaca czy menu bedzie wyswietlane \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{class_menu_ad463178d6970e3db29a3d6289d72c5f0}{}\index{Menu@{Menu}!begin@{begin}}
+\index{begin@{begin}!Menu@{Menu}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Iterator} Menu\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_ad463178d6970e3db29a3d6289d72c5f0}
+
+
+Funkcja zwracajaca Iterator na pierwszy element \hyperlink{class_menu}{Menu}. 
+
+Wykorzystywana w ranged base for loop \begin{DoxyReturn}{Zwraca}
+Iterator na pierwszy element \hyperlink{class_menu}{Menu} 
+\end{DoxyReturn}
+\hypertarget{class_menu_a2388f6a7d18a9866cb81a8741d2dc2d2}{}\index{Menu@{Menu}!current@{current}}
+\index{current@{current}!Menu@{Menu}}
+\subsubsection[{current}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Menu}\& Menu\+::current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_menu_a2388f6a7d18a9866cb81a8741d2dc2d2}
+
+
+Funkcja zwracajaca obecna instancje \hyperlink{class_menu}{Menu}. 
+
+\begin{DoxyReturn}{Zwraca}
+Obecnie uzywana instancja \hyperlink{class_menu}{Menu} 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 0
+
+
+\hypertarget{class_menu_a17613d2e18e1b61105697bf20da2a202}{}\index{Menu@{Menu}!end@{end}}
+\index{end@{end}!Menu@{Menu}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Iterator} Menu\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_a17613d2e18e1b61105697bf20da2a202}
+
+
+Funkcja zwracajaca Iterator na miejsca za ostatnim elementem \hyperlink{class_menu}{Menu}. 
+
+Wykorzystywana w ranged base for loop \begin{DoxyReturn}{Zwraca}
+Iterator na miejsca za ostatnim elementem \hyperlink{class_menu}{Menu} 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 1
+
+
+\hypertarget{class_menu_a4654d30d5950859f8cd3ca4bb4d6774a}{}\index{Menu@{Menu}!get\+Bombs@{get\+Bombs}}
+\index{get\+Bombs@{get\+Bombs}!Menu@{Menu}}
+\subsubsection[{get\+Bombs}]{\setlength{\rightskip}{0pt plus 5cm}static int Menu\+::get\+Bombs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_menu_a4654d30d5950859f8cd3ca4bb4d6774a}
+
+
+Funkcja zwracajaca obecnie ustalona liczbe bomb. 
+
+\begin{DoxyReturn}{Zwraca}
+Obecna liczba bomb 
+\end{DoxyReturn}
+\hypertarget{class_menu_a7b0fbc17641f35b4d5cdab708b14c659}{}\index{Menu@{Menu}!get\+Columns@{get\+Columns}}
+\index{get\+Columns@{get\+Columns}!Menu@{Menu}}
+\subsubsection[{get\+Columns}]{\setlength{\rightskip}{0pt plus 5cm}static int Menu\+::get\+Columns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_menu_a7b0fbc17641f35b4d5cdab708b14c659}
+
+
+Funkcja zwracajaca obecnie ustalona liczbe kolumne. 
+
+\begin{DoxyReturn}{Zwraca}
+Obecna liczba kolumn 
+\end{DoxyReturn}
+\hypertarget{class_menu_a36ba53f24eacd853bc98da7a4fff291d}{}\index{Menu@{Menu}!get\+Lines@{get\+Lines}}
+\index{get\+Lines@{get\+Lines}!Menu@{Menu}}
+\subsubsection[{get\+Lines}]{\setlength{\rightskip}{0pt plus 5cm}static int Menu\+::get\+Lines (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_menu_a36ba53f24eacd853bc98da7a4fff291d}
+
+
+Funkcja zwracajaca obecnie ustalona liczbe wierszy. 
+
+\begin{DoxyReturn}{Zwraca}
+Obecna liczba wierszy 
+\end{DoxyReturn}
+\hypertarget{class_menu_a2538dd9ab4e5f0613b7c47b4a6fbbe96}{}\index{Menu@{Menu}!Move@{Move}}
+\index{Move@{Move}!Menu@{Menu}}
+\subsubsection[{Move}]{\setlength{\rightskip}{0pt plus 5cm}void Menu\+::\+Move (
+\begin{DoxyParamCaption}
+\item[{int}]{sign}
+\end{DoxyParamCaption}
+)}\label{class_menu_a2538dd9ab4e5f0613b7c47b4a6fbbe96}
+
+
+Funkcja zajmujaca sie przesuwaniem po \hyperlink{class_menu}{Menu}. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sign} & Przechwyycony klawisz z klawiatury \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_menu_a4dc775abd74159477e8036f163f654c4}{}\index{Menu@{Menu}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Menu@{Menu}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Menu\+Entry}\& Menu\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_a4dc775abd74159477e8036f163f654c4}
+
+
+Funkcja zwracajaca \hyperlink{class_menu_entry}{Menu\+Entry} spod konkretnego indeksu. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em count} & Indeks spod ktorego ma byc zwrucone \hyperlink{class_menu_entry}{Menu\+Entry} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+\hyperlink{class_menu_entry}{Menu\+Entry} spod indeksu count 
+\end{DoxyReturn}
+\hypertarget{class_menu_a206bfce5dab4f8170bfd3e22ef47613b}{}\index{Menu@{Menu}!Pos\+Column@{Pos\+Column}}
+\index{Pos\+Column@{Pos\+Column}!Menu@{Menu}}
+\subsubsection[{Pos\+Column}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Menu\+::\+Pos\+Column (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_a206bfce5dab4f8170bfd3e22ef47613b}
+
+
+Funkcja podajaca poczatkowa kolumne \hyperlink{class_menu}{Menu}. 
+
+\begin{DoxyReturn}{Zwraca}
+Poczatkowa kolumna \hyperlink{class_menu}{Menu} 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 2
+
+
+\hypertarget{class_menu_a5cd3d248fdd22d045b7689cb8b558a5c}{}\index{Menu@{Menu}!Pos\+Line@{Pos\+Line}}
+\index{Pos\+Line@{Pos\+Line}!Menu@{Menu}}
+\subsubsection[{Pos\+Line}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Menu\+::\+Pos\+Line (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_a5cd3d248fdd22d045b7689cb8b558a5c}
+
+
+Funkcja podajaca poczatkowa linie \hyperlink{class_menu}{Menu}. 
+
+\begin{DoxyReturn}{Zwraca}
+Poczatkowa linia \hyperlink{class_menu}{Menu} 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 3
+
+
+\hypertarget{class_menu_a823da268994dc5e067f65e6e8101a07b}{}\index{Menu@{Menu}!set\+Active@{set\+Active}}
+\index{set\+Active@{set\+Active}!Menu@{Menu}}
+\subsubsection[{set\+Active}]{\setlength{\rightskip}{0pt plus 5cm}void Menu\+::set\+Active (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)}\label{class_menu_a823da268994dc5e067f65e6e8101a07b}
+
+
+Funkcja ustawiajaca \hyperlink{class_menu_entry}{Menu\+Entry} spod konkretnego indeksu na aktywne. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em count} & Indeks spod ktorego \hyperlink{class_menu_entry}{Menu\+Entry} ma byc ustawione na aktywne \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 4
+
+
+\hypertarget{class_menu_a4c7a6ae76ffe0de91b9948b033984f54}{}\index{Menu@{Menu}!Set\+Current\+Entry@{Set\+Current\+Entry}}
+\index{Set\+Current\+Entry@{Set\+Current\+Entry}!Menu@{Menu}}
+\subsubsection[{Set\+Current\+Entry}]{\setlength{\rightskip}{0pt plus 5cm}void Menu\+::\+Set\+Current\+Entry (
+\begin{DoxyParamCaption}
+\item[{int}]{which}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_a4c7a6ae76ffe0de91b9948b033984f54}
+
+
+Funkcja ustawiajaca obecnie aktywne \hyperlink{class_menu_entry}{Menu\+Entry} na zadane. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em which} & Ktore \hyperlink{class_menu_entry}{Menu\+Entry} ma byc ustawione na aktywne \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_menu_a79efb8be5c70958590c886e4b988c36a}{}\index{Menu@{Menu}!size@{size}}
+\index{size@{size}!Menu@{Menu}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t Menu\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_menu_a79efb8be5c70958590c886e4b988c36a}
+
+
+Funkcja podajaca rozmiar \hyperlink{class_menu}{Menu}. 
+
+\begin{DoxyReturn}{Zwraca}
+Ilosc elementow w \hyperlink{class_menu}{Menu} 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 5
+
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+Menu.\+h\item 
+Menu.\+cpp\end{DoxyCompactItemize}

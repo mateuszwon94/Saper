@@ -1,0 +1,30 @@
+latwy 67
+wlasny [3] [3] <1>12
+latwy 73
+wlasny [9] [9] <1>4
+wlasny [7] [7] <1>2
+wlasny [6] [6] <1>0
+wlasny [9] [11] <1>0
+latwy 74
+latwy 113
+latwy 108
+latwy 115
+latwy 66
+wlasny [7] [8] <1>3
+wlasny [7] [8] <1>13
+latwy 104
+wlasny [10] [9] <1>0
+wlasny [10] [11] <1>0
+latwy 102
+wlasny [10] [10] <1>0
+<<<<<<< HEAD
+wlasny [10] [10] <99>0
+wlasny [2] [5] <1>2
+wlasny [2] [5] <1>0
+=======
+wlasny [2] [5] <1>0
+wlasny [55] [40] <20>9
+>>>>>>> a12c369cf5ff68a36778bbe1065c308e8cb003cd
+wlasny [5] [2] <1>2
+wlasny [5] [3] <1>3
+wlasny [3] [2] <1>5

@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>My Project: Plik źródłowy Menu.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Menu.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;MenuEntry.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="class_window.html">Window</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_menu.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_menu.html">Menu</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="class_menu.html#ad705e11e42f40448689344e9028b7dc6">Menu</a>(std::vector&lt;std::string&gt; entrys, std::vector&lt;<span class="keywordtype">void</span>(*)()&gt; functions, std::vector&lt;int&gt; specials = { }, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line = 0, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> column = 0, <span class="keywordtype">bool</span> visibility = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_menu.html#aceaa934be18280340c221593bbee54d6">   32</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_menu_entry.html">MenuEntry</a>* <a class="code" href="class_menu.html#aceaa934be18280340c221593bbee54d6">Iterator</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_menu.html#ad463178d6970e3db29a3d6289d72c5f0">   39</a></span>&#160;        Iterator <a class="code" href="class_menu.html#ad463178d6970e3db29a3d6289d72c5f0">begin</a>() { <span class="keywordflow">return</span> &amp;_entrys[0]; }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_menu.html#a17613d2e18e1b61105697bf20da2a202">   46</a></span>&#160;        Iterator <a class="code" href="class_menu.html#a17613d2e18e1b61105697bf20da2a202">end</a>() { <span class="keywordflow">return</span> (&amp;_entrys[<a class="code" href="class_menu.html#a79efb8be5c70958590c886e4b988c36a">size</a>()-1])+1; }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_menu.html#a4dc775abd74159477e8036f163f654c4">   53</a></span>&#160;        <a class="code" href="class_menu_entry.html">MenuEntry</a>&amp; <a class="code" href="class_menu.html#a4dc775abd74159477e8036f163f654c4">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count) { <span class="keywordflow">return</span> _entrys[count]; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_menu.html#a823da268994dc5e067f65e6e8101a07b">setActive</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_menu.html#a79efb8be5c70958590c886e4b988c36a">   65</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="class_menu.html#a79efb8be5c70958590c886e4b988c36a">size</a>() { <span class="keywordflow">return</span> _entrys.size(); }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_menu.html#a5cd3d248fdd22d045b7689cb8b558a5c">   71</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_menu.html#a5cd3d248fdd22d045b7689cb8b558a5c">PosLine</a>() { <span class="keywordflow">return</span> _posLine; }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_menu.html#a206bfce5dab4f8170bfd3e22ef47613b">   77</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_menu.html#a206bfce5dab4f8170bfd3e22ef47613b">PosColumn</a>() { <span class="keywordflow">return</span> _posColumn; }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_menu.html#a4c7a6ae76ffe0de91b9948b033984f54">   83</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_menu.html#a4c7a6ae76ffe0de91b9948b033984f54">SetCurrentEntry</a>(<span class="keywordtype">int</span> which) { _currEntry = which; }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_menu.html#a2538dd9ab4e5f0613b7c47b4a6fbbe96">Move</a>(<span class="keywordtype">int</span> sign);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_menu.html#a882bc77032049522a968ebb959060951">MoveCursor</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_menu.html#ae22e08593df3fe9cb33ffae4e71386b9">CallCurrentFunction</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="class_menu.html#a7b0fbc17641f35b4d5cdab708b14c659">  105</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_menu.html#a7b0fbc17641f35b4d5cdab708b14c659">getColumns</a>() { <span class="keywordflow">return</span> _columns; }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="class_menu.html#a36ba53f24eacd853bc98da7a4fff291d">  111</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_menu.html#a36ba53f24eacd853bc98da7a4fff291d">getLines</a>() { <span class="keywordflow">return</span> _lines; }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="class_menu.html#a4654d30d5950859f8cd3ca4bb4d6774a">  117</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_menu.html#a4654d30d5950859f8cd3ca4bb4d6774a">getBombs</a>() { <span class="keywordflow">return</span> _bombs; }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_menu.html#a1166aeaa1849a13d80291ea0a734415f">RefreshCLB</a>();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="class_menu.html#a2388f6a7d18a9866cb81a8741d2dc2d2">  128</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="class_menu.html">Menu</a>&amp; <a class="code" href="class_menu.html#a2388f6a7d18a9866cb81a8741d2dc2d2">current</a>() { <span class="keywordflow">return</span> *_menu; }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">int</span> CurrentEntry() { <span class="keywordflow">return</span> _currEntry; }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordtype">void</span> MoveUp();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordtype">void</span> MoveDown();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordtype">void</span> setCustmMode();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordtype">void</span> setMode(std::array&lt;int, 3&gt; mode);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordtype">void</span> setCLB(<span class="keywordtype">int</span> number, <span class="keywordtype">int</span> which, std::array&lt;std::string, 3&gt;&amp; svars);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        std::vector&lt;MenuEntry&gt; _entrys = std::vector&lt;MenuEntry&gt;();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordtype">int</span> _currEntry = 0;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _posLine = 0;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _posColumn = 0;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordtype">bool</span> _visible = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> _columns;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> _lines;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> _bombs;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_menu.html">Menu</a>* _menu;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;};</div>
+<div class="ttc" id="class_menu_html_a2538dd9ab4e5f0613b7c47b4a6fbbe96"><div class="ttname"><a href="class_menu.html#a2538dd9ab4e5f0613b7c47b4a6fbbe96">Menu::Move</a></div><div class="ttdeci">void Move(int sign)</div><div class="ttdoc">Funkcja zajmujaca sie przesuwaniem po Menu. </div><div class="ttdef"><b>Definition:</b> Menu.cpp:59</div></div>
+<div class="ttc" id="class_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdoc">Adapter klasy bibliotecznej ncurses. </div><div class="ttdef"><b>Definition:</b> Window.h:20</div></div>
+<div class="ttc" id="class_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdoc">Klasa obslugujaca menu. </div><div class="ttdef"><b>Definition:</b> Menu.h:17</div></div>
+<div class="ttc" id="class_menu_html_a206bfce5dab4f8170bfd3e22ef47613b"><div class="ttname"><a href="class_menu.html#a206bfce5dab4f8170bfd3e22ef47613b">Menu::PosColumn</a></div><div class="ttdeci">unsigned int PosColumn()</div><div class="ttdoc">Funkcja podajaca poczatkowa kolumne Menu. </div><div class="ttdef"><b>Definition:</b> Menu.h:77</div></div>
+<div class="ttc" id="class_menu_html_a4c7a6ae76ffe0de91b9948b033984f54"><div class="ttname"><a href="class_menu.html#a4c7a6ae76ffe0de91b9948b033984f54">Menu::SetCurrentEntry</a></div><div class="ttdeci">void SetCurrentEntry(int which)</div><div class="ttdoc">Funkcja ustawiajaca obecnie aktywne MenuEntry na zadane. </div><div class="ttdef"><b>Definition:</b> Menu.h:83</div></div>
+<div class="ttc" id="class_menu_html_a7b0fbc17641f35b4d5cdab708b14c659"><div class="ttname"><a href="class_menu.html#a7b0fbc17641f35b4d5cdab708b14c659">Menu::getColumns</a></div><div class="ttdeci">static int getColumns()</div><div class="ttdoc">Funkcja zwracajaca obecnie ustalona liczbe kolumne. </div><div class="ttdef"><b>Definition:</b> Menu.h:105</div></div>
+<div class="ttc" id="class_menu_html_ad705e11e42f40448689344e9028b7dc6"><div class="ttname"><a href="class_menu.html#ad705e11e42f40448689344e9028b7dc6">Menu::Menu</a></div><div class="ttdeci">Menu(std::vector&lt; std::string &gt; entrys, std::vector&lt; void(*)()&gt; functions, std::vector&lt; int &gt; specials={}, unsigned int line=0, unsigned int column=0, bool visibility=true)</div><div class="ttdoc">Konstruktor klasy Menu. </div><div class="ttdef"><b>Definition:</b> Menu.cpp:19</div></div>
+<div class="ttc" id="class_menu_html_ae22e08593df3fe9cb33ffae4e71386b9"><div class="ttname"><a href="class_menu.html#ae22e08593df3fe9cb33ffae4e71386b9">Menu::CallCurrentFunction</a></div><div class="ttdeci">void CallCurrentFunction()</div><div class="ttdoc">Funkcja zajmujaca sie wywolaniem odpowiedniej funkcji dla obecnego MenuEntry. </div><div class="ttdef"><b>Definition:</b> Menu.cpp:107</div></div>
+<div class="ttc" id="class_menu_html_a5cd3d248fdd22d045b7689cb8b558a5c"><div class="ttname"><a href="class_menu.html#a5cd3d248fdd22d045b7689cb8b558a5c">Menu::PosLine</a></div><div class="ttdeci">unsigned int PosLine()</div><div class="ttdoc">Funkcja podajaca poczatkowa linie Menu. </div><div class="ttdef"><b>Definition:</b> Menu.h:71</div></div>
+<div class="ttc" id="class_menu_entry_html"><div class="ttname"><a href="class_menu_entry.html">MenuEntry</a></div><div class="ttdoc">Klasa obslugujaca pojedyncza pozycje w menu. </div><div class="ttdef"><b>Definition:</b> MenuEntry.h:14</div></div>
+<div class="ttc" id="class_menu_html_a4dc775abd74159477e8036f163f654c4"><div class="ttname"><a href="class_menu.html#a4dc775abd74159477e8036f163f654c4">Menu::operator[]</a></div><div class="ttdeci">MenuEntry &amp; operator[](unsigned int count)</div><div class="ttdoc">Funkcja zwracajaca MenuEntry spod konkretnego indeksu. </div><div class="ttdef"><b>Definition:</b> Menu.h:53</div></div>
+<div class="ttc" id="class_menu_html_a79efb8be5c70958590c886e4b988c36a"><div class="ttname"><a href="class_menu.html#a79efb8be5c70958590c886e4b988c36a">Menu::size</a></div><div class="ttdeci">size_t size()</div><div class="ttdoc">Funkcja podajaca rozmiar Menu. </div><div class="ttdef"><b>Definition:</b> Menu.h:65</div></div>
+<div class="ttc" id="class_menu_html_aceaa934be18280340c221593bbee54d6"><div class="ttname"><a href="class_menu.html#aceaa934be18280340c221593bbee54d6">Menu::Iterator</a></div><div class="ttdeci">MenuEntry * Iterator</div><div class="ttdoc">Typedef definiujacy czym jest w tej klasie Iterator. </div><div class="ttdef"><b>Definition:</b> Menu.h:32</div></div>
+<div class="ttc" id="class_menu_html_ad463178d6970e3db29a3d6289d72c5f0"><div class="ttname"><a href="class_menu.html#ad463178d6970e3db29a3d6289d72c5f0">Menu::begin</a></div><div class="ttdeci">Iterator begin()</div><div class="ttdoc">Funkcja zwracajaca Iterator na pierwszy element Menu. </div><div class="ttdef"><b>Definition:</b> Menu.h:39</div></div>
+<div class="ttc" id="class_menu_html_a4654d30d5950859f8cd3ca4bb4d6774a"><div class="ttname"><a href="class_menu.html#a4654d30d5950859f8cd3ca4bb4d6774a">Menu::getBombs</a></div><div class="ttdeci">static int getBombs()</div><div class="ttdoc">Funkcja zwracajaca obecnie ustalona liczbe bomb. </div><div class="ttdef"><b>Definition:</b> Menu.h:117</div></div>
+<div class="ttc" id="class_menu_html_a823da268994dc5e067f65e6e8101a07b"><div class="ttname"><a href="class_menu.html#a823da268994dc5e067f65e6e8101a07b">Menu::setActive</a></div><div class="ttdeci">void setActive(unsigned int i)</div><div class="ttdoc">Funkcja ustawiajaca MenuEntry spod konkretnego indeksu na aktywne. </div><div class="ttdef"><b>Definition:</b> Menu.cpp:40</div></div>
+<div class="ttc" id="class_menu_html_a2388f6a7d18a9866cb81a8741d2dc2d2"><div class="ttname"><a href="class_menu.html#a2388f6a7d18a9866cb81a8741d2dc2d2">Menu::current</a></div><div class="ttdeci">static Menu &amp; current()</div><div class="ttdoc">Funkcja zwracajaca obecna instancje Menu. </div><div class="ttdef"><b>Definition:</b> Menu.h:128</div></div>
+<div class="ttc" id="class_menu_html_a882bc77032049522a968ebb959060951"><div class="ttname"><a href="class_menu.html#a882bc77032049522a968ebb959060951">Menu::MoveCursor</a></div><div class="ttdeci">void MoveCursor()</div><div class="ttdoc">Funkcja zajmujaca sie przesuwaniem po Menu kursora. </div><div class="ttdef"><b>Definition:</b> Menu.cpp:101</div></div>
+<div class="ttc" id="class_menu_html_a36ba53f24eacd853bc98da7a4fff291d"><div class="ttname"><a href="class_menu.html#a36ba53f24eacd853bc98da7a4fff291d">Menu::getLines</a></div><div class="ttdeci">static int getLines()</div><div class="ttdoc">Funkcja zwracajaca obecnie ustalona liczbe wierszy. </div><div class="ttdef"><b>Definition:</b> Menu.h:111</div></div>
+<div class="ttc" id="class_menu_html_a1166aeaa1849a13d80291ea0a734415f"><div class="ttname"><a href="class_menu.html#a1166aeaa1849a13d80291ea0a734415f">Menu::RefreshCLB</a></div><div class="ttdeci">void RefreshCLB()</div><div class="ttdoc">Funkcja odswierzajaca wyswietlana liczbe kolumn wierszy i bomb. </div><div class="ttdef"><b>Definition:</b> Menu.cpp:313</div></div>
+<div class="ttc" id="class_menu_html_a17613d2e18e1b61105697bf20da2a202"><div class="ttname"><a href="class_menu.html#a17613d2e18e1b61105697bf20da2a202">Menu::end</a></div><div class="ttdeci">Iterator end()</div><div class="ttdoc">Funkcja zwracajaca Iterator na miejsca za ostatnim elementem Menu. </div><div class="ttdef"><b>Definition:</b> Menu.h:46</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Wt, 16 cze 2015 11:34:34 dla My Project programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

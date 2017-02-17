@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>My Project: Plik źródłowy Results.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Results.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Window.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span>   </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="struct_pair.html">    7</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_pair.html">Pair</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    std::string rozmiar;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">int</span> wynik;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;};</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_results.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_results.html">Results</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_results.html#ae15a9e843b67c54e98a6f59a56104e1f">Results</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_results.html#a524b63b8928aa4a85fb29b89197b4134">createFile</a>(std::string name);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_results.html#a0547c32c2061192a72cad9db694ffb16">~Results</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_results.html">Results</a>* <a class="code" href="class_results.html#a489b09ca0e160c7d8d43c925a8a33b88">getInstance</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_results.html#a263e6cd51ac69ad6705c0f79f9179b63">   44</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_results.html#a263e6cd51ac69ad6705c0f79f9179b63">getProblem</a>(){ <span class="keywordflow">return</span> problem; }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_results.html">Results</a>&amp; <a class="code" href="class_results.html#a069effb369c067ea8a8e2b5b0a647e72">operator&lt;&lt;</a>(std::string text);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_results.html#ab6d8f1711b2d9a611df1f5c460bd454a">load</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_results.html#a546671884adf0df06f778cdb9752b453">view</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_results.html#ac3ea8baf9f877af886bb70b259ca464a">   62</a></span>&#160;    std::fstream <a class="code" href="class_results.html#ac3ea8baf9f877af886bb70b259ca464a">file</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> viewT();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> viewF();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> show;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> copy(<span class="keywordtype">int</span> first, std::string text);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="struct_pair.html">Pair</a> copy(std::string text, <span class="keywordtype">int</span> first, <span class="keywordtype">int</span> end);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> sorting();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::vector&lt;int&gt; easy;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::vector&lt;int&gt; mild;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::vector&lt;int&gt; hard;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    std::vector&lt;Pair&gt; own30;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    std::vector&lt;Pair&gt; own70;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    std::vector&lt;Pair&gt; own;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_results.html">Results</a>* _instance;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">bool</span> problem;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//SORTOWANIE</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="ttc" id="class_results_html_ab6d8f1711b2d9a611df1f5c460bd454a"><div class="ttname"><a href="class_results.html#ab6d8f1711b2d9a611df1f5c460bd454a">Results::load</a></div><div class="ttdeci">void load()</div><div class="ttdoc">Funkcja ladujaca stan pliku. </div><div class="ttdef"><b>Definition:</b> Results.cpp:29</div></div>
+<div class="ttc" id="class_results_html_ae15a9e843b67c54e98a6f59a56104e1f"><div class="ttname"><a href="class_results.html#ae15a9e843b67c54e98a6f59a56104e1f">Results::Results</a></div><div class="ttdeci">Results()</div><div class="ttdoc">Konstruktor klasy Results. </div><div class="ttdef"><b>Definition:</b> Results.cpp:6</div></div>
+<div class="ttc" id="class_results_html"><div class="ttname"><a href="class_results.html">Results</a></div><div class="ttdoc">Klasa zajmujaca sie zapisem i wyswietlaniem wynikow. </div><div class="ttdef"><b>Definition:</b> Results.h:18</div></div>
+<div class="ttc" id="class_results_html_a546671884adf0df06f778cdb9752b453"><div class="ttname"><a href="class_results.html#a546671884adf0df06f778cdb9752b453">Results::view</a></div><div class="ttdeci">void view()</div><div class="ttdoc">Funkcja odpowiadjaca za wyswietlanie wynikow. </div><div class="ttdef"><b>Definition:</b> Results.cpp:105</div></div>
+<div class="ttc" id="class_results_html_a069effb369c067ea8a8e2b5b0a647e72"><div class="ttname"><a href="class_results.html#a069effb369c067ea8a8e2b5b0a647e72">Results::operator&lt;&lt;</a></div><div class="ttdeci">Results &amp; operator&lt;&lt;(std::string text)</div><div class="ttdoc">Przeladowany operator <<. </div><div class="ttdef"><b>Definition:</b> Results.cpp:25</div></div>
+<div class="ttc" id="class_results_html_a0547c32c2061192a72cad9db694ffb16"><div class="ttname"><a href="class_results.html#a0547c32c2061192a72cad9db694ffb16">Results::~Results</a></div><div class="ttdeci">~Results()</div><div class="ttdoc">Destruktor klasy Results. </div><div class="ttdef"><b>Definition:</b> Results.cpp:18</div></div>
+<div class="ttc" id="class_results_html_ac3ea8baf9f877af886bb70b259ca464a"><div class="ttname"><a href="class_results.html#ac3ea8baf9f877af886bb70b259ca464a">Results::file</a></div><div class="ttdeci">std::fstream file</div><div class="ttdoc">zmienna przechowujaca wskaznik na plik </div><div class="ttdef"><b>Definition:</b> Results.h:62</div></div>
+<div class="ttc" id="class_results_html_a489b09ca0e160c7d8d43c925a8a33b88"><div class="ttname"><a href="class_results.html#a489b09ca0e160c7d8d43c925a8a33b88">Results::getInstance</a></div><div class="ttdeci">static Results * getInstance()</div><div class="ttdoc">getter pobierajacy instancje klasy </div><div class="ttdef"><b>Definition:</b> Results.cpp:21</div></div>
+<div class="ttc" id="class_results_html_a263e6cd51ac69ad6705c0f79f9179b63"><div class="ttname"><a href="class_results.html#a263e6cd51ac69ad6705c0f79f9179b63">Results::getProblem</a></div><div class="ttdeci">bool getProblem()</div><div class="ttdoc">Funkcja sprawdzajaca czy nie wystapil problem z plikiem. </div><div class="ttdef"><b>Definition:</b> Results.h:44</div></div>
+<div class="ttc" id="class_results_html_a524b63b8928aa4a85fb29b89197b4134"><div class="ttname"><a href="class_results.html#a524b63b8928aa4a85fb29b89197b4134">Results::createFile</a></div><div class="ttdeci">void createFile(std::string name)</div><div class="ttdoc">Funkcja odpowiadajaca za tworzenie pliku. </div><div class="ttdef"><b>Definition:</b> Results.cpp:10</div></div>
+<div class="ttc" id="struct_pair_html"><div class="ttname"><a href="struct_pair.html">Pair</a></div><div class="ttdef"><b>Definition:</b> Results.h:7</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Wt, 16 cze 2015 11:34:34 dla My Project programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

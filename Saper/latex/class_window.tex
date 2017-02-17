@@ -1,0 +1,839 @@
+\hypertarget{class_window}{}\section{Dokumentacja klasy Window}
+\label{class_window}\index{Window@{Window}}
+
+
+Adapter klasy bibliotecznej ncurses.  
+
+
+
+
+{\ttfamily \#include $<$Window.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_window_aec537c1c6aa1855eb41444fc67b6b362}{Window} (int \hyperlink{class_window_a2d89f391164858a8e53d301f247873dd}{lines}=0, int \hyperlink{class_window_a9df6358fb547f10baa070fc811995ba7}{columns}=0, int pos\+Line=0, int pos\+Column=0, W\+I\+N\+D\+O\+W $\ast$window=N\+U\+L\+L)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \hyperlink{class_window}{Window}. \end{DoxyCompactList}\item 
+\hyperlink{class_window_a245d821e6016fa1f6970ccbbedd635f6}{$\sim$\+Window} ()
+\begin{DoxyCompactList}\small\item\em Destruktor klasy \hyperlink{class_window}{Window}. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_a60f74654f00a5c9688295c8ec0d18126}{operator$<$$<$} (char $\ast$text)
+\begin{DoxyCompactList}\small\item\em Wyswietla tekst. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_ac8de224c4fc4e781879b464f8606f804}{operator$<$$<$} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em Wyswietla tekst. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_a76fd2af7fc113d29f5488a7a629115d8}{operator$<$$<$} (char sign)
+\begin{DoxyCompactList}\small\item\em Wyswietla pojedynczy znak. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_a34c29e6bf9c6a26a9bf3e0b72580a56f}{operator$<$$<$} (const unsigned char sign)
+\begin{DoxyCompactList}\small\item\em Wyswietla pojedynczy znak. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_a2577daac6833ba6aa6693c0ba3cd6b60}{operator$<$$<$} (wchar\+\_\+t sign)
+\begin{DoxyCompactList}\small\item\em Wyswietla pojedynczy znak. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_a476ccb66073a36fead82735edf14667c}{operator$<$$<$} (chtype sign)
+\begin{DoxyCompactList}\small\item\em Wyswietla pojedynczy znak. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_ac2dc5c37f9456fc8b75013cec9df19bf}{operator$<$$<$} (chtype $\ast$sign)
+\begin{DoxyCompactList}\small\item\em Wyswietla pojedynczy znak. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_addc6a1cbce0c54b2e0c730b131181b1e}{operator$<$$<$} (int number)
+\begin{DoxyCompactList}\small\item\em Wyswietla liczba calkowita. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_ab1398fdf47e455c69f5886ec40b5429c}{operator$<$$<$} (unsigned int number)
+\begin{DoxyCompactList}\small\item\em Wyswietla liczba calkowita bez znaku. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_a2c75d176a50fa848d13997e14d832b50}{operator$<$$<$} (double number)
+\begin{DoxyCompactList}\small\item\em Wyswietla liczba zmiennoprzecinkowa. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_a54ce1a8639b3576063f4267868fb7625}{operator$<$$<$} (\hyperlink{class_menu}{Menu} \&menu)
+\begin{DoxyCompactList}\small\item\em Wyswietla menu. \end{DoxyCompactList}\item 
+\hyperlink{class_window}{Window} \& \hyperlink{class_window_a93288ef1367a2786c9b813e1964e6477}{operator$<$$<$} (\hyperlink{class_menu_entry}{Menu\+Entry} \&entry)
+\begin{DoxyCompactList}\small\item\em Wyswietla pojedynczy wpis z menu. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a7b0cae35f572f46c87033747117bbebd}{operator$>$$>$} (char $\ast$text)
+\begin{DoxyCompactList}\small\item\em Wczytywany jest tekst z konsoli. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_ad6d4bed0b5d293244bf6fbc348b4456e}{operator$>$$>$} (char \&sign)
+\begin{DoxyCompactList}\small\item\em Wczytywany jest pojedynczy znak z konsoli. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a0891167a97154f4f5b5104a06af41805}{operator$>$$>$} (int \&sign)
+\begin{DoxyCompactList}\small\item\em Wczytywany jest pojedyncza liczbe z konsoli. \end{DoxyCompactList}\item 
+\hyperlink{class_window_a5f2e3efa7b8654cdcf8235ae9f15c6fb}{operator W\+I\+N\+D\+O\+W $\ast$} ()
+\begin{DoxyCompactList}\small\item\em Funkcja konwertujaca obiekt \hyperlink{class_window}{Window} na biblioteczna reprezentacje W\+I\+N\+D\+O\+W$\ast$. \end{DoxyCompactList}\item 
+\hyperlink{class_window_ab515f51d1827fe02dec95b5ce19f4f14}{operator W\+I\+N\+D\+O\+W} ()
+\begin{DoxyCompactList}\small\item\em Funkcja konwertujaca obiekt \hyperlink{class_window}{Window} na biblioteczna reprezentacje W\+I\+N\+D\+O\+W. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_ac6e11dee115c399181fa26c0b490d2f5}{Move\+Cursor} (int line, int column)
+\begin{DoxyCompactList}\small\item\em Ustawiana jest pozycja kursora. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_ac68276b9e19407a0c78c0a47c5786f1a}{Attr\+On} (chtype attrybute)
+\begin{DoxyCompactList}\small\item\em Wlaczany jest atrybut dla okna. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a8baa301a84f4575a519f413e0d46d388}{Attr\+Off} (chtype attrybute)
+\begin{DoxyCompactList}\small\item\em Wylaczany jest atrybut dla okna. \end{DoxyCompactList}\item 
+\hypertarget{class_window_ae2408e16042a51630a490c2831638a4c}{}void \hyperlink{class_window_ae2408e16042a51630a490c2831638a4c}{Refresh} ()\label{class_window_ae2408e16042a51630a490c2831638a4c}
+
+\begin{DoxyCompactList}\small\item\em Odswierzanie okna. Powoduje wyczyszczenie bufora i wyswietlenie wszystkich zmian w oknie. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_a1e0071ce6dc928eaaa1fa6d0c777583a}{Background} (chtype attrybute)
+\begin{DoxyCompactList}\small\item\em Ustawiamy kolor tla. \end{DoxyCompactList}\item 
+std\+::array$<$ int, 2 $>$ \& \hyperlink{class_window_a0c9cc2ff9b09f68dd0071ec2d989f957}{Get\+Cursor\+Pos} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwraca obecna pozycje kursora. \end{DoxyCompactList}\item 
+void \hyperlink{class_window_af895612c78b06c729eb19428cd323483}{Resize} (int \hyperlink{class_window_a2d89f391164858a8e53d301f247873dd}{lines}, int \hyperlink{class_window_a9df6358fb547f10baa070fc811995ba7}{columns})
+\begin{DoxyCompactList}\small\item\em Zmiana wielkosci okna. \end{DoxyCompactList}\item 
+int \hyperlink{class_window_a2d89f391164858a8e53d301f247873dd}{lines} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwraca ilosc linii w oknie. \end{DoxyCompactList}\item 
+int \hyperlink{class_window_a9df6358fb547f10baa070fc811995ba7}{columns} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwraca ilosc kolumn w oknie. \end{DoxyCompactList}\item 
+int \hyperlink{class_window_a6e6b474e441e3a9334aa0c4f36687a81}{x} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwraca pozycje X okna. \end{DoxyCompactList}\item 
+int \hyperlink{class_window_a8049228817b0e699f35f46dcd6166db5}{y} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwraca pozycje Y okna. \end{DoxyCompactList}\item 
+W\+I\+N\+D\+O\+W $\ast$ \hyperlink{class_window_a17c622ebd30f9fe06c643d235e64c545}{get\+Win} ()
+\begin{DoxyCompactList}\small\item\em Funkcja pobierajaca z obiekt \hyperlink{class_window}{Window} jego biblioteczna reprezentacje czyli W\+I\+N\+D\+O\+W$\ast$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_window_aa236ccfebd21bb8283f530cb5b7fab89}{Set\+Cursor} (bool is\+Curor\+Visible)
+\begin{DoxyCompactList}\small\item\em Ustawiana jest widocznosc kursora. \end{DoxyCompactList}\item 
+static void \hyperlink{class_window_a7b1725e57ac5d7b5a90661fa0bad373e}{Assume\+Default\+Colors} (\hyperlink{class_color_pair}{Color\+Pair} color\+Pair)
+\begin{DoxyCompactList}\small\item\em Ustawiany jest domyslny kolor tla i tekstu w konsoli. \end{DoxyCompactList}\item 
+static void \hyperlink{class_window_ad89f757546282b04fc640146750aff22}{Set\+Echo} (bool is\+Active)
+\begin{DoxyCompactList}\small\item\em Ustawiana jest widocznosc wpisywanych znakow w konsoli. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_window_a6b8554b20546907c275c7ad61a529aa2}{}W\+I\+N\+D\+O\+W $\ast$ {\bfseries \+\_\+window}\label{class_window_a6b8554b20546907c275c7ad61a529aa2}
+
+\item 
+\hypertarget{class_window_af907a6d65dbddffb8e58e162e22472e3}{}int {\bfseries \+\_\+x}\label{class_window_af907a6d65dbddffb8e58e162e22472e3}
+
+\item 
+\hypertarget{class_window_a40112a204e3a41a989ab7d4d55107390}{}int {\bfseries \+\_\+y}\label{class_window_a40112a204e3a41a989ab7d4d55107390}
+
+\item 
+\hypertarget{class_window_a7a08a07989f3c7f061a01a279c1f7de1}{}int {\bfseries \+\_\+lines}\label{class_window_a7a08a07989f3c7f061a01a279c1f7de1}
+
+\item 
+\hypertarget{class_window_a1b6d1a10dbdf2d136428bca807d074a2}{}int {\bfseries \+\_\+columns}\label{class_window_a1b6d1a10dbdf2d136428bca807d074a2}
+
+\item 
+\hypertarget{class_window_ac233c371c76b0b5cf81ab30de683c79a}{}std\+::list$<$ chtype $>$ {\bfseries \+\_\+attrybutes} = std\+::list$<$chtype$>$()\label{class_window_ac233c371c76b0b5cf81ab30de683c79a}
+
+\end{DoxyCompactItemize}
+\subsection*{Statyczne atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_window_a16ca5780696c6c1d21beda483d67b41a}{}static int {\bfseries count} = 0\label{class_window_a16ca5780696c6c1d21beda483d67b41a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Adapter klasy bibliotecznej ncurses. 
+
+Jest to klasa konwertujaca proceduralny interfejs (obslugujacy okna) biblioteki ncurses na interfejs obiektowy, o wiele wygodniejszy w uzyciu \begin{DoxyAuthor}{Autor}
+Mateusz Winiarski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Wersja}
+v1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2015 
+\end{DoxyDate}
+\begin{DoxyWarning}{Ostrzeżenie}
+Zaimplementowane tylko metody potrzebne w naszym projekcie 
+\end{DoxyWarning}
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{class_window_aec537c1c6aa1855eb41444fc67b6b362}{}\index{Window@{Window}!Window@{Window}}
+\index{Window@{Window}!Window@{Window}}
+\subsubsection[{Window}]{\setlength{\rightskip}{0pt plus 5cm}Window\+::\+Window (
+\begin{DoxyParamCaption}
+\item[{int}]{lines = {\ttfamily 0}, }
+\item[{int}]{columns = {\ttfamily 0}, }
+\item[{int}]{pos\+Line = {\ttfamily 0}, }
+\item[{int}]{pos\+Column = {\ttfamily 0}, }
+\item[{W\+I\+N\+D\+O\+W $\ast$}]{window = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}\label{class_window_aec537c1c6aa1855eb41444fc67b6b362}
+
+
+Konstruktor klasy \hyperlink{class_window}{Window}. 
+
+Tworzy obiekt okna, jesli podamy bez zadnych parametrow stworzy nam domyslny obiekt konsoli (odpowiadajacy stdscr w ncurses). 
+\begin{DoxyParams}{Parametry}
+{\em lines,columns} & Wysokosc i szerokosc okna \\
+\hline
+{\em pos\+Line,Pos\+Column} & Polozenie okna na ekranie \\
+\hline
+{\em window} & Wskaznik na okno jakie ma zostac opakowane \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 0
+
+
+\hypertarget{class_window_a245d821e6016fa1f6970ccbbedd635f6}{}\index{Window@{Window}!````~Window@{$\sim$\+Window}}
+\index{````~Window@{$\sim$\+Window}!Window@{Window}}
+\subsubsection[{$\sim$\+Window}]{\setlength{\rightskip}{0pt plus 5cm}Window\+::$\sim$\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_window_a245d821e6016fa1f6970ccbbedd635f6}
+
+
+Destruktor klasy \hyperlink{class_window}{Window}. 
+
+Usuwaobiekt \hyperlink{class_window}{Window} czyszczac jego atrybuty i usuwajac z pamieci okno. 
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{class_window_a7b1725e57ac5d7b5a90661fa0bad373e}{}\index{Window@{Window}!Assume\+Default\+Colors@{Assume\+Default\+Colors}}
+\index{Assume\+Default\+Colors@{Assume\+Default\+Colors}!Window@{Window}}
+\subsubsection[{Assume\+Default\+Colors}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Assume\+Default\+Colors (
+\begin{DoxyParamCaption}
+\item[{{\bf Color\+Pair}}]{color\+Pair}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_window_a7b1725e57ac5d7b5a90661fa0bad373e}
+
+
+Ustawiany jest domyslny kolor tla i tekstu w konsoli. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em color\+Pair} & Para kolorow (tekst, tlo) na jaki chcemy ustawic domyslne okno. \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 1
+
+
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 2
+
+
+\hypertarget{class_window_a8baa301a84f4575a519f413e0d46d388}{}\index{Window@{Window}!Attr\+Off@{Attr\+Off}}
+\index{Attr\+Off@{Attr\+Off}!Window@{Window}}
+\subsubsection[{Attr\+Off}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Attr\+Off (
+\begin{DoxyParamCaption}
+\item[{chtype}]{attrybute}
+\end{DoxyParamCaption}
+)}\label{class_window_a8baa301a84f4575a519f413e0d46d388}
+
+
+Wylaczany jest atrybut dla okna. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em attrybute} & Atrybut ktory chcemy usunac \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 3
+
+
+\hypertarget{class_window_ac68276b9e19407a0c78c0a47c5786f1a}{}\index{Window@{Window}!Attr\+On@{Attr\+On}}
+\index{Attr\+On@{Attr\+On}!Window@{Window}}
+\subsubsection[{Attr\+On}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Attr\+On (
+\begin{DoxyParamCaption}
+\item[{chtype}]{attrybute}
+\end{DoxyParamCaption}
+)}\label{class_window_ac68276b9e19407a0c78c0a47c5786f1a}
+
+
+Wlaczany jest atrybut dla okna. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em attrybute} & Atrybut ktory chcemy ustawic \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 4
+
+
+\hypertarget{class_window_a1e0071ce6dc928eaaa1fa6d0c777583a}{}\index{Window@{Window}!Background@{Background}}
+\index{Background@{Background}!Window@{Window}}
+\subsubsection[{Background}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Background (
+\begin{DoxyParamCaption}
+\item[{chtype}]{attrybute}
+\end{DoxyParamCaption}
+)}\label{class_window_a1e0071ce6dc928eaaa1fa6d0c777583a}
+
+
+Ustawiamy kolor tla. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em attrybute} & Kolor tla jaki chcemy ustawic \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 5
+
+
+\hypertarget{class_window_a9df6358fb547f10baa070fc811995ba7}{}\index{Window@{Window}!columns@{columns}}
+\index{columns@{columns}!Window@{Window}}
+\subsubsection[{columns}]{\setlength{\rightskip}{0pt plus 5cm}int Window\+::columns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a9df6358fb547f10baa070fc811995ba7}
+
+
+Funkcja zwraca ilosc kolumn w oknie. 
+
+\begin{DoxyReturn}{Zwraca}
+ilosc kolumn w oknie 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 6
+
+
+\hypertarget{class_window_a0c9cc2ff9b09f68dd0071ec2d989f957}{}\index{Window@{Window}!Get\+Cursor\+Pos@{Get\+Cursor\+Pos}}
+\index{Get\+Cursor\+Pos@{Get\+Cursor\+Pos}!Window@{Window}}
+\subsubsection[{Get\+Cursor\+Pos}]{\setlength{\rightskip}{0pt plus 5cm}array$<$ int, 2 $>$ \& Window\+::\+Get\+Cursor\+Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_window_a0c9cc2ff9b09f68dd0071ec2d989f957}
+
+
+Funkcja zwraca obecna pozycje kursora. 
+
+\begin{DoxyReturn}{Zwraca}
+attrybute Pozycja kursora zapakowana w std\+::array 
+\end{DoxyReturn}
+\hypertarget{class_window_a17c622ebd30f9fe06c643d235e64c545}{}\index{Window@{Window}!get\+Win@{get\+Win}}
+\index{get\+Win@{get\+Win}!Window@{Window}}
+\subsubsection[{get\+Win}]{\setlength{\rightskip}{0pt plus 5cm}W\+I\+N\+D\+O\+W $\ast$ Window\+::get\+Win (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_window_a17c622ebd30f9fe06c643d235e64c545}
+
+
+Funkcja pobierajaca z obiekt \hyperlink{class_window}{Window} jego biblioteczna reprezentacje czyli W\+I\+N\+D\+O\+W$\ast$. 
+
+\begin{DoxyReturn}{Zwraca}
+Reprezentacja obiektu jako W\+I\+N\+D\+O\+W$\ast$ 
+\end{DoxyReturn}
+\hypertarget{class_window_a2d89f391164858a8e53d301f247873dd}{}\index{Window@{Window}!lines@{lines}}
+\index{lines@{lines}!Window@{Window}}
+\subsubsection[{lines}]{\setlength{\rightskip}{0pt plus 5cm}int Window\+::lines (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a2d89f391164858a8e53d301f247873dd}
+
+
+Funkcja zwraca ilosc linii w oknie. 
+
+\begin{DoxyReturn}{Zwraca}
+ilosc linii w oknie 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 7
+
+
+\hypertarget{class_window_ac6e11dee115c399181fa26c0b490d2f5}{}\index{Window@{Window}!Move\+Cursor@{Move\+Cursor}}
+\index{Move\+Cursor@{Move\+Cursor}!Window@{Window}}
+\subsubsection[{Move\+Cursor}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Move\+Cursor (
+\begin{DoxyParamCaption}
+\item[{int}]{line, }
+\item[{int}]{column}
+\end{DoxyParamCaption}
+)}\label{class_window_ac6e11dee115c399181fa26c0b490d2f5}
+
+
+Ustawiana jest pozycja kursora. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em line,column} & Zmienna reprezentujaca pozycje ustawienia kursora \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 8
+
+
+\hypertarget{class_window_ab515f51d1827fe02dec95b5ce19f4f14}{}\index{Window@{Window}!operator W\+I\+N\+D\+O\+W@{operator W\+I\+N\+D\+O\+W}}
+\index{operator W\+I\+N\+D\+O\+W@{operator W\+I\+N\+D\+O\+W}!Window@{Window}}
+\subsubsection[{operator W\+I\+N\+D\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}Window\+::operator W\+I\+N\+D\+O\+W (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_ab515f51d1827fe02dec95b5ce19f4f14}
+
+
+Funkcja konwertujaca obiekt \hyperlink{class_window}{Window} na biblioteczna reprezentacje W\+I\+N\+D\+O\+W. 
+
+\begin{DoxyReturn}{Zwraca}
+Reprezentacja obiektu jako W\+I\+N\+D\+O\+W 
+\end{DoxyReturn}
+\hypertarget{class_window_a5f2e3efa7b8654cdcf8235ae9f15c6fb}{}\index{Window@{Window}!operator W\+I\+N\+D\+O\+W $\ast$@{operator W\+I\+N\+D\+O\+W $\ast$}}
+\index{operator W\+I\+N\+D\+O\+W $\ast$@{operator W\+I\+N\+D\+O\+W $\ast$}!Window@{Window}}
+\subsubsection[{operator W\+I\+N\+D\+O\+W $\ast$}]{\setlength{\rightskip}{0pt plus 5cm}Window\+::operator W\+I\+N\+D\+O\+W $\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a5f2e3efa7b8654cdcf8235ae9f15c6fb}
+
+
+Funkcja konwertujaca obiekt \hyperlink{class_window}{Window} na biblioteczna reprezentacje W\+I\+N\+D\+O\+W$\ast$. 
+
+\begin{DoxyReturn}{Zwraca}
+Reprezentacja obiektu jako W\+I\+N\+D\+O\+W$\ast$ 
+\end{DoxyReturn}
+\hypertarget{class_window_a60f74654f00a5c9688295c8ec0d18126}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}\label{class_window_a60f74654f00a5c9688295c8ec0d18126}
+
+
+Wyswietla tekst. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em text} & Tekst do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany tekst w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 9
+
+
+\hypertarget{class_window_ac8de224c4fc4e781879b464f8606f804}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window}\& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{text}
+\end{DoxyParamCaption}
+)}\label{class_window_ac8de224c4fc4e781879b464f8606f804}
+
+
+Wyswietla tekst. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em text} & Tekst do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany tekst w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+\hypertarget{class_window_a76fd2af7fc113d29f5488a7a629115d8}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{char}]{sign}
+\end{DoxyParamCaption}
+)}\label{class_window_a76fd2af7fc113d29f5488a7a629115d8}
+
+
+Wyswietla pojedynczy znak. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sign} & Znak do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 10
+
+
+\hypertarget{class_window_a34c29e6bf9c6a26a9bf3e0b72580a56f}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{const unsigned char}]{sign}
+\end{DoxyParamCaption}
+)}\label{class_window_a34c29e6bf9c6a26a9bf3e0b72580a56f}
+
+
+Wyswietla pojedynczy znak. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sign} & Znak do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 11
+
+
+\hypertarget{class_window_a2577daac6833ba6aa6693c0ba3cd6b60}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{wchar\+\_\+t}]{sign}
+\end{DoxyParamCaption}
+)}\label{class_window_a2577daac6833ba6aa6693c0ba3cd6b60}
+
+
+Wyswietla pojedynczy znak. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sign} & Znak do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 12
+
+
+\hypertarget{class_window_a476ccb66073a36fead82735edf14667c}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{chtype}]{sign}
+\end{DoxyParamCaption}
+)}\label{class_window_a476ccb66073a36fead82735edf14667c}
+
+
+Wyswietla pojedynczy znak. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sign} & Znak do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 13
+
+
+\hypertarget{class_window_ac2dc5c37f9456fc8b75013cec9df19bf}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{chtype $\ast$}]{sign}
+\end{DoxyParamCaption}
+)}\label{class_window_ac2dc5c37f9456fc8b75013cec9df19bf}
+
+
+Wyswietla pojedynczy znak. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sign} & Znak do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany znak w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 14
+
+
+\hypertarget{class_window_addc6a1cbce0c54b2e0c730b131181b1e}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{int}]{number}
+\end{DoxyParamCaption}
+)}\label{class_window_addc6a1cbce0c54b2e0c730b131181b1e}
+
+
+Wyswietla liczba calkowita. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em number} & Liczba do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlana liczba w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 15
+
+
+\hypertarget{class_window_ab1398fdf47e455c69f5886ec40b5429c}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{number}
+\end{DoxyParamCaption}
+)}\label{class_window_ab1398fdf47e455c69f5886ec40b5429c}
+
+
+Wyswietla liczba calkowita bez znaku. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em number} & Liczba do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlana liczba w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 16
+
+
+\hypertarget{class_window_a2c75d176a50fa848d13997e14d832b50}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{double}]{number}
+\end{DoxyParamCaption}
+)}\label{class_window_a2c75d176a50fa848d13997e14d832b50}
+
+
+Wyswietla liczba zmiennoprzecinkowa. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em number} & Liczba do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlana liczba w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 17
+
+
+\hypertarget{class_window_a54ce1a8639b3576063f4267868fb7625}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Menu} \&}]{menu}
+\end{DoxyParamCaption}
+)}\label{class_window_a54ce1a8639b3576063f4267868fb7625}
+
+
+Wyswietla menu. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em menu} & \hyperlink{class_menu}{Menu} do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlane menu w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 18
+
+
+\hypertarget{class_window_a93288ef1367a2786c9b813e1964e6477}{}\index{Window@{Window}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Window@{Window}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window} \& Window\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Menu\+Entry} \&}]{entry}
+\end{DoxyParamCaption}
+)}\label{class_window_a93288ef1367a2786c9b813e1964e6477}
+
+
+Wyswietla pojedynczy wpis z menu. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em entry} & Wpis z menu do wyswietlenia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Zwracany jest obiekt \hyperlink{class_window}{Window} na ktorym jest wyswietlany wpis z menu w celu umozliwienia kaskadowego wywolywania operatora $<$$<$. 
+\end{DoxyReturn}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 19
+
+
+\hypertarget{class_window_a7b0cae35f572f46c87033747117bbebd}{}\index{Window@{Window}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Window@{Window}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a7b0cae35f572f46c87033747117bbebd}
+
+
+Wczytywany jest tekst z konsoli. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em text} & Zmienna do ktorej wczytujemy tekst \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_window_ad6d4bed0b5d293244bf6fbc348b4456e}{}\index{Window@{Window}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Window@{Window}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{char \&}]{sign}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_ad6d4bed0b5d293244bf6fbc348b4456e}
+
+
+Wczytywany jest pojedynczy znak z konsoli. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sign} & Zmienna do ktorej wczytujemy znak \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_window_a0891167a97154f4f5b5104a06af41805}{}\index{Window@{Window}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Window@{Window}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{int \&}]{sign}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a0891167a97154f4f5b5104a06af41805}
+
+
+Wczytywany jest pojedyncza liczbe z konsoli. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em sign} & Zmienna do ktorej wczytujemy liczbe \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_window_af895612c78b06c729eb19428cd323483}{}\index{Window@{Window}!Resize@{Resize}}
+\index{Resize@{Resize}!Window@{Window}}
+\subsubsection[{Resize}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Resize (
+\begin{DoxyParamCaption}
+\item[{int}]{lines, }
+\item[{int}]{columns}
+\end{DoxyParamCaption}
+)}\label{class_window_af895612c78b06c729eb19428cd323483}
+
+
+Zmiana wielkosci okna. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em line,column} & Zmienna reprezentujaca nowe wymiary okna \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_window_aa236ccfebd21bb8283f530cb5b7fab89}{}\index{Window@{Window}!Set\+Cursor@{Set\+Cursor}}
+\index{Set\+Cursor@{Set\+Cursor}!Window@{Window}}
+\subsubsection[{Set\+Cursor}]{\setlength{\rightskip}{0pt plus 5cm}static void Window\+::\+Set\+Cursor (
+\begin{DoxyParamCaption}
+\item[{bool}]{is\+Curor\+Visible}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{class_window_aa236ccfebd21bb8283f530cb5b7fab89}
+
+
+Ustawiana jest widocznosc kursora. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em is\+Curor\+Visible} & Zmienna reprezentujaca czy chcemy widziec kursor na ekranie w danym momencie czy nie. \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 20
+
+
+\hypertarget{class_window_ad89f757546282b04fc640146750aff22}{}\index{Window@{Window}!Set\+Echo@{Set\+Echo}}
+\index{Set\+Echo@{Set\+Echo}!Window@{Window}}
+\subsubsection[{Set\+Echo}]{\setlength{\rightskip}{0pt plus 5cm}void Window\+::\+Set\+Echo (
+\begin{DoxyParamCaption}
+\item[{bool}]{is\+Active}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_window_ad89f757546282b04fc640146750aff22}
+
+
+Ustawiana jest widocznosc wpisywanych znakow w konsoli. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em is\+Curor\+Visible} & Zmienna reprezentujaca czy chcemy widziec wpisywane znaki na ekranie w danym momencie czy nie. \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 21
+
+
+\hypertarget{class_window_a6e6b474e441e3a9334aa0c4f36687a81}{}\index{Window@{Window}!x@{x}}
+\index{x@{x}!Window@{Window}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}int Window\+::x (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a6e6b474e441e3a9334aa0c4f36687a81}
+
+
+Funkcja zwraca pozycje X okna. 
+
+\begin{DoxyReturn}{Zwraca}
+Pozycja X okna 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 22
+
+
+\hypertarget{class_window_a8049228817b0e699f35f46dcd6166db5}{}\index{Window@{Window}!y@{y}}
+\index{y@{y}!Window@{Window}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}int Window\+::y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_window_a8049228817b0e699f35f46dcd6166db5}
+
+
+Funkcja zwraca pozycje Y okna. 
+
+\begin{DoxyReturn}{Zwraca}
+Pozycja Y okna 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 23
+
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+Window.\+h\item 
+Window.\+cpp\end{DoxyCompactItemize}

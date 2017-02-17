@@ -1,0 +1,130 @@
+\hypertarget{class_color_pair}{}\section{Dokumentacja klasy Color\+Pair}
+\label{class_color_pair}\index{Color\+Pair@{Color\+Pair}}
+
+
+Adapter klasy bibliotecznej ncurses.  
+
+
+
+
+{\ttfamily \#include $<$Color.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_color_pair_a7df2f6130db43995c6be152393ab5154}{Color\+Pair} (short \hyperlink{class_color_pair_aea1cad9443dc9af5c21cc2eff02d25fa}{text}, short \hyperlink{class_color_pair_ada47f2ba6bd0ebaabe969f279a9e24a7}{background})
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \hyperlink{class_color_pair}{Color\+Pair}. \end{DoxyCompactList}\item 
+\hyperlink{class_color_pair_ad03b4dde3935995da2b8f79867230502}{operator chtype} ()
+\begin{DoxyCompactList}\small\item\em Funkcja konwertujaca oboekt typu \hyperlink{class_color_pair}{Color\+Pair} na biblioteczna reprezentacje. \end{DoxyCompactList}\item 
+short \hyperlink{class_color_pair_aea1cad9443dc9af5c21cc2eff02d25fa}{text} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca biblioteczna reprezentacje koloru tekstu. \end{DoxyCompactList}\item 
+short \hyperlink{class_color_pair_ada47f2ba6bd0ebaabe969f279a9e24a7}{background} ()
+\begin{DoxyCompactList}\small\item\em Funkcja zwracajaca biblioteczna reprezentacje koloru tla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Adapter klasy bibliotecznej ncurses. 
+
+Jest to klasa konwertujaca proceduralny interfejs (obslugujacy kolory) biblioteki ncurses na interfejs obiektowy, o wiele wygodniejszy w uzyciu \begin{DoxyAuthor}{Autor}
+Mateusz Winiarski 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Wersja}
+v1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2015 
+\end{DoxyDate}
+\begin{DoxyWarning}{Ostrzeżenie}
+Zaimplementowane tylko metody potrzebne w naszym projekcie 
+\end{DoxyWarning}
+
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{class_color_pair_a7df2f6130db43995c6be152393ab5154}{}\index{Color\+Pair@{Color\+Pair}!Color\+Pair@{Color\+Pair}}
+\index{Color\+Pair@{Color\+Pair}!Color\+Pair@{Color\+Pair}}
+\subsubsection[{Color\+Pair}]{\setlength{\rightskip}{0pt plus 5cm}Color\+Pair\+::\+Color\+Pair (
+\begin{DoxyParamCaption}
+\item[{short}]{text, }
+\item[{short}]{background}
+\end{DoxyParamCaption}
+)}\label{class_color_pair_a7df2f6130db43995c6be152393ab5154}
+
+
+Konstruktor klasy \hyperlink{class_color_pair}{Color\+Pair}. 
+
+Tworzy na podstawie zliczania ilosci wystapien nowa pare kolorow. 
+\begin{DoxyParams}{Parametry}
+{\em text} & Reprezentacja koloru tekstu \\
+\hline
+{\em background} & Reprezentacja koloru tla \\
+\hline
+\end{DoxyParams}
+
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 0
+
+
+
+
+\subsection{Dokumentacja funkcji składowych}
+\hypertarget{class_color_pair_ada47f2ba6bd0ebaabe969f279a9e24a7}{}\index{Color\+Pair@{Color\+Pair}!background@{background}}
+\index{background@{background}!Color\+Pair@{Color\+Pair}}
+\subsubsection[{background}]{\setlength{\rightskip}{0pt plus 5cm}short Color\+Pair\+::background (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_color_pair_ada47f2ba6bd0ebaabe969f279a9e24a7}
+
+
+Funkcja zwracajaca biblioteczna reprezentacje koloru tla. 
+
+\begin{DoxyReturn}{Zwraca}
+Biblioteczna reprezentacja koloru tla 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 1
+
+
+\hypertarget{class_color_pair_ad03b4dde3935995da2b8f79867230502}{}\index{Color\+Pair@{Color\+Pair}!operator chtype@{operator chtype}}
+\index{operator chtype@{operator chtype}!Color\+Pair@{Color\+Pair}}
+\subsubsection[{operator chtype}]{\setlength{\rightskip}{0pt plus 5cm}Color\+Pair\+::operator chtype (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_color_pair_ad03b4dde3935995da2b8f79867230502}
+
+
+Funkcja konwertujaca oboekt typu \hyperlink{class_color_pair}{Color\+Pair} na biblioteczna reprezentacje. 
+
+\begin{DoxyReturn}{Zwraca}
+Biblioteczna reprezentacja obiektu 
+\end{DoxyReturn}
+\hypertarget{class_color_pair_aea1cad9443dc9af5c21cc2eff02d25fa}{}\index{Color\+Pair@{Color\+Pair}!text@{text}}
+\index{text@{text}!Color\+Pair@{Color\+Pair}}
+\subsubsection[{text}]{\setlength{\rightskip}{0pt plus 5cm}short Color\+Pair\+::text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_color_pair_aea1cad9443dc9af5c21cc2eff02d25fa}
+
+
+Funkcja zwracajaca biblioteczna reprezentacje koloru tekstu. 
+
+\begin{DoxyReturn}{Zwraca}
+Biblioteczna reprezentacae koloru tekstu 
+\end{DoxyReturn}
+
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 2
+
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+Color.\+h\item 
+Color.\+cpp\end{DoxyCompactItemize}

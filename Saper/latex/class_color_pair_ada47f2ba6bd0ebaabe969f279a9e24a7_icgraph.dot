@@ -1,0 +1,13 @@
+digraph "ColorPair::background"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ColorPair::background",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ColorPair::ColorPair",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_color_pair.html#a7df2f6130db43995c6be152393ab5154",tooltip="Konstruktor klasy ColorPair. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Window::AssumeDefaultColors",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#a7b1725e57ac5d7b5a90661fa0bad373e",tooltip="Ustawiany jest domyslny kolor tla i tekstu w konsoli. "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Window::Window",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_window.html#aec537c1c6aa1855eb41444fc67b6b362",tooltip="Konstruktor klasy Window. "];
+}
